@@ -10,6 +10,21 @@
           appearance: none;
   color: inherit;
   text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+* ::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+* ::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--element);
+}
+
+* ::-webkit-scrollbar-thumb:hover, * ::-webkit-scrollbar-thumb:active {
+  background-color: #757ce7;
 }
 
 * {
@@ -294,7 +309,7 @@ body {
 #main {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   padding: 0 20px;
   background-color: var(--background);
 }
@@ -302,6 +317,7 @@ body {
 #main-container {
   width: 100%;
   max-width: 1000px;
+  height: 100%;
   margin: 0 auto;
   padding-top: 80px;
 }
@@ -312,7 +328,7 @@ body {
   display: grid;
   -ms-grid-columns: (minmax(32%, 300px))[3];
       grid-template-columns: repeat(3, minmax(32%, 300px));
-  row-gap: 30px;
+  row-gap: 50px;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -323,6 +339,7 @@ body {
 }
 
 #main-container #job-list .job-item {
+  cursor: pointer;
   position: relative;
   width: 100%;
   display: -webkit-box;
@@ -337,24 +354,4061 @@ body {
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   background-color: var(--white);
+  z-index: 1;
+  opacity: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+#main-container #job-list .job-item.fadein {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#main-container #job-list .job-item.fadein:hover {
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transform: translateY(0) scale(1.02);
+          transform: translateY(0) scale(1.02);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#main-container #job-list .job-item::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-top: 10px solid black;
+}
+
+#main-container #job-list .job-item:nth-of-type(0)::after {
+  border-color: #d385bb;
+}
+
+#main-container #job-list .job-item:nth-of-type(1)::after {
+  border-color: #87a3e9;
+}
+
+#main-container #job-list .job-item:nth-of-type(2)::after {
+  border-color: #026e24;
+}
+
+#main-container #job-list .job-item:nth-of-type(3)::after {
+  border-color: #4f6264;
+}
+
+#main-container #job-list .job-item:nth-of-type(4)::after {
+  border-color: #49b561;
+}
+
+#main-container #job-list .job-item:nth-of-type(5)::after {
+  border-color: #f484dc;
+}
+
+#main-container #job-list .job-item:nth-of-type(6)::after {
+  border-color: #31f525;
+}
+
+#main-container #job-list .job-item:nth-of-type(7)::after {
+  border-color: #b7e9ba;
+}
+
+#main-container #job-list .job-item:nth-of-type(8)::after {
+  border-color: #33bbe7;
+}
+
+#main-container #job-list .job-item:nth-of-type(9)::after {
+  border-color: #b1c478;
+}
+
+#main-container #job-list .job-item:nth-of-type(10)::after {
+  border-color: #235118;
+}
+
+#main-container #job-list .job-item:nth-of-type(11)::after {
+  border-color: #811285;
+}
+
+#main-container #job-list .job-item:nth-of-type(12)::after {
+  border-color: #a9a9f5;
+}
+
+#main-container #job-list .job-item:nth-of-type(13)::after {
+  border-color: #0296ac;
+}
+
+#main-container #job-list .job-item:nth-of-type(14)::after {
+  border-color: #27ac5d;
+}
+
+#main-container #job-list .job-item:nth-of-type(15)::after {
+  border-color: #c187b4;
+}
+
+#main-container #job-list .job-item:nth-of-type(16)::after {
+  border-color: #bccd19;
+}
+
+#main-container #job-list .job-item:nth-of-type(17)::after {
+  border-color: #9a999e;
+}
+
+#main-container #job-list .job-item:nth-of-type(18)::after {
+  border-color: #9f7e61;
+}
+
+#main-container #job-list .job-item:nth-of-type(19)::after {
+  border-color: #d4f88c;
+}
+
+#main-container #job-list .job-item:nth-of-type(20)::after {
+  border-color: #c842d2;
+}
+
+#main-container #job-list .job-item:nth-of-type(21)::after {
+  border-color: #0fa4a9;
+}
+
+#main-container #job-list .job-item:nth-of-type(22)::after {
+  border-color: #54892d;
+}
+
+#main-container #job-list .job-item:nth-of-type(23)::after {
+  border-color: #19ede9;
+}
+
+#main-container #job-list .job-item:nth-of-type(24)::after {
+  border-color: #a26209;
+}
+
+#main-container #job-list .job-item:nth-of-type(25)::after {
+  border-color: #38271e;
+}
+
+#main-container #job-list .job-item:nth-of-type(26)::after {
+  border-color: #d86789;
+}
+
+#main-container #job-list .job-item:nth-of-type(27)::after {
+  border-color: #cf463b;
+}
+
+#main-container #job-list .job-item:nth-of-type(28)::after {
+  border-color: #f884d2;
+}
+
+#main-container #job-list .job-item:nth-of-type(29)::after {
+  border-color: #552316;
+}
+
+#main-container #job-list .job-item:nth-of-type(30)::after {
+  border-color: #a0b282;
+}
+
+#main-container #job-list .job-item:nth-of-type(31)::after {
+  border-color: #a8f2ef;
+}
+
+#main-container #job-list .job-item:nth-of-type(32)::after {
+  border-color: #92fafb;
+}
+
+#main-container #job-list .job-item:nth-of-type(33)::after {
+  border-color: #770f9a;
+}
+
+#main-container #job-list .job-item:nth-of-type(34)::after {
+  border-color: #31535a;
+}
+
+#main-container #job-list .job-item:nth-of-type(35)::after {
+  border-color: #c7cb65;
+}
+
+#main-container #job-list .job-item:nth-of-type(36)::after {
+  border-color: #844ee3;
+}
+
+#main-container #job-list .job-item:nth-of-type(37)::after {
+  border-color: #0e12ff;
+}
+
+#main-container #job-list .job-item:nth-of-type(38)::after {
+  border-color: #8af224;
+}
+
+#main-container #job-list .job-item:nth-of-type(39)::after {
+  border-color: #c39463;
+}
+
+#main-container #job-list .job-item:nth-of-type(40)::after {
+  border-color: #568b2b;
+}
+
+#main-container #job-list .job-item:nth-of-type(41)::after {
+  border-color: #531bda;
+}
+
+#main-container #job-list .job-item:nth-of-type(42)::after {
+  border-color: #9e5bdc;
+}
+
+#main-container #job-list .job-item:nth-of-type(43)::after {
+  border-color: #253fe0;
+}
+
+#main-container #job-list .job-item:nth-of-type(44)::after {
+  border-color: #fd55b6;
+}
+
+#main-container #job-list .job-item:nth-of-type(45)::after {
+  border-color: #b3049d;
+}
+
+#main-container #job-list .job-item:nth-of-type(46)::after {
+  border-color: #16b7b0;
+}
+
+#main-container #job-list .job-item:nth-of-type(47)::after {
+  border-color: #c242b6;
+}
+
+#main-container #job-list .job-item:nth-of-type(48)::after {
+  border-color: #8a4e31;
+}
+
+#main-container #job-list .job-item:nth-of-type(49)::after {
+  border-color: #b719f6;
+}
+
+#main-container #job-list .job-item:nth-of-type(50)::after {
+  border-color: #5866bb;
+}
+
+#main-container #job-list .job-item:nth-of-type(51)::after {
+  border-color: #535455;
+}
+
+#main-container #job-list .job-item:nth-of-type(52)::after {
+  border-color: #75d160;
+}
+
+#main-container #job-list .job-item:nth-of-type(53)::after {
+  border-color: #f03150;
+}
+
+#main-container #job-list .job-item:nth-of-type(54)::after {
+  border-color: #8ec28b;
+}
+
+#main-container #job-list .job-item:nth-of-type(55)::after {
+  border-color: #bd7c28;
+}
+
+#main-container #job-list .job-item:nth-of-type(56)::after {
+  border-color: #f131a2;
+}
+
+#main-container #job-list .job-item:nth-of-type(57)::after {
+  border-color: #bdb81f;
+}
+
+#main-container #job-list .job-item:nth-of-type(58)::after {
+  border-color: #701dcd;
+}
+
+#main-container #job-list .job-item:nth-of-type(59)::after {
+  border-color: #d9ccf3;
+}
+
+#main-container #job-list .job-item:nth-of-type(60)::after {
+  border-color: #8f90f9;
+}
+
+#main-container #job-list .job-item:nth-of-type(61)::after {
+  border-color: #39d1ca;
+}
+
+#main-container #job-list .job-item:nth-of-type(62)::after {
+  border-color: #ae6143;
+}
+
+#main-container #job-list .job-item:nth-of-type(63)::after {
+  border-color: #814a43;
+}
+
+#main-container #job-list .job-item:nth-of-type(64)::after {
+  border-color: #c7ee46;
+}
+
+#main-container #job-list .job-item:nth-of-type(65)::after {
+  border-color: #efaa21;
+}
+
+#main-container #job-list .job-item:nth-of-type(66)::after {
+  border-color: #21d0cd;
+}
+
+#main-container #job-list .job-item:nth-of-type(67)::after {
+  border-color: #73784d;
+}
+
+#main-container #job-list .job-item:nth-of-type(68)::after {
+  border-color: #d05d31;
+}
+
+#main-container #job-list .job-item:nth-of-type(69)::after {
+  border-color: #c1a5ee;
+}
+
+#main-container #job-list .job-item:nth-of-type(70)::after {
+  border-color: #01ca1d;
+}
+
+#main-container #job-list .job-item:nth-of-type(71)::after {
+  border-color: #bb1b12;
+}
+
+#main-container #job-list .job-item:nth-of-type(72)::after {
+  border-color: #79d3b4;
+}
+
+#main-container #job-list .job-item:nth-of-type(73)::after {
+  border-color: #90bdf3;
+}
+
+#main-container #job-list .job-item:nth-of-type(74)::after {
+  border-color: #bf1a1a;
+}
+
+#main-container #job-list .job-item:nth-of-type(75)::after {
+  border-color: #7cc9d1;
+}
+
+#main-container #job-list .job-item:nth-of-type(76)::after {
+  border-color: #96f9a8;
+}
+
+#main-container #job-list .job-item:nth-of-type(77)::after {
+  border-color: #02128f;
+}
+
+#main-container #job-list .job-item:nth-of-type(78)::after {
+  border-color: #fbbe06;
+}
+
+#main-container #job-list .job-item:nth-of-type(79)::after {
+  border-color: #ccead5;
+}
+
+#main-container #job-list .job-item:nth-of-type(80)::after {
+  border-color: #60aaef;
+}
+
+#main-container #job-list .job-item:nth-of-type(81)::after {
+  border-color: #3ddb13;
+}
+
+#main-container #job-list .job-item:nth-of-type(82)::after {
+  border-color: #45a8e3;
+}
+
+#main-container #job-list .job-item:nth-of-type(83)::after {
+  border-color: #e7bfc6;
+}
+
+#main-container #job-list .job-item:nth-of-type(84)::after {
+  border-color: #7b93a6;
+}
+
+#main-container #job-list .job-item:nth-of-type(85)::after {
+  border-color: #0f3c55;
+}
+
+#main-container #job-list .job-item:nth-of-type(86)::after {
+  border-color: #90a54a;
+}
+
+#main-container #job-list .job-item:nth-of-type(87)::after {
+  border-color: #f0e767;
+}
+
+#main-container #job-list .job-item:nth-of-type(88)::after {
+  border-color: #0ce9e1;
+}
+
+#main-container #job-list .job-item:nth-of-type(89)::after {
+  border-color: #474f90;
+}
+
+#main-container #job-list .job-item:nth-of-type(90)::after {
+  border-color: #1b13fc;
+}
+
+#main-container #job-list .job-item:nth-of-type(91)::after {
+  border-color: #c03b67;
+}
+
+#main-container #job-list .job-item:nth-of-type(92)::after {
+  border-color: #2d156f;
+}
+
+#main-container #job-list .job-item:nth-of-type(93)::after {
+  border-color: #d61fbb;
+}
+
+#main-container #job-list .job-item:nth-of-type(94)::after {
+  border-color: #268676;
+}
+
+#main-container #job-list .job-item:nth-of-type(95)::after {
+  border-color: #ae5923;
+}
+
+#main-container #job-list .job-item:nth-of-type(96)::after {
+  border-color: #cadb37;
+}
+
+#main-container #job-list .job-item:nth-of-type(97)::after {
+  border-color: #5ce2d5;
+}
+
+#main-container #job-list .job-item:nth-of-type(98)::after {
+  border-color: #cf981f;
+}
+
+#main-container #job-list .job-item:nth-of-type(99)::after {
+  border-color: #25a347;
+}
+
+#main-container #job-list .job-item:nth-of-type(100)::after {
+  border-color: #b3577d;
+}
+
+#main-container #job-list .job-item:nth-of-type(101)::after {
+  border-color: #6559fc;
+}
+
+#main-container #job-list .job-item:nth-of-type(102)::after {
+  border-color: #d9f1ed;
+}
+
+#main-container #job-list .job-item:nth-of-type(103)::after {
+  border-color: #10e1e7;
+}
+
+#main-container #job-list .job-item:nth-of-type(104)::after {
+  border-color: #fdeed9;
+}
+
+#main-container #job-list .job-item:nth-of-type(105)::after {
+  border-color: #087b4d;
+}
+
+#main-container #job-list .job-item:nth-of-type(106)::after {
+  border-color: #b7fb3f;
+}
+
+#main-container #job-list .job-item:nth-of-type(107)::after {
+  border-color: #83bbc8;
+}
+
+#main-container #job-list .job-item:nth-of-type(108)::after {
+  border-color: #22c2ad;
+}
+
+#main-container #job-list .job-item:nth-of-type(109)::after {
+  border-color: #333df2;
+}
+
+#main-container #job-list .job-item:nth-of-type(110)::after {
+  border-color: #5de977;
+}
+
+#main-container #job-list .job-item:nth-of-type(111)::after {
+  border-color: #d4114f;
+}
+
+#main-container #job-list .job-item:nth-of-type(112)::after {
+  border-color: #84a055;
+}
+
+#main-container #job-list .job-item:nth-of-type(113)::after {
+  border-color: #0a309d;
+}
+
+#main-container #job-list .job-item:nth-of-type(114)::after {
+  border-color: #c47cdb;
+}
+
+#main-container #job-list .job-item:nth-of-type(115)::after {
+  border-color: #6cc942;
+}
+
+#main-container #job-list .job-item:nth-of-type(116)::after {
+  border-color: #dd86fd;
+}
+
+#main-container #job-list .job-item:nth-of-type(117)::after {
+  border-color: #cd5901;
+}
+
+#main-container #job-list .job-item:nth-of-type(118)::after {
+  border-color: #9c9b66;
+}
+
+#main-container #job-list .job-item:nth-of-type(119)::after {
+  border-color: #140d34;
+}
+
+#main-container #job-list .job-item:nth-of-type(120)::after {
+  border-color: #0cbd1e;
+}
+
+#main-container #job-list .job-item:nth-of-type(121)::after {
+  border-color: #2369e9;
+}
+
+#main-container #job-list .job-item:nth-of-type(122)::after {
+  border-color: #0bd88e;
+}
+
+#main-container #job-list .job-item:nth-of-type(123)::after {
+  border-color: #6ccace;
+}
+
+#main-container #job-list .job-item:nth-of-type(124)::after {
+  border-color: #78b8e9;
+}
+
+#main-container #job-list .job-item:nth-of-type(125)::after {
+  border-color: #ad3240;
+}
+
+#main-container #job-list .job-item:nth-of-type(126)::after {
+  border-color: #2e4e15;
+}
+
+#main-container #job-list .job-item:nth-of-type(127)::after {
+  border-color: #1b0de4;
+}
+
+#main-container #job-list .job-item:nth-of-type(128)::after {
+  border-color: #20c5f0;
+}
+
+#main-container #job-list .job-item:nth-of-type(129)::after {
+  border-color: #784987;
+}
+
+#main-container #job-list .job-item:nth-of-type(130)::after {
+  border-color: #72a068;
+}
+
+#main-container #job-list .job-item:nth-of-type(131)::after {
+  border-color: #6be4bc;
+}
+
+#main-container #job-list .job-item:nth-of-type(132)::after {
+  border-color: #245950;
+}
+
+#main-container #job-list .job-item:nth-of-type(133)::after {
+  border-color: #099325;
+}
+
+#main-container #job-list .job-item:nth-of-type(134)::after {
+  border-color: #0170a4;
+}
+
+#main-container #job-list .job-item:nth-of-type(135)::after {
+  border-color: #733bc4;
+}
+
+#main-container #job-list .job-item:nth-of-type(136)::after {
+  border-color: #1e2fcc;
+}
+
+#main-container #job-list .job-item:nth-of-type(137)::after {
+  border-color: #4d39ae;
+}
+
+#main-container #job-list .job-item:nth-of-type(138)::after {
+  border-color: #275072;
+}
+
+#main-container #job-list .job-item:nth-of-type(139)::after {
+  border-color: #f62820;
+}
+
+#main-container #job-list .job-item:nth-of-type(140)::after {
+  border-color: #02ffff;
+}
+
+#main-container #job-list .job-item:nth-of-type(141)::after {
+  border-color: #8760cd;
+}
+
+#main-container #job-list .job-item:nth-of-type(142)::after {
+  border-color: #57ddf6;
+}
+
+#main-container #job-list .job-item:nth-of-type(143)::after {
+  border-color: #c340d4;
+}
+
+#main-container #job-list .job-item:nth-of-type(144)::after {
+  border-color: #f055d3;
+}
+
+#main-container #job-list .job-item:nth-of-type(145)::after {
+  border-color: #4b5bde;
+}
+
+#main-container #job-list .job-item:nth-of-type(146)::after {
+  border-color: #cacf0b;
+}
+
+#main-container #job-list .job-item:nth-of-type(147)::after {
+  border-color: #04e7f7;
+}
+
+#main-container #job-list .job-item:nth-of-type(148)::after {
+  border-color: #6b3640;
+}
+
+#main-container #job-list .job-item:nth-of-type(149)::after {
+  border-color: #e4503b;
+}
+
+#main-container #job-list .job-item:nth-of-type(150)::after {
+  border-color: #e074b1;
+}
+
+#main-container #job-list .job-item:nth-of-type(151)::after {
+  border-color: #b69a33;
+}
+
+#main-container #job-list .job-item:nth-of-type(152)::after {
+  border-color: #38bc10;
+}
+
+#main-container #job-list .job-item:nth-of-type(153)::after {
+  border-color: #72c7e9;
+}
+
+#main-container #job-list .job-item:nth-of-type(154)::after {
+  border-color: #16b815;
+}
+
+#main-container #job-list .job-item:nth-of-type(155)::after {
+  border-color: #3b0db5;
+}
+
+#main-container #job-list .job-item:nth-of-type(156)::after {
+  border-color: #960c83;
+}
+
+#main-container #job-list .job-item:nth-of-type(157)::after {
+  border-color: #77f59c;
+}
+
+#main-container #job-list .job-item:nth-of-type(158)::after {
+  border-color: #d4367e;
+}
+
+#main-container #job-list .job-item:nth-of-type(159)::after {
+  border-color: #41f54c;
+}
+
+#main-container #job-list .job-item:nth-of-type(160)::after {
+  border-color: #453ad3;
+}
+
+#main-container #job-list .job-item:nth-of-type(161)::after {
+  border-color: #a847b9;
+}
+
+#main-container #job-list .job-item:nth-of-type(162)::after {
+  border-color: #5aa1b3;
+}
+
+#main-container #job-list .job-item:nth-of-type(163)::after {
+  border-color: #6316e4;
+}
+
+#main-container #job-list .job-item:nth-of-type(164)::after {
+  border-color: #e7a1ff;
+}
+
+#main-container #job-list .job-item:nth-of-type(165)::after {
+  border-color: #07226c;
+}
+
+#main-container #job-list .job-item:nth-of-type(166)::after {
+  border-color: #3a0c6f;
+}
+
+#main-container #job-list .job-item:nth-of-type(167)::after {
+  border-color: #8f2f7a;
+}
+
+#main-container #job-list .job-item:nth-of-type(168)::after {
+  border-color: #c1cce7;
+}
+
+#main-container #job-list .job-item:nth-of-type(169)::after {
+  border-color: #e93dae;
+}
+
+#main-container #job-list .job-item:nth-of-type(170)::after {
+  border-color: #60a44a;
+}
+
+#main-container #job-list .job-item:nth-of-type(171)::after {
+  border-color: #683642;
+}
+
+#main-container #job-list .job-item:nth-of-type(172)::after {
+  border-color: #c9ef0d;
+}
+
+#main-container #job-list .job-item:nth-of-type(173)::after {
+  border-color: #cc3a8b;
+}
+
+#main-container #job-list .job-item:nth-of-type(174)::after {
+  border-color: #392fe0;
+}
+
+#main-container #job-list .job-item:nth-of-type(175)::after {
+  border-color: #5e13fc;
+}
+
+#main-container #job-list .job-item:nth-of-type(176)::after {
+  border-color: #22e8bd;
+}
+
+#main-container #job-list .job-item:nth-of-type(177)::after {
+  border-color: #429a10;
+}
+
+#main-container #job-list .job-item:nth-of-type(178)::after {
+  border-color: #25ac66;
+}
+
+#main-container #job-list .job-item:nth-of-type(179)::after {
+  border-color: #471657;
+}
+
+#main-container #job-list .job-item:nth-of-type(180)::after {
+  border-color: #4818b3;
+}
+
+#main-container #job-list .job-item:nth-of-type(181)::after {
+  border-color: #75954a;
+}
+
+#main-container #job-list .job-item:nth-of-type(182)::after {
+  border-color: #1e3d03;
+}
+
+#main-container #job-list .job-item:nth-of-type(183)::after {
+  border-color: #19fff4;
+}
+
+#main-container #job-list .job-item:nth-of-type(184)::after {
+  border-color: #527de5;
+}
+
+#main-container #job-list .job-item:nth-of-type(185)::after {
+  border-color: #f6240d;
+}
+
+#main-container #job-list .job-item:nth-of-type(186)::after {
+  border-color: #dc7f3e;
+}
+
+#main-container #job-list .job-item:nth-of-type(187)::after {
+  border-color: #dd5c2d;
+}
+
+#main-container #job-list .job-item:nth-of-type(188)::after {
+  border-color: #723a3d;
+}
+
+#main-container #job-list .job-item:nth-of-type(189)::after {
+  border-color: #4a0916;
+}
+
+#main-container #job-list .job-item:nth-of-type(190)::after {
+  border-color: #724998;
+}
+
+#main-container #job-list .job-item:nth-of-type(191)::after {
+  border-color: #df8257;
+}
+
+#main-container #job-list .job-item:nth-of-type(192)::after {
+  border-color: #5587e6;
+}
+
+#main-container #job-list .job-item:nth-of-type(193)::after {
+  border-color: #4b490b;
+}
+
+#main-container #job-list .job-item:nth-of-type(194)::after {
+  border-color: #4fbbc2;
+}
+
+#main-container #job-list .job-item:nth-of-type(195)::after {
+  border-color: #b49840;
+}
+
+#main-container #job-list .job-item:nth-of-type(196)::after {
+  border-color: #64359b;
+}
+
+#main-container #job-list .job-item:nth-of-type(197)::after {
+  border-color: #2daed7;
+}
+
+#main-container #job-list .job-item:nth-of-type(198)::after {
+  border-color: #0c5f87;
+}
+
+#main-container #job-list .job-item:nth-of-type(199)::after {
+  border-color: #300988;
+}
+
+#main-container #job-list .job-item:nth-of-type(200)::after {
+  border-color: #555fc0;
+}
+
+#main-container #job-list .job-item:nth-of-type(201)::after {
+  border-color: #8be527;
+}
+
+#main-container #job-list .job-item:nth-of-type(202)::after {
+  border-color: #f2f34f;
+}
+
+#main-container #job-list .job-item:nth-of-type(203)::after {
+  border-color: #8b3161;
+}
+
+#main-container #job-list .job-item:nth-of-type(204)::after {
+  border-color: #3304be;
+}
+
+#main-container #job-list .job-item:nth-of-type(205)::after {
+  border-color: #5cda84;
+}
+
+#main-container #job-list .job-item:nth-of-type(206)::after {
+  border-color: #48c5c1;
+}
+
+#main-container #job-list .job-item:nth-of-type(207)::after {
+  border-color: #b916bb;
+}
+
+#main-container #job-list .job-item:nth-of-type(208)::after {
+  border-color: #43856a;
+}
+
+#main-container #job-list .job-item:nth-of-type(209)::after {
+  border-color: #4fee4b;
+}
+
+#main-container #job-list .job-item:nth-of-type(210)::after {
+  border-color: #0976fa;
+}
+
+#main-container #job-list .job-item:nth-of-type(211)::after {
+  border-color: #977141;
+}
+
+#main-container #job-list .job-item:nth-of-type(212)::after {
+  border-color: #80da33;
+}
+
+#main-container #job-list .job-item:nth-of-type(213)::after {
+  border-color: #e6a261;
+}
+
+#main-container #job-list .job-item:nth-of-type(214)::after {
+  border-color: #eaee02;
+}
+
+#main-container #job-list .job-item:nth-of-type(215)::after {
+  border-color: #b70119;
+}
+
+#main-container #job-list .job-item:nth-of-type(216)::after {
+  border-color: #deebab;
+}
+
+#main-container #job-list .job-item:nth-of-type(217)::after {
+  border-color: #8bb417;
+}
+
+#main-container #job-list .job-item:nth-of-type(218)::after {
+  border-color: #f16cd6;
+}
+
+#main-container #job-list .job-item:nth-of-type(219)::after {
+  border-color: #a9aec3;
+}
+
+#main-container #job-list .job-item:nth-of-type(220)::after {
+  border-color: #52e643;
+}
+
+#main-container #job-list .job-item:nth-of-type(221)::after {
+  border-color: #16c61d;
+}
+
+#main-container #job-list .job-item:nth-of-type(222)::after {
+  border-color: #bd7a3d;
+}
+
+#main-container #job-list .job-item:nth-of-type(223)::after {
+  border-color: #360f6f;
+}
+
+#main-container #job-list .job-item:nth-of-type(224)::after {
+  border-color: #73c755;
+}
+
+#main-container #job-list .job-item:nth-of-type(225)::after {
+  border-color: #b18255;
+}
+
+#main-container #job-list .job-item:nth-of-type(226)::after {
+  border-color: #0eb3aa;
+}
+
+#main-container #job-list .job-item:nth-of-type(227)::after {
+  border-color: #a447ac;
+}
+
+#main-container #job-list .job-item:nth-of-type(228)::after {
+  border-color: #0d73e2;
+}
+
+#main-container #job-list .job-item:nth-of-type(229)::after {
+  border-color: #a024ee;
+}
+
+#main-container #job-list .job-item:nth-of-type(230)::after {
+  border-color: #0cc0df;
+}
+
+#main-container #job-list .job-item:nth-of-type(231)::after {
+  border-color: #696c2f;
+}
+
+#main-container #job-list .job-item:nth-of-type(232)::after {
+  border-color: #418f9f;
+}
+
+#main-container #job-list .job-item:nth-of-type(233)::after {
+  border-color: #c23ba2;
+}
+
+#main-container #job-list .job-item:nth-of-type(234)::after {
+  border-color: #53a744;
+}
+
+#main-container #job-list .job-item:nth-of-type(235)::after {
+  border-color: #bf1f8d;
+}
+
+#main-container #job-list .job-item:nth-of-type(236)::after {
+  border-color: #c7350f;
+}
+
+#main-container #job-list .job-item:nth-of-type(237)::after {
+  border-color: #ed219c;
+}
+
+#main-container #job-list .job-item:nth-of-type(238)::after {
+  border-color: #bbee19;
+}
+
+#main-container #job-list .job-item:nth-of-type(239)::after {
+  border-color: #116eea;
+}
+
+#main-container #job-list .job-item:nth-of-type(240)::after {
+  border-color: #1827b1;
+}
+
+#main-container #job-list .job-item:nth-of-type(241)::after {
+  border-color: #fcdbe8;
+}
+
+#main-container #job-list .job-item:nth-of-type(242)::after {
+  border-color: #375e63;
+}
+
+#main-container #job-list .job-item:nth-of-type(243)::after {
+  border-color: #fbbdf7;
+}
+
+#main-container #job-list .job-item:nth-of-type(244)::after {
+  border-color: #407dcb;
+}
+
+#main-container #job-list .job-item:nth-of-type(245)::after {
+  border-color: #aee75a;
+}
+
+#main-container #job-list .job-item:nth-of-type(246)::after {
+  border-color: #327061;
+}
+
+#main-container #job-list .job-item:nth-of-type(247)::after {
+  border-color: #4c3892;
+}
+
+#main-container #job-list .job-item:nth-of-type(248)::after {
+  border-color: #e631b8;
+}
+
+#main-container #job-list .job-item:nth-of-type(249)::after {
+  border-color: #f9ea84;
+}
+
+#main-container #job-list .job-item:nth-of-type(250)::after {
+  border-color: #838445;
+}
+
+#main-container #job-list .job-item:nth-of-type(251)::after {
+  border-color: #aa8952;
+}
+
+#main-container #job-list .job-item:nth-of-type(252)::after {
+  border-color: #5d3377;
+}
+
+#main-container #job-list .job-item:nth-of-type(253)::after {
+  border-color: #50b0a8;
+}
+
+#main-container #job-list .job-item:nth-of-type(254)::after {
+  border-color: #e7ee07;
+}
+
+#main-container #job-list .job-item:nth-of-type(255)::after {
+  border-color: #545f66;
+}
+
+#main-container #job-list .job-item:nth-of-type(256)::after {
+  border-color: #73c015;
+}
+
+#main-container #job-list .job-item:nth-of-type(257)::after {
+  border-color: #46632c;
+}
+
+#main-container #job-list .job-item:nth-of-type(258)::after {
+  border-color: #9af50b;
+}
+
+#main-container #job-list .job-item:nth-of-type(259)::after {
+  border-color: #0be9cb;
+}
+
+#main-container #job-list .job-item:nth-of-type(260)::after {
+  border-color: #a83a1e;
+}
+
+#main-container #job-list .job-item:nth-of-type(261)::after {
+  border-color: #35c56b;
+}
+
+#main-container #job-list .job-item:nth-of-type(262)::after {
+  border-color: #860494;
+}
+
+#main-container #job-list .job-item:nth-of-type(263)::after {
+  border-color: #ae4ae0;
+}
+
+#main-container #job-list .job-item:nth-of-type(264)::after {
+  border-color: #b87bcc;
+}
+
+#main-container #job-list .job-item:nth-of-type(265)::after {
+  border-color: #96bcca;
+}
+
+#main-container #job-list .job-item:nth-of-type(266)::after {
+  border-color: #3dfb78;
+}
+
+#main-container #job-list .job-item:nth-of-type(267)::after {
+  border-color: #f5d5ba;
+}
+
+#main-container #job-list .job-item:nth-of-type(268)::after {
+  border-color: #809b80;
+}
+
+#main-container #job-list .job-item:nth-of-type(269)::after {
+  border-color: #7f5989;
+}
+
+#main-container #job-list .job-item:nth-of-type(270)::after {
+  border-color: #7ae4a5;
+}
+
+#main-container #job-list .job-item:nth-of-type(271)::after {
+  border-color: #6f1081;
+}
+
+#main-container #job-list .job-item:nth-of-type(272)::after {
+  border-color: #3be753;
+}
+
+#main-container #job-list .job-item:nth-of-type(273)::after {
+  border-color: #ae70d7;
+}
+
+#main-container #job-list .job-item:nth-of-type(274)::after {
+  border-color: #e8f7af;
+}
+
+#main-container #job-list .job-item:nth-of-type(275)::after {
+  border-color: #445c99;
+}
+
+#main-container #job-list .job-item:nth-of-type(276)::after {
+  border-color: #4c2f65;
+}
+
+#main-container #job-list .job-item:nth-of-type(277)::after {
+  border-color: #026b0a;
+}
+
+#main-container #job-list .job-item:nth-of-type(278)::after {
+  border-color: #323ae2;
+}
+
+#main-container #job-list .job-item:nth-of-type(279)::after {
+  border-color: #f4fd12;
+}
+
+#main-container #job-list .job-item:nth-of-type(280)::after {
+  border-color: #e354e9;
+}
+
+#main-container #job-list .job-item:nth-of-type(281)::after {
+  border-color: #7e549c;
+}
+
+#main-container #job-list .job-item:nth-of-type(282)::after {
+  border-color: #ad5840;
+}
+
+#main-container #job-list .job-item:nth-of-type(283)::after {
+  border-color: #0b4870;
+}
+
+#main-container #job-list .job-item:nth-of-type(284)::after {
+  border-color: #e2d79a;
+}
+
+#main-container #job-list .job-item:nth-of-type(285)::after {
+  border-color: #698416;
+}
+
+#main-container #job-list .job-item:nth-of-type(286)::after {
+  border-color: #66f5ce;
+}
+
+#main-container #job-list .job-item:nth-of-type(287)::after {
+  border-color: #5fb2ed;
+}
+
+#main-container #job-list .job-item:nth-of-type(288)::after {
+  border-color: #4d71f4;
+}
+
+#main-container #job-list .job-item:nth-of-type(289)::after {
+  border-color: #f5a617;
+}
+
+#main-container #job-list .job-item:nth-of-type(290)::after {
+  border-color: #a14574;
+}
+
+#main-container #job-list .job-item:nth-of-type(291)::after {
+  border-color: #3bed15;
+}
+
+#main-container #job-list .job-item:nth-of-type(292)::after {
+  border-color: #53d593;
+}
+
+#main-container #job-list .job-item:nth-of-type(293)::after {
+  border-color: #6a70e6;
+}
+
+#main-container #job-list .job-item:nth-of-type(294)::after {
+  border-color: #513526;
+}
+
+#main-container #job-list .job-item:nth-of-type(295)::after {
+  border-color: #4c3992;
+}
+
+#main-container #job-list .job-item:nth-of-type(296)::after {
+  border-color: #d875ec;
+}
+
+#main-container #job-list .job-item:nth-of-type(297)::after {
+  border-color: #df6146;
+}
+
+#main-container #job-list .job-item:nth-of-type(298)::after {
+  border-color: #4a6a34;
+}
+
+#main-container #job-list .job-item:nth-of-type(299)::after {
+  border-color: #533f0d;
+}
+
+#main-container #job-list .job-item:nth-of-type(300)::after {
+  border-color: #0d400a;
+}
+
+#main-container #job-list .job-item:nth-of-type(301)::after {
+  border-color: #e4917c;
+}
+
+#main-container #job-list .job-item:nth-of-type(302)::after {
+  border-color: #ef766b;
+}
+
+#main-container #job-list .job-item:nth-of-type(303)::after {
+  border-color: #f24dbe;
+}
+
+#main-container #job-list .job-item:nth-of-type(304)::after {
+  border-color: #5d7ae4;
+}
+
+#main-container #job-list .job-item:nth-of-type(305)::after {
+  border-color: #9fa638;
+}
+
+#main-container #job-list .job-item:nth-of-type(306)::after {
+  border-color: #5f69ee;
+}
+
+#main-container #job-list .job-item:nth-of-type(307)::after {
+  border-color: #025913;
+}
+
+#main-container #job-list .job-item:nth-of-type(308)::after {
+  border-color: #97832d;
+}
+
+#main-container #job-list .job-item:nth-of-type(309)::after {
+  border-color: #dfa8d9;
+}
+
+#main-container #job-list .job-item:nth-of-type(310)::after {
+  border-color: #f9bd87;
+}
+
+#main-container #job-list .job-item:nth-of-type(311)::after {
+  border-color: #e04ef1;
+}
+
+#main-container #job-list .job-item:nth-of-type(312)::after {
+  border-color: #41c23b;
+}
+
+#main-container #job-list .job-item:nth-of-type(313)::after {
+  border-color: #6aec78;
+}
+
+#main-container #job-list .job-item:nth-of-type(314)::after {
+  border-color: #edb4c9;
+}
+
+#main-container #job-list .job-item:nth-of-type(315)::after {
+  border-color: #4aebac;
+}
+
+#main-container #job-list .job-item:nth-of-type(316)::after {
+  border-color: #2fd36f;
+}
+
+#main-container #job-list .job-item:nth-of-type(317)::after {
+  border-color: #3cd43e;
+}
+
+#main-container #job-list .job-item:nth-of-type(318)::after {
+  border-color: #3c977f;
+}
+
+#main-container #job-list .job-item:nth-of-type(319)::after {
+  border-color: #e2d806;
+}
+
+#main-container #job-list .job-item:nth-of-type(320)::after {
+  border-color: #296658;
+}
+
+#main-container #job-list .job-item:nth-of-type(321)::after {
+  border-color: #e652c5;
+}
+
+#main-container #job-list .job-item:nth-of-type(322)::after {
+  border-color: #af6905;
+}
+
+#main-container #job-list .job-item:nth-of-type(323)::after {
+  border-color: #78b678;
+}
+
+#main-container #job-list .job-item:nth-of-type(324)::after {
+  border-color: #8b1778;
+}
+
+#main-container #job-list .job-item:nth-of-type(325)::after {
+  border-color: #b5fe0f;
+}
+
+#main-container #job-list .job-item:nth-of-type(326)::after {
+  border-color: #f7c067;
+}
+
+#main-container #job-list .job-item:nth-of-type(327)::after {
+  border-color: #20a265;
+}
+
+#main-container #job-list .job-item:nth-of-type(328)::after {
+  border-color: #0de671;
+}
+
+#main-container #job-list .job-item:nth-of-type(329)::after {
+  border-color: #034f4b;
+}
+
+#main-container #job-list .job-item:nth-of-type(330)::after {
+  border-color: #bf9f78;
+}
+
+#main-container #job-list .job-item:nth-of-type(331)::after {
+  border-color: #7733e5;
+}
+
+#main-container #job-list .job-item:nth-of-type(332)::after {
+  border-color: #9c2034;
+}
+
+#main-container #job-list .job-item:nth-of-type(333)::after {
+  border-color: #674e2b;
+}
+
+#main-container #job-list .job-item:nth-of-type(334)::after {
+  border-color: #2f7d90;
+}
+
+#main-container #job-list .job-item:nth-of-type(335)::after {
+  border-color: #4cc7ae;
+}
+
+#main-container #job-list .job-item:nth-of-type(336)::after {
+  border-color: #158cc8;
+}
+
+#main-container #job-list .job-item:nth-of-type(337)::after {
+  border-color: #d584da;
+}
+
+#main-container #job-list .job-item:nth-of-type(338)::after {
+  border-color: #875271;
+}
+
+#main-container #job-list .job-item:nth-of-type(339)::after {
+  border-color: #b80cd3;
+}
+
+#main-container #job-list .job-item:nth-of-type(340)::after {
+  border-color: #e16151;
+}
+
+#main-container #job-list .job-item:nth-of-type(341)::after {
+  border-color: #519afc;
+}
+
+#main-container #job-list .job-item:nth-of-type(342)::after {
+  border-color: #dd9b09;
+}
+
+#main-container #job-list .job-item:nth-of-type(343)::after {
+  border-color: #5c978a;
+}
+
+#main-container #job-list .job-item:nth-of-type(344)::after {
+  border-color: #273447;
+}
+
+#main-container #job-list .job-item:nth-of-type(345)::after {
+  border-color: #485fff;
+}
+
+#main-container #job-list .job-item:nth-of-type(346)::after {
+  border-color: #66db63;
+}
+
+#main-container #job-list .job-item:nth-of-type(347)::after {
+  border-color: #3fc11a;
+}
+
+#main-container #job-list .job-item:nth-of-type(348)::after {
+  border-color: #7fab9c;
+}
+
+#main-container #job-list .job-item:nth-of-type(349)::after {
+  border-color: #0a88d0;
+}
+
+#main-container #job-list .job-item:nth-of-type(350)::after {
+  border-color: #24f03b;
+}
+
+#main-container #job-list .job-item:nth-of-type(351)::after {
+  border-color: #964693;
+}
+
+#main-container #job-list .job-item:nth-of-type(352)::after {
+  border-color: #dc7ba9;
+}
+
+#main-container #job-list .job-item:nth-of-type(353)::after {
+  border-color: #541d52;
+}
+
+#main-container #job-list .job-item:nth-of-type(354)::after {
+  border-color: #2c1175;
+}
+
+#main-container #job-list .job-item:nth-of-type(355)::after {
+  border-color: #307773;
+}
+
+#main-container #job-list .job-item:nth-of-type(356)::after {
+  border-color: #6a58fa;
+}
+
+#main-container #job-list .job-item:nth-of-type(357)::after {
+  border-color: #8d62c9;
+}
+
+#main-container #job-list .job-item:nth-of-type(358)::after {
+  border-color: #4ef47f;
+}
+
+#main-container #job-list .job-item:nth-of-type(359)::after {
+  border-color: #4d8bf1;
+}
+
+#main-container #job-list .job-item:nth-of-type(360)::after {
+  border-color: #302561;
+}
+
+#main-container #job-list .job-item:nth-of-type(361)::after {
+  border-color: #8a57c8;
+}
+
+#main-container #job-list .job-item:nth-of-type(362)::after {
+  border-color: #f18374;
+}
+
+#main-container #job-list .job-item:nth-of-type(363)::after {
+  border-color: #cb0453;
+}
+
+#main-container #job-list .job-item:nth-of-type(364)::after {
+  border-color: #d9fb5d;
+}
+
+#main-container #job-list .job-item:nth-of-type(365)::after {
+  border-color: #9919a3;
+}
+
+#main-container #job-list .job-item:nth-of-type(366)::after {
+  border-color: #af2cfe;
+}
+
+#main-container #job-list .job-item:nth-of-type(367)::after {
+  border-color: #4171a6;
+}
+
+#main-container #job-list .job-item:nth-of-type(368)::after {
+  border-color: #7ee18f;
+}
+
+#main-container #job-list .job-item:nth-of-type(369)::after {
+  border-color: #5cc68e;
+}
+
+#main-container #job-list .job-item:nth-of-type(370)::after {
+  border-color: #845ecb;
+}
+
+#main-container #job-list .job-item:nth-of-type(371)::after {
+  border-color: #5ad149;
+}
+
+#main-container #job-list .job-item:nth-of-type(372)::after {
+  border-color: #e5be8e;
+}
+
+#main-container #job-list .job-item:nth-of-type(373)::after {
+  border-color: #f4c4d2;
+}
+
+#main-container #job-list .job-item:nth-of-type(374)::after {
+  border-color: #2ff1de;
+}
+
+#main-container #job-list .job-item:nth-of-type(375)::after {
+  border-color: #406d4b;
+}
+
+#main-container #job-list .job-item:nth-of-type(376)::after {
+  border-color: #cf72b5;
+}
+
+#main-container #job-list .job-item:nth-of-type(377)::after {
+  border-color: #f862d6;
+}
+
+#main-container #job-list .job-item:nth-of-type(378)::after {
+  border-color: #b889fd;
+}
+
+#main-container #job-list .job-item:nth-of-type(379)::after {
+  border-color: #0977ea;
+}
+
+#main-container #job-list .job-item:nth-of-type(380)::after {
+  border-color: #4ee803;
+}
+
+#main-container #job-list .job-item:nth-of-type(381)::after {
+  border-color: #2f2a8f;
+}
+
+#main-container #job-list .job-item:nth-of-type(382)::after {
+  border-color: #ce1aa9;
+}
+
+#main-container #job-list .job-item:nth-of-type(383)::after {
+  border-color: #45b02a;
+}
+
+#main-container #job-list .job-item:nth-of-type(384)::after {
+  border-color: #3fab9c;
+}
+
+#main-container #job-list .job-item:nth-of-type(385)::after {
+  border-color: #af66b3;
+}
+
+#main-container #job-list .job-item:nth-of-type(386)::after {
+  border-color: #6041bf;
+}
+
+#main-container #job-list .job-item:nth-of-type(387)::after {
+  border-color: #06236b;
+}
+
+#main-container #job-list .job-item:nth-of-type(388)::after {
+  border-color: #491304;
+}
+
+#main-container #job-list .job-item:nth-of-type(389)::after {
+  border-color: #171a0b;
+}
+
+#main-container #job-list .job-item:nth-of-type(390)::after {
+  border-color: #556299;
+}
+
+#main-container #job-list .job-item:nth-of-type(391)::after {
+  border-color: #2b360a;
+}
+
+#main-container #job-list .job-item:nth-of-type(392)::after {
+  border-color: #83db10;
+}
+
+#main-container #job-list .job-item:nth-of-type(393)::after {
+  border-color: #062208;
+}
+
+#main-container #job-list .job-item:nth-of-type(394)::after {
+  border-color: #04ede0;
+}
+
+#main-container #job-list .job-item:nth-of-type(395)::after {
+  border-color: #96a5a0;
+}
+
+#main-container #job-list .job-item:nth-of-type(396)::after {
+  border-color: #41458a;
+}
+
+#main-container #job-list .job-item:nth-of-type(397)::after {
+  border-color: #2be2ba;
+}
+
+#main-container #job-list .job-item:nth-of-type(398)::after {
+  border-color: #4e99a0;
+}
+
+#main-container #job-list .job-item:nth-of-type(399)::after {
+  border-color: #1f9d1c;
+}
+
+#main-container #job-list .job-item:nth-of-type(400)::after {
+  border-color: #a6cbef;
+}
+
+#main-container #job-list .job-item:nth-of-type(401)::after {
+  border-color: #635577;
+}
+
+#main-container #job-list .job-item:nth-of-type(402)::after {
+  border-color: #fe1b14;
+}
+
+#main-container #job-list .job-item:nth-of-type(403)::after {
+  border-color: #066638;
+}
+
+#main-container #job-list .job-item:nth-of-type(404)::after {
+  border-color: #0f0b49;
+}
+
+#main-container #job-list .job-item:nth-of-type(405)::after {
+  border-color: #cf24f8;
+}
+
+#main-container #job-list .job-item:nth-of-type(406)::after {
+  border-color: #929002;
+}
+
+#main-container #job-list .job-item:nth-of-type(407)::after {
+  border-color: #0c607f;
+}
+
+#main-container #job-list .job-item:nth-of-type(408)::after {
+  border-color: #82bd89;
+}
+
+#main-container #job-list .job-item:nth-of-type(409)::after {
+  border-color: #378b4f;
+}
+
+#main-container #job-list .job-item:nth-of-type(410)::after {
+  border-color: #e516f6;
+}
+
+#main-container #job-list .job-item:nth-of-type(411)::after {
+  border-color: #ec3b61;
+}
+
+#main-container #job-list .job-item:nth-of-type(412)::after {
+  border-color: #8634ac;
+}
+
+#main-container #job-list .job-item:nth-of-type(413)::after {
+  border-color: #8cbe82;
+}
+
+#main-container #job-list .job-item:nth-of-type(414)::after {
+  border-color: #eafa87;
+}
+
+#main-container #job-list .job-item:nth-of-type(415)::after {
+  border-color: #66185f;
+}
+
+#main-container #job-list .job-item:nth-of-type(416)::after {
+  border-color: #1d95f4;
+}
+
+#main-container #job-list .job-item:nth-of-type(417)::after {
+  border-color: #ed29a6;
+}
+
+#main-container #job-list .job-item:nth-of-type(418)::after {
+  border-color: #400264;
+}
+
+#main-container #job-list .job-item:nth-of-type(419)::after {
+  border-color: #edbcb5;
+}
+
+#main-container #job-list .job-item:nth-of-type(420)::after {
+  border-color: #f10e4b;
+}
+
+#main-container #job-list .job-item:nth-of-type(421)::after {
+  border-color: #d4fa6d;
+}
+
+#main-container #job-list .job-item:nth-of-type(422)::after {
+  border-color: #817ea8;
+}
+
+#main-container #job-list .job-item:nth-of-type(423)::after {
+  border-color: #a24be9;
+}
+
+#main-container #job-list .job-item:nth-of-type(424)::after {
+  border-color: #c6822f;
+}
+
+#main-container #job-list .job-item:nth-of-type(425)::after {
+  border-color: #a7d3da;
+}
+
+#main-container #job-list .job-item:nth-of-type(426)::after {
+  border-color: #7c2b8b;
+}
+
+#main-container #job-list .job-item:nth-of-type(427)::after {
+  border-color: #8918ab;
+}
+
+#main-container #job-list .job-item:nth-of-type(428)::after {
+  border-color: #7e74dd;
+}
+
+#main-container #job-list .job-item:nth-of-type(429)::after {
+  border-color: #910ea0;
+}
+
+#main-container #job-list .job-item:nth-of-type(430)::after {
+  border-color: #0a37b6;
+}
+
+#main-container #job-list .job-item:nth-of-type(431)::after {
+  border-color: #b1c71a;
+}
+
+#main-container #job-list .job-item:nth-of-type(432)::after {
+  border-color: #b58f42;
+}
+
+#main-container #job-list .job-item:nth-of-type(433)::after {
+  border-color: #5dbce6;
+}
+
+#main-container #job-list .job-item:nth-of-type(434)::after {
+  border-color: #3da9f5;
+}
+
+#main-container #job-list .job-item:nth-of-type(435)::after {
+  border-color: #81ca56;
+}
+
+#main-container #job-list .job-item:nth-of-type(436)::after {
+  border-color: #caa91d;
+}
+
+#main-container #job-list .job-item:nth-of-type(437)::after {
+  border-color: #9c2f14;
+}
+
+#main-container #job-list .job-item:nth-of-type(438)::after {
+  border-color: #7e65e4;
+}
+
+#main-container #job-list .job-item:nth-of-type(439)::after {
+  border-color: #5ae304;
+}
+
+#main-container #job-list .job-item:nth-of-type(440)::after {
+  border-color: #b9325c;
+}
+
+#main-container #job-list .job-item:nth-of-type(441)::after {
+  border-color: #dafee7;
+}
+
+#main-container #job-list .job-item:nth-of-type(442)::after {
+  border-color: #8be004;
+}
+
+#main-container #job-list .job-item:nth-of-type(443)::after {
+  border-color: #3e6b40;
+}
+
+#main-container #job-list .job-item:nth-of-type(444)::after {
+  border-color: #bf6e5b;
+}
+
+#main-container #job-list .job-item:nth-of-type(445)::after {
+  border-color: #3f29eb;
+}
+
+#main-container #job-list .job-item:nth-of-type(446)::after {
+  border-color: #8fe2a0;
+}
+
+#main-container #job-list .job-item:nth-of-type(447)::after {
+  border-color: #e87303;
+}
+
+#main-container #job-list .job-item:nth-of-type(448)::after {
+  border-color: #59d7b9;
+}
+
+#main-container #job-list .job-item:nth-of-type(449)::after {
+  border-color: #3ddd60;
+}
+
+#main-container #job-list .job-item:nth-of-type(450)::after {
+  border-color: #60d436;
+}
+
+#main-container #job-list .job-item:nth-of-type(451)::after {
+  border-color: #ddde86;
+}
+
+#main-container #job-list .job-item:nth-of-type(452)::after {
+  border-color: #3c4f18;
+}
+
+#main-container #job-list .job-item:nth-of-type(453)::after {
+  border-color: #1b731b;
+}
+
+#main-container #job-list .job-item:nth-of-type(454)::after {
+  border-color: #6c95af;
+}
+
+#main-container #job-list .job-item:nth-of-type(455)::after {
+  border-color: #2dfd52;
+}
+
+#main-container #job-list .job-item:nth-of-type(456)::after {
+  border-color: #29e4b6;
+}
+
+#main-container #job-list .job-item:nth-of-type(457)::after {
+  border-color: #a1183a;
+}
+
+#main-container #job-list .job-item:nth-of-type(458)::after {
+  border-color: #46a464;
+}
+
+#main-container #job-list .job-item:nth-of-type(459)::after {
+  border-color: #b74748;
+}
+
+#main-container #job-list .job-item:nth-of-type(460)::after {
+  border-color: #5f5015;
+}
+
+#main-container #job-list .job-item:nth-of-type(461)::after {
+  border-color: #11e917;
+}
+
+#main-container #job-list .job-item:nth-of-type(462)::after {
+  border-color: #ac961d;
+}
+
+#main-container #job-list .job-item:nth-of-type(463)::after {
+  border-color: #224543;
+}
+
+#main-container #job-list .job-item:nth-of-type(464)::after {
+  border-color: #6e92ea;
+}
+
+#main-container #job-list .job-item:nth-of-type(465)::after {
+  border-color: #82e979;
+}
+
+#main-container #job-list .job-item:nth-of-type(466)::after {
+  border-color: #c554db;
+}
+
+#main-container #job-list .job-item:nth-of-type(467)::after {
+  border-color: #7a5de0;
+}
+
+#main-container #job-list .job-item:nth-of-type(468)::after {
+  border-color: #48454f;
+}
+
+#main-container #job-list .job-item:nth-of-type(469)::after {
+  border-color: #9e9e68;
+}
+
+#main-container #job-list .job-item:nth-of-type(470)::after {
+  border-color: #d76195;
+}
+
+#main-container #job-list .job-item:nth-of-type(471)::after {
+  border-color: #202eca;
+}
+
+#main-container #job-list .job-item:nth-of-type(472)::after {
+  border-color: #690569;
+}
+
+#main-container #job-list .job-item:nth-of-type(473)::after {
+  border-color: #7eb683;
+}
+
+#main-container #job-list .job-item:nth-of-type(474)::after {
+  border-color: #97619e;
+}
+
+#main-container #job-list .job-item:nth-of-type(475)::after {
+  border-color: #9d9c13;
+}
+
+#main-container #job-list .job-item:nth-of-type(476)::after {
+  border-color: #f62c97;
+}
+
+#main-container #job-list .job-item:nth-of-type(477)::after {
+  border-color: #d043c6;
+}
+
+#main-container #job-list .job-item:nth-of-type(478)::after {
+  border-color: #2208f3;
+}
+
+#main-container #job-list .job-item:nth-of-type(479)::after {
+  border-color: #7e5eb9;
+}
+
+#main-container #job-list .job-item:nth-of-type(480)::after {
+  border-color: #a4cbe2;
+}
+
+#main-container #job-list .job-item:nth-of-type(481)::after {
+  border-color: #1c2538;
+}
+
+#main-container #job-list .job-item:nth-of-type(482)::after {
+  border-color: #a41ef5;
+}
+
+#main-container #job-list .job-item:nth-of-type(483)::after {
+  border-color: #42f5c4;
+}
+
+#main-container #job-list .job-item:nth-of-type(484)::after {
+  border-color: #5cfcec;
+}
+
+#main-container #job-list .job-item:nth-of-type(485)::after {
+  border-color: #b3ac4e;
+}
+
+#main-container #job-list .job-item:nth-of-type(486)::after {
+  border-color: #a0e006;
+}
+
+#main-container #job-list .job-item:nth-of-type(487)::after {
+  border-color: #342032;
+}
+
+#main-container #job-list .job-item:nth-of-type(488)::after {
+  border-color: #0374ab;
+}
+
+#main-container #job-list .job-item:nth-of-type(489)::after {
+  border-color: #2b6c14;
+}
+
+#main-container #job-list .job-item:nth-of-type(490)::after {
+  border-color: #d1bd90;
+}
+
+#main-container #job-list .job-item:nth-of-type(491)::after {
+  border-color: #d12063;
+}
+
+#main-container #job-list .job-item:nth-of-type(492)::after {
+  border-color: #95ca11;
+}
+
+#main-container #job-list .job-item:nth-of-type(493)::after {
+  border-color: #0731af;
+}
+
+#main-container #job-list .job-item:nth-of-type(494)::after {
+  border-color: #a54813;
+}
+
+#main-container #job-list .job-item:nth-of-type(495)::after {
+  border-color: #057fbc;
+}
+
+#main-container #job-list .job-item:nth-of-type(496)::after {
+  border-color: #df9e64;
+}
+
+#main-container #job-list .job-item:nth-of-type(497)::after {
+  border-color: #dbc0b9;
+}
+
+#main-container #job-list .job-item:nth-of-type(498)::after {
+  border-color: #186d47;
+}
+
+#main-container #job-list .job-item:nth-of-type(499)::after {
+  border-color: #d1bdf7;
+}
+
+#main-container #job-list .job-item:nth-of-type(500)::after {
+  border-color: #ae2aca;
+}
+
+#main-container #job-list .job-item:nth-of-type(501)::after {
+  border-color: #507607;
+}
+
+#main-container #job-list .job-item:nth-of-type(502)::after {
+  border-color: #97d3c4;
+}
+
+#main-container #job-list .job-item:nth-of-type(503)::after {
+  border-color: #ff01b2;
+}
+
+#main-container #job-list .job-item:nth-of-type(504)::after {
+  border-color: #c77ded;
+}
+
+#main-container #job-list .job-item:nth-of-type(505)::after {
+  border-color: #7c1561;
+}
+
+#main-container #job-list .job-item:nth-of-type(506)::after {
+  border-color: #802d41;
+}
+
+#main-container #job-list .job-item:nth-of-type(507)::after {
+  border-color: #27ad63;
+}
+
+#main-container #job-list .job-item:nth-of-type(508)::after {
+  border-color: #952cd7;
+}
+
+#main-container #job-list .job-item:nth-of-type(509)::after {
+  border-color: #4f8e2b;
+}
+
+#main-container #job-list .job-item:nth-of-type(510)::after {
+  border-color: #5f4153;
+}
+
+#main-container #job-list .job-item:nth-of-type(511)::after {
+  border-color: #f3794b;
+}
+
+#main-container #job-list .job-item:nth-of-type(512)::after {
+  border-color: #b0ce01;
+}
+
+#main-container #job-list .job-item:nth-of-type(513)::after {
+  border-color: #4dacb6;
+}
+
+#main-container #job-list .job-item:nth-of-type(514)::after {
+  border-color: #d1e9d6;
+}
+
+#main-container #job-list .job-item:nth-of-type(515)::after {
+  border-color: #637da3;
+}
+
+#main-container #job-list .job-item:nth-of-type(516)::after {
+  border-color: #7fb123;
+}
+
+#main-container #job-list .job-item:nth-of-type(517)::after {
+  border-color: #2018da;
+}
+
+#main-container #job-list .job-item:nth-of-type(518)::after {
+  border-color: #23d0fe;
+}
+
+#main-container #job-list .job-item:nth-of-type(519)::after {
+  border-color: #44c83d;
+}
+
+#main-container #job-list .job-item:nth-of-type(520)::after {
+  border-color: #56a3d7;
+}
+
+#main-container #job-list .job-item:nth-of-type(521)::after {
+  border-color: #172405;
+}
+
+#main-container #job-list .job-item:nth-of-type(522)::after {
+  border-color: #a98386;
+}
+
+#main-container #job-list .job-item:nth-of-type(523)::after {
+  border-color: #83aa23;
+}
+
+#main-container #job-list .job-item:nth-of-type(524)::after {
+  border-color: #d0a77b;
+}
+
+#main-container #job-list .job-item:nth-of-type(525)::after {
+  border-color: #7c2d1a;
+}
+
+#main-container #job-list .job-item:nth-of-type(526)::after {
+  border-color: #f30de4;
+}
+
+#main-container #job-list .job-item:nth-of-type(527)::after {
+  border-color: #1424fb;
+}
+
+#main-container #job-list .job-item:nth-of-type(528)::after {
+  border-color: #670ee2;
+}
+
+#main-container #job-list .job-item:nth-of-type(529)::after {
+  border-color: #41f2d9;
+}
+
+#main-container #job-list .job-item:nth-of-type(530)::after {
+  border-color: #1ca6b3;
+}
+
+#main-container #job-list .job-item:nth-of-type(531)::after {
+  border-color: #dc520e;
+}
+
+#main-container #job-list .job-item:nth-of-type(532)::after {
+  border-color: #62cc4d;
+}
+
+#main-container #job-list .job-item:nth-of-type(533)::after {
+  border-color: #704ce6;
+}
+
+#main-container #job-list .job-item:nth-of-type(534)::after {
+  border-color: #cbd1ef;
+}
+
+#main-container #job-list .job-item:nth-of-type(535)::after {
+  border-color: #0f2762;
+}
+
+#main-container #job-list .job-item:nth-of-type(536)::after {
+  border-color: #ff9950;
+}
+
+#main-container #job-list .job-item:nth-of-type(537)::after {
+  border-color: #efbabf;
+}
+
+#main-container #job-list .job-item:nth-of-type(538)::after {
+  border-color: #c4a124;
+}
+
+#main-container #job-list .job-item:nth-of-type(539)::after {
+  border-color: #06d557;
+}
+
+#main-container #job-list .job-item:nth-of-type(540)::after {
+  border-color: #8ef21d;
+}
+
+#main-container #job-list .job-item:nth-of-type(541)::after {
+  border-color: #427618;
+}
+
+#main-container #job-list .job-item:nth-of-type(542)::after {
+  border-color: #7dff55;
+}
+
+#main-container #job-list .job-item:nth-of-type(543)::after {
+  border-color: #6f2913;
+}
+
+#main-container #job-list .job-item:nth-of-type(544)::after {
+  border-color: #2901f8;
+}
+
+#main-container #job-list .job-item:nth-of-type(545)::after {
+  border-color: #243024;
+}
+
+#main-container #job-list .job-item:nth-of-type(546)::after {
+  border-color: #8f1d92;
+}
+
+#main-container #job-list .job-item:nth-of-type(547)::after {
+  border-color: #9967e1;
+}
+
+#main-container #job-list .job-item:nth-of-type(548)::after {
+  border-color: #77aa45;
+}
+
+#main-container #job-list .job-item:nth-of-type(549)::after {
+  border-color: #e7b676;
+}
+
+#main-container #job-list .job-item:nth-of-type(550)::after {
+  border-color: #ebcbd6;
+}
+
+#main-container #job-list .job-item:nth-of-type(551)::after {
+  border-color: #e1547b;
+}
+
+#main-container #job-list .job-item:nth-of-type(552)::after {
+  border-color: #b28b56;
+}
+
+#main-container #job-list .job-item:nth-of-type(553)::after {
+  border-color: #942ac3;
+}
+
+#main-container #job-list .job-item:nth-of-type(554)::after {
+  border-color: #1004a3;
+}
+
+#main-container #job-list .job-item:nth-of-type(555)::after {
+  border-color: #4d6c25;
+}
+
+#main-container #job-list .job-item:nth-of-type(556)::after {
+  border-color: #ae8bce;
+}
+
+#main-container #job-list .job-item:nth-of-type(557)::after {
+  border-color: #aaa050;
+}
+
+#main-container #job-list .job-item:nth-of-type(558)::after {
+  border-color: #66074a;
+}
+
+#main-container #job-list .job-item:nth-of-type(559)::after {
+  border-color: #81eb83;
+}
+
+#main-container #job-list .job-item:nth-of-type(560)::after {
+  border-color: #f09728;
+}
+
+#main-container #job-list .job-item:nth-of-type(561)::after {
+  border-color: #e84833;
+}
+
+#main-container #job-list .job-item:nth-of-type(562)::after {
+  border-color: #9e29d3;
+}
+
+#main-container #job-list .job-item:nth-of-type(563)::after {
+  border-color: #6b26cf;
+}
+
+#main-container #job-list .job-item:nth-of-type(564)::after {
+  border-color: #d82a97;
+}
+
+#main-container #job-list .job-item:nth-of-type(565)::after {
+  border-color: #567317;
+}
+
+#main-container #job-list .job-item:nth-of-type(566)::after {
+  border-color: #7f881c;
+}
+
+#main-container #job-list .job-item:nth-of-type(567)::after {
+  border-color: #0d9e25;
+}
+
+#main-container #job-list .job-item:nth-of-type(568)::after {
+  border-color: #575e8a;
+}
+
+#main-container #job-list .job-item:nth-of-type(569)::after {
+  border-color: #b30684;
+}
+
+#main-container #job-list .job-item:nth-of-type(570)::after {
+  border-color: #9a04c3;
+}
+
+#main-container #job-list .job-item:nth-of-type(571)::after {
+  border-color: #e80d7f;
+}
+
+#main-container #job-list .job-item:nth-of-type(572)::after {
+  border-color: #451b80;
+}
+
+#main-container #job-list .job-item:nth-of-type(573)::after {
+  border-color: #9d8345;
+}
+
+#main-container #job-list .job-item:nth-of-type(574)::after {
+  border-color: #cd722e;
+}
+
+#main-container #job-list .job-item:nth-of-type(575)::after {
+  border-color: #1ac9ea;
+}
+
+#main-container #job-list .job-item:nth-of-type(576)::after {
+  border-color: #117536;
+}
+
+#main-container #job-list .job-item:nth-of-type(577)::after {
+  border-color: #bded1f;
+}
+
+#main-container #job-list .job-item:nth-of-type(578)::after {
+  border-color: #ac4aab;
+}
+
+#main-container #job-list .job-item:nth-of-type(579)::after {
+  border-color: #5b32f3;
+}
+
+#main-container #job-list .job-item:nth-of-type(580)::after {
+  border-color: #15b09a;
+}
+
+#main-container #job-list .job-item:nth-of-type(581)::after {
+  border-color: #cf8897;
+}
+
+#main-container #job-list .job-item:nth-of-type(582)::after {
+  border-color: #e052c4;
+}
+
+#main-container #job-list .job-item:nth-of-type(583)::after {
+  border-color: #1de13c;
+}
+
+#main-container #job-list .job-item:nth-of-type(584)::after {
+  border-color: #5d1e48;
+}
+
+#main-container #job-list .job-item:nth-of-type(585)::after {
+  border-color: #71a508;
+}
+
+#main-container #job-list .job-item:nth-of-type(586)::after {
+  border-color: #cb099d;
+}
+
+#main-container #job-list .job-item:nth-of-type(587)::after {
+  border-color: #d01011;
+}
+
+#main-container #job-list .job-item:nth-of-type(588)::after {
+  border-color: #d2132f;
+}
+
+#main-container #job-list .job-item:nth-of-type(589)::after {
+  border-color: #20d05a;
+}
+
+#main-container #job-list .job-item:nth-of-type(590)::after {
+  border-color: #2ed7d3;
+}
+
+#main-container #job-list .job-item:nth-of-type(591)::after {
+  border-color: #3513c9;
+}
+
+#main-container #job-list .job-item:nth-of-type(592)::after {
+  border-color: #a7fbda;
+}
+
+#main-container #job-list .job-item:nth-of-type(593)::after {
+  border-color: #248ebe;
+}
+
+#main-container #job-list .job-item:nth-of-type(594)::after {
+  border-color: #f11947;
+}
+
+#main-container #job-list .job-item:nth-of-type(595)::after {
+  border-color: #52fffa;
+}
+
+#main-container #job-list .job-item:nth-of-type(596)::after {
+  border-color: #d76a40;
+}
+
+#main-container #job-list .job-item:nth-of-type(597)::after {
+  border-color: #9271a5;
+}
+
+#main-container #job-list .job-item:nth-of-type(598)::after {
+  border-color: #41dabb;
+}
+
+#main-container #job-list .job-item:nth-of-type(599)::after {
+  border-color: #432343;
+}
+
+#main-container #job-list .job-item:nth-of-type(600)::after {
+  border-color: #b10831;
+}
+
+#main-container #job-list .job-item:nth-of-type(601)::after {
+  border-color: #28b6a3;
+}
+
+#main-container #job-list .job-item:nth-of-type(602)::after {
+  border-color: #eb9d33;
+}
+
+#main-container #job-list .job-item:nth-of-type(603)::after {
+  border-color: #3f53cb;
+}
+
+#main-container #job-list .job-item:nth-of-type(604)::after {
+  border-color: #a02399;
+}
+
+#main-container #job-list .job-item:nth-of-type(605)::after {
+  border-color: #56ee47;
+}
+
+#main-container #job-list .job-item:nth-of-type(606)::after {
+  border-color: #4d75ef;
+}
+
+#main-container #job-list .job-item:nth-of-type(607)::after {
+  border-color: #931cb8;
+}
+
+#main-container #job-list .job-item:nth-of-type(608)::after {
+  border-color: #9975db;
+}
+
+#main-container #job-list .job-item:nth-of-type(609)::after {
+  border-color: #a63956;
+}
+
+#main-container #job-list .job-item:nth-of-type(610)::after {
+  border-color: #acc111;
+}
+
+#main-container #job-list .job-item:nth-of-type(611)::after {
+  border-color: #cb744c;
+}
+
+#main-container #job-list .job-item:nth-of-type(612)::after {
+  border-color: #e99ab8;
+}
+
+#main-container #job-list .job-item:nth-of-type(613)::after {
+  border-color: #9a054a;
+}
+
+#main-container #job-list .job-item:nth-of-type(614)::after {
+  border-color: #c36068;
+}
+
+#main-container #job-list .job-item:nth-of-type(615)::after {
+  border-color: #a4b8bd;
+}
+
+#main-container #job-list .job-item:nth-of-type(616)::after {
+  border-color: #bb128d;
+}
+
+#main-container #job-list .job-item:nth-of-type(617)::after {
+  border-color: #76b17d;
+}
+
+#main-container #job-list .job-item:nth-of-type(618)::after {
+  border-color: #eeca93;
+}
+
+#main-container #job-list .job-item:nth-of-type(619)::after {
+  border-color: #a8a3bc;
+}
+
+#main-container #job-list .job-item:nth-of-type(620)::after {
+  border-color: #5f7054;
+}
+
+#main-container #job-list .job-item:nth-of-type(621)::after {
+  border-color: #746b77;
+}
+
+#main-container #job-list .job-item:nth-of-type(622)::after {
+  border-color: #6e0a59;
+}
+
+#main-container #job-list .job-item:nth-of-type(623)::after {
+  border-color: #ead6e1;
+}
+
+#main-container #job-list .job-item:nth-of-type(624)::after {
+  border-color: #22378a;
+}
+
+#main-container #job-list .job-item:nth-of-type(625)::after {
+  border-color: #4f6d53;
+}
+
+#main-container #job-list .job-item:nth-of-type(626)::after {
+  border-color: #2b9e6c;
+}
+
+#main-container #job-list .job-item:nth-of-type(627)::after {
+  border-color: #22aae6;
+}
+
+#main-container #job-list .job-item:nth-of-type(628)::after {
+  border-color: #13bd85;
+}
+
+#main-container #job-list .job-item:nth-of-type(629)::after {
+  border-color: #fbf6aa;
+}
+
+#main-container #job-list .job-item:nth-of-type(630)::after {
+  border-color: #8c277a;
+}
+
+#main-container #job-list .job-item:nth-of-type(631)::after {
+  border-color: #88dc66;
+}
+
+#main-container #job-list .job-item:nth-of-type(632)::after {
+  border-color: #1be1b0;
+}
+
+#main-container #job-list .job-item:nth-of-type(633)::after {
+  border-color: #6c8f55;
+}
+
+#main-container #job-list .job-item:nth-of-type(634)::after {
+  border-color: #19068d;
+}
+
+#main-container #job-list .job-item:nth-of-type(635)::after {
+  border-color: #1e35d6;
+}
+
+#main-container #job-list .job-item:nth-of-type(636)::after {
+  border-color: #3ce1f4;
+}
+
+#main-container #job-list .job-item:nth-of-type(637)::after {
+  border-color: #3e711f;
+}
+
+#main-container #job-list .job-item:nth-of-type(638)::after {
+  border-color: #34f5f9;
+}
+
+#main-container #job-list .job-item:nth-of-type(639)::after {
+  border-color: #39e427;
+}
+
+#main-container #job-list .job-item:nth-of-type(640)::after {
+  border-color: #32cb19;
+}
+
+#main-container #job-list .job-item:nth-of-type(641)::after {
+  border-color: #3b86f2;
+}
+
+#main-container #job-list .job-item:nth-of-type(642)::after {
+  border-color: #2070b8;
+}
+
+#main-container #job-list .job-item:nth-of-type(643)::after {
+  border-color: #08bb9f;
+}
+
+#main-container #job-list .job-item:nth-of-type(644)::after {
+  border-color: #761faf;
+}
+
+#main-container #job-list .job-item:nth-of-type(645)::after {
+  border-color: #d583ee;
+}
+
+#main-container #job-list .job-item:nth-of-type(646)::after {
+  border-color: #3cd801;
+}
+
+#main-container #job-list .job-item:nth-of-type(647)::after {
+  border-color: #113289;
+}
+
+#main-container #job-list .job-item:nth-of-type(648)::after {
+  border-color: #40adf2;
+}
+
+#main-container #job-list .job-item:nth-of-type(649)::after {
+  border-color: #4453ad;
+}
+
+#main-container #job-list .job-item:nth-of-type(650)::after {
+  border-color: #6beee0;
+}
+
+#main-container #job-list .job-item:nth-of-type(651)::after {
+  border-color: #93f1c6;
+}
+
+#main-container #job-list .job-item:nth-of-type(652)::after {
+  border-color: #5ce19d;
+}
+
+#main-container #job-list .job-item:nth-of-type(653)::after {
+  border-color: #7e7e18;
+}
+
+#main-container #job-list .job-item:nth-of-type(654)::after {
+  border-color: #91d7b1;
+}
+
+#main-container #job-list .job-item:nth-of-type(655)::after {
+  border-color: #bfdd82;
+}
+
+#main-container #job-list .job-item:nth-of-type(656)::after {
+  border-color: #4049cb;
+}
+
+#main-container #job-list .job-item:nth-of-type(657)::after {
+  border-color: #68fba2;
+}
+
+#main-container #job-list .job-item:nth-of-type(658)::after {
+  border-color: #3f2658;
+}
+
+#main-container #job-list .job-item:nth-of-type(659)::after {
+  border-color: #e95fcc;
+}
+
+#main-container #job-list .job-item:nth-of-type(660)::after {
+  border-color: #d5bf32;
+}
+
+#main-container #job-list .job-item:nth-of-type(661)::after {
+  border-color: #71117b;
+}
+
+#main-container #job-list .job-item:nth-of-type(662)::after {
+  border-color: #c0687d;
+}
+
+#main-container #job-list .job-item:nth-of-type(663)::after {
+  border-color: #192715;
+}
+
+#main-container #job-list .job-item:nth-of-type(664)::after {
+  border-color: #affad0;
+}
+
+#main-container #job-list .job-item:nth-of-type(665)::after {
+  border-color: #e5eca4;
+}
+
+#main-container #job-list .job-item:nth-of-type(666)::after {
+  border-color: #a4afbb;
+}
+
+#main-container #job-list .job-item:nth-of-type(667)::after {
+  border-color: #08d5b8;
+}
+
+#main-container #job-list .job-item:nth-of-type(668)::after {
+  border-color: #72a155;
+}
+
+#main-container #job-list .job-item:nth-of-type(669)::after {
+  border-color: #d4b420;
+}
+
+#main-container #job-list .job-item:nth-of-type(670)::after {
+  border-color: #48ce1f;
+}
+
+#main-container #job-list .job-item:nth-of-type(671)::after {
+  border-color: #451767;
+}
+
+#main-container #job-list .job-item:nth-of-type(672)::after {
+  border-color: #420a3f;
+}
+
+#main-container #job-list .job-item:nth-of-type(673)::after {
+  border-color: #f03526;
+}
+
+#main-container #job-list .job-item:nth-of-type(674)::after {
+  border-color: #2dcf39;
+}
+
+#main-container #job-list .job-item:nth-of-type(675)::after {
+  border-color: #4da2ae;
+}
+
+#main-container #job-list .job-item:nth-of-type(676)::after {
+  border-color: #d5766d;
+}
+
+#main-container #job-list .job-item:nth-of-type(677)::after {
+  border-color: #80b076;
+}
+
+#main-container #job-list .job-item:nth-of-type(678)::after {
+  border-color: #7f1979;
+}
+
+#main-container #job-list .job-item:nth-of-type(679)::after {
+  border-color: #0d97df;
+}
+
+#main-container #job-list .job-item:nth-of-type(680)::after {
+  border-color: #4378ff;
+}
+
+#main-container #job-list .job-item:nth-of-type(681)::after {
+  border-color: #362de2;
+}
+
+#main-container #job-list .job-item:nth-of-type(682)::after {
+  border-color: #55fd2e;
+}
+
+#main-container #job-list .job-item:nth-of-type(683)::after {
+  border-color: #a90e24;
+}
+
+#main-container #job-list .job-item:nth-of-type(684)::after {
+  border-color: #3e1cba;
+}
+
+#main-container #job-list .job-item:nth-of-type(685)::after {
+  border-color: #9f438b;
+}
+
+#main-container #job-list .job-item:nth-of-type(686)::after {
+  border-color: #8d72f8;
+}
+
+#main-container #job-list .job-item:nth-of-type(687)::after {
+  border-color: #deaf50;
+}
+
+#main-container #job-list .job-item:nth-of-type(688)::after {
+  border-color: #9a8e42;
+}
+
+#main-container #job-list .job-item:nth-of-type(689)::after {
+  border-color: #d2171a;
+}
+
+#main-container #job-list .job-item:nth-of-type(690)::after {
+  border-color: #ab6cb9;
+}
+
+#main-container #job-list .job-item:nth-of-type(691)::after {
+  border-color: #d8c42d;
+}
+
+#main-container #job-list .job-item:nth-of-type(692)::after {
+  border-color: #edea77;
+}
+
+#main-container #job-list .job-item:nth-of-type(693)::after {
+  border-color: #13e31a;
+}
+
+#main-container #job-list .job-item:nth-of-type(694)::after {
+  border-color: #f5524c;
+}
+
+#main-container #job-list .job-item:nth-of-type(695)::after {
+  border-color: #81b336;
+}
+
+#main-container #job-list .job-item:nth-of-type(696)::after {
+  border-color: #3c1387;
+}
+
+#main-container #job-list .job-item:nth-of-type(697)::after {
+  border-color: #f9424d;
+}
+
+#main-container #job-list .job-item:nth-of-type(698)::after {
+  border-color: #a88759;
+}
+
+#main-container #job-list .job-item:nth-of-type(699)::after {
+  border-color: #e7936b;
+}
+
+#main-container #job-list .job-item:nth-of-type(700)::after {
+  border-color: #a8dac0;
+}
+
+#main-container #job-list .job-item:nth-of-type(701)::after {
+  border-color: #dd4278;
+}
+
+#main-container #job-list .job-item:nth-of-type(702)::after {
+  border-color: #d0600e;
+}
+
+#main-container #job-list .job-item:nth-of-type(703)::after {
+  border-color: #1095a5;
+}
+
+#main-container #job-list .job-item:nth-of-type(704)::after {
+  border-color: #4761ed;
+}
+
+#main-container #job-list .job-item:nth-of-type(705)::after {
+  border-color: #8bfd57;
+}
+
+#main-container #job-list .job-item:nth-of-type(706)::after {
+  border-color: #249cc5;
+}
+
+#main-container #job-list .job-item:nth-of-type(707)::after {
+  border-color: #4512d8;
+}
+
+#main-container #job-list .job-item:nth-of-type(708)::after {
+  border-color: #f5bb9c;
+}
+
+#main-container #job-list .job-item:nth-of-type(709)::after {
+  border-color: #9e737e;
+}
+
+#main-container #job-list .job-item:nth-of-type(710)::after {
+  border-color: #325734;
+}
+
+#main-container #job-list .job-item:nth-of-type(711)::after {
+  border-color: #9e6fed;
+}
+
+#main-container #job-list .job-item:nth-of-type(712)::after {
+  border-color: #63f2c6;
+}
+
+#main-container #job-list .job-item:nth-of-type(713)::after {
+  border-color: #0a189d;
+}
+
+#main-container #job-list .job-item:nth-of-type(714)::after {
+  border-color: #db63e4;
+}
+
+#main-container #job-list .job-item:nth-of-type(715)::after {
+  border-color: #8ddb09;
+}
+
+#main-container #job-list .job-item:nth-of-type(716)::after {
+  border-color: #699039;
+}
+
+#main-container #job-list .job-item:nth-of-type(717)::after {
+  border-color: #e61760;
+}
+
+#main-container #job-list .job-item:nth-of-type(718)::after {
+  border-color: #bb30a2;
+}
+
+#main-container #job-list .job-item:nth-of-type(719)::after {
+  border-color: #cb2b74;
+}
+
+#main-container #job-list .job-item:nth-of-type(720)::after {
+  border-color: #c9d10c;
+}
+
+#main-container #job-list .job-item:nth-of-type(721)::after {
+  border-color: #fdfe9f;
+}
+
+#main-container #job-list .job-item:nth-of-type(722)::after {
+  border-color: #0b4691;
+}
+
+#main-container #job-list .job-item:nth-of-type(723)::after {
+  border-color: #fa5c22;
+}
+
+#main-container #job-list .job-item:nth-of-type(724)::after {
+  border-color: #762dba;
+}
+
+#main-container #job-list .job-item:nth-of-type(725)::after {
+  border-color: #3e738f;
+}
+
+#main-container #job-list .job-item:nth-of-type(726)::after {
+  border-color: #377453;
+}
+
+#main-container #job-list .job-item:nth-of-type(727)::after {
+  border-color: #b6a817;
+}
+
+#main-container #job-list .job-item:nth-of-type(728)::after {
+  border-color: #1a2866;
+}
+
+#main-container #job-list .job-item:nth-of-type(729)::after {
+  border-color: #066701;
+}
+
+#main-container #job-list .job-item:nth-of-type(730)::after {
+  border-color: #ab69ca;
+}
+
+#main-container #job-list .job-item:nth-of-type(731)::after {
+  border-color: #b737e2;
+}
+
+#main-container #job-list .job-item:nth-of-type(732)::after {
+  border-color: #ffdd95;
+}
+
+#main-container #job-list .job-item:nth-of-type(733)::after {
+  border-color: #10c9fd;
+}
+
+#main-container #job-list .job-item:nth-of-type(734)::after {
+  border-color: #b45c21;
+}
+
+#main-container #job-list .job-item:nth-of-type(735)::after {
+  border-color: #759c15;
+}
+
+#main-container #job-list .job-item:nth-of-type(736)::after {
+  border-color: #915926;
+}
+
+#main-container #job-list .job-item:nth-of-type(737)::after {
+  border-color: #f2b1a2;
+}
+
+#main-container #job-list .job-item:nth-of-type(738)::after {
+  border-color: #2317c2;
+}
+
+#main-container #job-list .job-item:nth-of-type(739)::after {
+  border-color: #967aea;
+}
+
+#main-container #job-list .job-item:nth-of-type(740)::after {
+  border-color: #3442aa;
+}
+
+#main-container #job-list .job-item:nth-of-type(741)::after {
+  border-color: #df2ae6;
+}
+
+#main-container #job-list .job-item:nth-of-type(742)::after {
+  border-color: #6006ac;
+}
+
+#main-container #job-list .job-item:nth-of-type(743)::after {
+  border-color: #ed12b2;
+}
+
+#main-container #job-list .job-item:nth-of-type(744)::after {
+  border-color: #526ce7;
+}
+
+#main-container #job-list .job-item:nth-of-type(745)::after {
+  border-color: #0edde7;
+}
+
+#main-container #job-list .job-item:nth-of-type(746)::after {
+  border-color: #55beef;
+}
+
+#main-container #job-list .job-item:nth-of-type(747)::after {
+  border-color: #0c2cd5;
+}
+
+#main-container #job-list .job-item:nth-of-type(748)::after {
+  border-color: #ef84d9;
+}
+
+#main-container #job-list .job-item:nth-of-type(749)::after {
+  border-color: #ebf446;
+}
+
+#main-container #job-list .job-item:nth-of-type(750)::after {
+  border-color: #b309a3;
+}
+
+#main-container #job-list .job-item:nth-of-type(751)::after {
+  border-color: #09b335;
+}
+
+#main-container #job-list .job-item:nth-of-type(752)::after {
+  border-color: #e874d4;
+}
+
+#main-container #job-list .job-item:nth-of-type(753)::after {
+  border-color: #4b8ddd;
+}
+
+#main-container #job-list .job-item:nth-of-type(754)::after {
+  border-color: #d03b71;
+}
+
+#main-container #job-list .job-item:nth-of-type(755)::after {
+  border-color: #1f0a31;
+}
+
+#main-container #job-list .job-item:nth-of-type(756)::after {
+  border-color: #873737;
+}
+
+#main-container #job-list .job-item:nth-of-type(757)::after {
+  border-color: #f75fc8;
+}
+
+#main-container #job-list .job-item:nth-of-type(758)::after {
+  border-color: #d7aead;
+}
+
+#main-container #job-list .job-item:nth-of-type(759)::after {
+  border-color: #b2b90a;
+}
+
+#main-container #job-list .job-item:nth-of-type(760)::after {
+  border-color: #3dd313;
+}
+
+#main-container #job-list .job-item:nth-of-type(761)::after {
+  border-color: #6616e2;
+}
+
+#main-container #job-list .job-item:nth-of-type(762)::after {
+  border-color: #427dfb;
+}
+
+#main-container #job-list .job-item:nth-of-type(763)::after {
+  border-color: #0290d4;
+}
+
+#main-container #job-list .job-item:nth-of-type(764)::after {
+  border-color: #e18eac;
+}
+
+#main-container #job-list .job-item:nth-of-type(765)::after {
+  border-color: #f49c08;
+}
+
+#main-container #job-list .job-item:nth-of-type(766)::after {
+  border-color: #1b85bd;
+}
+
+#main-container #job-list .job-item:nth-of-type(767)::after {
+  border-color: #730b48;
+}
+
+#main-container #job-list .job-item:nth-of-type(768)::after {
+  border-color: #b62bb8;
+}
+
+#main-container #job-list .job-item:nth-of-type(769)::after {
+  border-color: #0b6f0f;
+}
+
+#main-container #job-list .job-item:nth-of-type(770)::after {
+  border-color: #42640d;
+}
+
+#main-container #job-list .job-item:nth-of-type(771)::after {
+  border-color: #016264;
+}
+
+#main-container #job-list .job-item:nth-of-type(772)::after {
+  border-color: #19cbee;
+}
+
+#main-container #job-list .job-item:nth-of-type(773)::after {
+  border-color: #ce1524;
+}
+
+#main-container #job-list .job-item:nth-of-type(774)::after {
+  border-color: #2dff0f;
+}
+
+#main-container #job-list .job-item:nth-of-type(775)::after {
+  border-color: #0cbcbf;
+}
+
+#main-container #job-list .job-item:nth-of-type(776)::after {
+  border-color: #790b54;
+}
+
+#main-container #job-list .job-item:nth-of-type(777)::after {
+  border-color: #bbe0cb;
+}
+
+#main-container #job-list .job-item:nth-of-type(778)::after {
+  border-color: #f28790;
+}
+
+#main-container #job-list .job-item:nth-of-type(779)::after {
+  border-color: #aac102;
+}
+
+#main-container #job-list .job-item:nth-of-type(780)::after {
+  border-color: #b03b33;
+}
+
+#main-container #job-list .job-item:nth-of-type(781)::after {
+  border-color: #46fa4c;
+}
+
+#main-container #job-list .job-item:nth-of-type(782)::after {
+  border-color: #819efe;
+}
+
+#main-container #job-list .job-item:nth-of-type(783)::after {
+  border-color: #019b36;
+}
+
+#main-container #job-list .job-item:nth-of-type(784)::after {
+  border-color: #36881c;
+}
+
+#main-container #job-list .job-item:nth-of-type(785)::after {
+  border-color: #515cf8;
+}
+
+#main-container #job-list .job-item:nth-of-type(786)::after {
+  border-color: #f2b90b;
+}
+
+#main-container #job-list .job-item:nth-of-type(787)::after {
+  border-color: #179299;
+}
+
+#main-container #job-list .job-item:nth-of-type(788)::after {
+  border-color: #c2229a;
+}
+
+#main-container #job-list .job-item:nth-of-type(789)::after {
+  border-color: #286126;
+}
+
+#main-container #job-list .job-item:nth-of-type(790)::after {
+  border-color: #47bef9;
+}
+
+#main-container #job-list .job-item:nth-of-type(791)::after {
+  border-color: #05ad63;
+}
+
+#main-container #job-list .job-item:nth-of-type(792)::after {
+  border-color: #c520ba;
+}
+
+#main-container #job-list .job-item:nth-of-type(793)::after {
+  border-color: #92ce98;
+}
+
+#main-container #job-list .job-item:nth-of-type(794)::after {
+  border-color: #7aaa65;
+}
+
+#main-container #job-list .job-item:nth-of-type(795)::after {
+  border-color: #73fc0f;
+}
+
+#main-container #job-list .job-item:nth-of-type(796)::after {
+  border-color: #38b24c;
+}
+
+#main-container #job-list .job-item:nth-of-type(797)::after {
+  border-color: #0610b5;
+}
+
+#main-container #job-list .job-item:nth-of-type(798)::after {
+  border-color: #4040df;
+}
+
+#main-container #job-list .job-item:nth-of-type(799)::after {
+  border-color: #443b3a;
+}
+
+#main-container #job-list .job-item:nth-of-type(800)::after {
+  border-color: #e55a84;
+}
+
+#main-container #job-list .job-item:nth-of-type(801)::after {
+  border-color: #9352ae;
+}
+
+#main-container #job-list .job-item:nth-of-type(802)::after {
+  border-color: #b79cf7;
+}
+
+#main-container #job-list .job-item:nth-of-type(803)::after {
+  border-color: #8af355;
+}
+
+#main-container #job-list .job-item:nth-of-type(804)::after {
+  border-color: #de5acb;
+}
+
+#main-container #job-list .job-item:nth-of-type(805)::after {
+  border-color: #9bca46;
+}
+
+#main-container #job-list .job-item:nth-of-type(806)::after {
+  border-color: #5aed7f;
+}
+
+#main-container #job-list .job-item:nth-of-type(807)::after {
+  border-color: #62dcc9;
+}
+
+#main-container #job-list .job-item:nth-of-type(808)::after {
+  border-color: #0f89fc;
+}
+
+#main-container #job-list .job-item:nth-of-type(809)::after {
+  border-color: #fdddee;
+}
+
+#main-container #job-list .job-item:nth-of-type(810)::after {
+  border-color: #18aeb9;
+}
+
+#main-container #job-list .job-item:nth-of-type(811)::after {
+  border-color: #804997;
+}
+
+#main-container #job-list .job-item:nth-of-type(812)::after {
+  border-color: #d67926;
+}
+
+#main-container #job-list .job-item:nth-of-type(813)::after {
+  border-color: #cc0156;
+}
+
+#main-container #job-list .job-item:nth-of-type(814)::after {
+  border-color: #78685f;
+}
+
+#main-container #job-list .job-item:nth-of-type(815)::after {
+  border-color: #22a616;
+}
+
+#main-container #job-list .job-item:nth-of-type(816)::after {
+  border-color: #900702;
+}
+
+#main-container #job-list .job-item:nth-of-type(817)::after {
+  border-color: #628037;
+}
+
+#main-container #job-list .job-item:nth-of-type(818)::after {
+  border-color: #102c1f;
+}
+
+#main-container #job-list .job-item:nth-of-type(819)::after {
+  border-color: #b22cc7;
+}
+
+#main-container #job-list .job-item:nth-of-type(820)::after {
+  border-color: #cdbb01;
+}
+
+#main-container #job-list .job-item:nth-of-type(821)::after {
+  border-color: #a1d855;
+}
+
+#main-container #job-list .job-item:nth-of-type(822)::after {
+  border-color: #7673d3;
+}
+
+#main-container #job-list .job-item:nth-of-type(823)::after {
+  border-color: #41a858;
+}
+
+#main-container #job-list .job-item:nth-of-type(824)::after {
+  border-color: #be704c;
+}
+
+#main-container #job-list .job-item:nth-of-type(825)::after {
+  border-color: #0ab443;
+}
+
+#main-container #job-list .job-item:nth-of-type(826)::after {
+  border-color: #6a7474;
+}
+
+#main-container #job-list .job-item:nth-of-type(827)::after {
+  border-color: #cc961d;
+}
+
+#main-container #job-list .job-item:nth-of-type(828)::after {
+  border-color: #f2e0d7;
+}
+
+#main-container #job-list .job-item:nth-of-type(829)::after {
+  border-color: #b6feb0;
+}
+
+#main-container #job-list .job-item:nth-of-type(830)::after {
+  border-color: #b307a1;
+}
+
+#main-container #job-list .job-item:nth-of-type(831)::after {
+  border-color: #152e01;
+}
+
+#main-container #job-list .job-item:nth-of-type(832)::after {
+  border-color: #6fcac4;
+}
+
+#main-container #job-list .job-item:nth-of-type(833)::after {
+  border-color: #e4041e;
+}
+
+#main-container #job-list .job-item:nth-of-type(834)::after {
+  border-color: #7f7be1;
+}
+
+#main-container #job-list .job-item:nth-of-type(835)::after {
+  border-color: #7fd2ba;
+}
+
+#main-container #job-list .job-item:nth-of-type(836)::after {
+  border-color: #5e2c80;
+}
+
+#main-container #job-list .job-item:nth-of-type(837)::after {
+  border-color: #4c600b;
+}
+
+#main-container #job-list .job-item:nth-of-type(838)::after {
+  border-color: #721b5a;
+}
+
+#main-container #job-list .job-item:nth-of-type(839)::after {
+  border-color: #ea68da;
+}
+
+#main-container #job-list .job-item:nth-of-type(840)::after {
+  border-color: #925579;
+}
+
+#main-container #job-list .job-item:nth-of-type(841)::after {
+  border-color: #bb327d;
+}
+
+#main-container #job-list .job-item:nth-of-type(842)::after {
+  border-color: #e26d7d;
+}
+
+#main-container #job-list .job-item:nth-of-type(843)::after {
+  border-color: #70cce2;
+}
+
+#main-container #job-list .job-item:nth-of-type(844)::after {
+  border-color: #b0d290;
+}
+
+#main-container #job-list .job-item:nth-of-type(845)::after {
+  border-color: #d6a97e;
+}
+
+#main-container #job-list .job-item:nth-of-type(846)::after {
+  border-color: #2f295b;
+}
+
+#main-container #job-list .job-item:nth-of-type(847)::after {
+  border-color: #6f44d5;
+}
+
+#main-container #job-list .job-item:nth-of-type(848)::after {
+  border-color: #f3f2fb;
+}
+
+#main-container #job-list .job-item:nth-of-type(849)::after {
+  border-color: #8f8805;
+}
+
+#main-container #job-list .job-item:nth-of-type(850)::after {
+  border-color: #c468c8;
+}
+
+#main-container #job-list .job-item:nth-of-type(851)::after {
+  border-color: #df87e0;
+}
+
+#main-container #job-list .job-item:nth-of-type(852)::after {
+  border-color: #2957f7;
+}
+
+#main-container #job-list .job-item:nth-of-type(853)::after {
+  border-color: #5a50f4;
+}
+
+#main-container #job-list .job-item:nth-of-type(854)::after {
+  border-color: #c77b95;
+}
+
+#main-container #job-list .job-item:nth-of-type(855)::after {
+  border-color: #5373da;
+}
+
+#main-container #job-list .job-item:nth-of-type(856)::after {
+  border-color: #891eea;
+}
+
+#main-container #job-list .job-item:nth-of-type(857)::after {
+  border-color: #01dd35;
+}
+
+#main-container #job-list .job-item:nth-of-type(858)::after {
+  border-color: #4822b2;
+}
+
+#main-container #job-list .job-item:nth-of-type(859)::after {
+  border-color: #490e5b;
+}
+
+#main-container #job-list .job-item:nth-of-type(860)::after {
+  border-color: #0ed7eb;
+}
+
+#main-container #job-list .job-item:nth-of-type(861)::after {
+  border-color: #321392;
+}
+
+#main-container #job-list .job-item:nth-of-type(862)::after {
+  border-color: #dbc0b7;
+}
+
+#main-container #job-list .job-item:nth-of-type(863)::after {
+  border-color: #cc1c72;
+}
+
+#main-container #job-list .job-item:nth-of-type(864)::after {
+  border-color: #e68423;
+}
+
+#main-container #job-list .job-item:nth-of-type(865)::after {
+  border-color: #5673d3;
+}
+
+#main-container #job-list .job-item:nth-of-type(866)::after {
+  border-color: #15ef45;
+}
+
+#main-container #job-list .job-item:nth-of-type(867)::after {
+  border-color: #63ca0f;
+}
+
+#main-container #job-list .job-item:nth-of-type(868)::after {
+  border-color: #086f4d;
+}
+
+#main-container #job-list .job-item:nth-of-type(869)::after {
+  border-color: #5e16e2;
+}
+
+#main-container #job-list .job-item:nth-of-type(870)::after {
+  border-color: #d3ce87;
+}
+
+#main-container #job-list .job-item:nth-of-type(871)::after {
+  border-color: #695ca0;
+}
+
+#main-container #job-list .job-item:nth-of-type(872)::after {
+  border-color: #c855df;
+}
+
+#main-container #job-list .job-item:nth-of-type(873)::after {
+  border-color: #9e38ec;
+}
+
+#main-container #job-list .job-item:nth-of-type(874)::after {
+  border-color: #d3298b;
+}
+
+#main-container #job-list .job-item:nth-of-type(875)::after {
+  border-color: #9e14c2;
+}
+
+#main-container #job-list .job-item:nth-of-type(876)::after {
+  border-color: #9fbdee;
+}
+
+#main-container #job-list .job-item:nth-of-type(877)::after {
+  border-color: #496a31;
+}
+
+#main-container #job-list .job-item:nth-of-type(878)::after {
+  border-color: #81122d;
+}
+
+#main-container #job-list .job-item:nth-of-type(879)::after {
+  border-color: #b9d999;
+}
+
+#main-container #job-list .job-item:nth-of-type(880)::after {
+  border-color: #3f0bbe;
+}
+
+#main-container #job-list .job-item:nth-of-type(881)::after {
+  border-color: #b15bd9;
+}
+
+#main-container #job-list .job-item:nth-of-type(882)::after {
+  border-color: #e922f7;
+}
+
+#main-container #job-list .job-item:nth-of-type(883)::after {
+  border-color: #3e1e37;
+}
+
+#main-container #job-list .job-item:nth-of-type(884)::after {
+  border-color: #9d0e6a;
+}
+
+#main-container #job-list .job-item:nth-of-type(885)::after {
+  border-color: #92c68c;
+}
+
+#main-container #job-list .job-item:nth-of-type(886)::after {
+  border-color: #d28d02;
+}
+
+#main-container #job-list .job-item:nth-of-type(887)::after {
+  border-color: #0d7868;
+}
+
+#main-container #job-list .job-item:nth-of-type(888)::after {
+  border-color: #219a5b;
+}
+
+#main-container #job-list .job-item:nth-of-type(889)::after {
+  border-color: #14a397;
+}
+
+#main-container #job-list .job-item:nth-of-type(890)::after {
+  border-color: #f787f2;
+}
+
+#main-container #job-list .job-item:nth-of-type(891)::after {
+  border-color: #e3ff08;
+}
+
+#main-container #job-list .job-item:nth-of-type(892)::after {
+  border-color: #35228c;
+}
+
+#main-container #job-list .job-item:nth-of-type(893)::after {
+  border-color: #e09f48;
+}
+
+#main-container #job-list .job-item:nth-of-type(894)::after {
+  border-color: #9f4544;
+}
+
+#main-container #job-list .job-item:nth-of-type(895)::after {
+  border-color: #45ecbd;
+}
+
+#main-container #job-list .job-item:nth-of-type(896)::after {
+  border-color: #51aa23;
+}
+
+#main-container #job-list .job-item:nth-of-type(897)::after {
+  border-color: #291502;
+}
+
+#main-container #job-list .job-item:nth-of-type(898)::after {
+  border-color: #4bff92;
+}
+
+#main-container #job-list .job-item:nth-of-type(899)::after {
+  border-color: #444f02;
+}
+
+#main-container #job-list .job-item:nth-of-type(900)::after {
+  border-color: #5616b4;
+}
+
+#main-container #job-list .job-item:nth-of-type(901)::after {
+  border-color: #90b66f;
+}
+
+#main-container #job-list .job-item:nth-of-type(902)::after {
+  border-color: #16b842;
+}
+
+#main-container #job-list .job-item:nth-of-type(903)::after {
+  border-color: #9c80e2;
+}
+
+#main-container #job-list .job-item:nth-of-type(904)::after {
+  border-color: #c420c1;
+}
+
+#main-container #job-list .job-item:nth-of-type(905)::after {
+  border-color: #050388;
+}
+
+#main-container #job-list .job-item:nth-of-type(906)::after {
+  border-color: #e62da8;
+}
+
+#main-container #job-list .job-item:nth-of-type(907)::after {
+  border-color: #293b48;
+}
+
+#main-container #job-list .job-item:nth-of-type(908)::after {
+  border-color: #b63a31;
+}
+
+#main-container #job-list .job-item:nth-of-type(909)::after {
+  border-color: #f6d116;
+}
+
+#main-container #job-list .job-item:nth-of-type(910)::after {
+  border-color: #5c6691;
+}
+
+#main-container #job-list .job-item:nth-of-type(911)::after {
+  border-color: #4749a6;
+}
+
+#main-container #job-list .job-item:nth-of-type(912)::after {
+  border-color: #fe82d2;
+}
+
+#main-container #job-list .job-item:nth-of-type(913)::after {
+  border-color: #8199a7;
+}
+
+#main-container #job-list .job-item:nth-of-type(914)::after {
+  border-color: #2187a1;
+}
+
+#main-container #job-list .job-item:nth-of-type(915)::after {
+  border-color: #6627df;
+}
+
+#main-container #job-list .job-item:nth-of-type(916)::after {
+  border-color: #d4eaf2;
+}
+
+#main-container #job-list .job-item:nth-of-type(917)::after {
+  border-color: #89e5e1;
+}
+
+#main-container #job-list .job-item:nth-of-type(918)::after {
+  border-color: #a20166;
+}
+
+#main-container #job-list .job-item:nth-of-type(919)::after {
+  border-color: #b1f652;
+}
+
+#main-container #job-list .job-item:nth-of-type(920)::after {
+  border-color: #cf4834;
+}
+
+#main-container #job-list .job-item:nth-of-type(921)::after {
+  border-color: #45e408;
+}
+
+#main-container #job-list .job-item:nth-of-type(922)::after {
+  border-color: #7d0318;
+}
+
+#main-container #job-list .job-item:nth-of-type(923)::after {
+  border-color: #55bc8d;
+}
+
+#main-container #job-list .job-item:nth-of-type(924)::after {
+  border-color: #28ebd3;
+}
+
+#main-container #job-list .job-item:nth-of-type(925)::after {
+  border-color: #907466;
+}
+
+#main-container #job-list .job-item:nth-of-type(926)::after {
+  border-color: #8474db;
+}
+
+#main-container #job-list .job-item:nth-of-type(927)::after {
+  border-color: #85a591;
+}
+
+#main-container #job-list .job-item:nth-of-type(928)::after {
+  border-color: #a3a992;
+}
+
+#main-container #job-list .job-item:nth-of-type(929)::after {
+  border-color: #214667;
+}
+
+#main-container #job-list .job-item:nth-of-type(930)::after {
+  border-color: #e04030;
+}
+
+#main-container #job-list .job-item:nth-of-type(931)::after {
+  border-color: #0465bc;
+}
+
+#main-container #job-list .job-item:nth-of-type(932)::after {
+  border-color: #95ef05;
+}
+
+#main-container #job-list .job-item:nth-of-type(933)::after {
+  border-color: #59506b;
+}
+
+#main-container #job-list .job-item:nth-of-type(934)::after {
+  border-color: #997db8;
+}
+
+#main-container #job-list .job-item:nth-of-type(935)::after {
+  border-color: #3fecbf;
+}
+
+#main-container #job-list .job-item:nth-of-type(936)::after {
+  border-color: #403924;
+}
+
+#main-container #job-list .job-item:nth-of-type(937)::after {
+  border-color: #bf4ce3;
+}
+
+#main-container #job-list .job-item:nth-of-type(938)::after {
+  border-color: #dc96a1;
+}
+
+#main-container #job-list .job-item:nth-of-type(939)::after {
+  border-color: #1cf146;
+}
+
+#main-container #job-list .job-item:nth-of-type(940)::after {
+  border-color: #47d739;
+}
+
+#main-container #job-list .job-item:nth-of-type(941)::after {
+  border-color: #f7063d;
+}
+
+#main-container #job-list .job-item:nth-of-type(942)::after {
+  border-color: #a14812;
+}
+
+#main-container #job-list .job-item:nth-of-type(943)::after {
+  border-color: #c60353;
+}
+
+#main-container #job-list .job-item:nth-of-type(944)::after {
+  border-color: #49db88;
+}
+
+#main-container #job-list .job-item:nth-of-type(945)::after {
+  border-color: #be7ddf;
+}
+
+#main-container #job-list .job-item:nth-of-type(946)::after {
+  border-color: #e36e64;
+}
+
+#main-container #job-list .job-item:nth-of-type(947)::after {
+  border-color: #227301;
+}
+
+#main-container #job-list .job-item:nth-of-type(948)::after {
+  border-color: #26cc65;
+}
+
+#main-container #job-list .job-item:nth-of-type(949)::after {
+  border-color: #fb2a01;
+}
+
+#main-container #job-list .job-item:nth-of-type(950)::after {
+  border-color: #dffbc3;
+}
+
+#main-container #job-list .job-item:nth-of-type(951)::after {
+  border-color: #4a16b1;
+}
+
+#main-container #job-list .job-item:nth-of-type(952)::after {
+  border-color: #0c5d66;
+}
+
+#main-container #job-list .job-item:nth-of-type(953)::after {
+  border-color: #982395;
+}
+
+#main-container #job-list .job-item:nth-of-type(954)::after {
+  border-color: #d57323;
+}
+
+#main-container #job-list .job-item:nth-of-type(955)::after {
+  border-color: #a1751e;
+}
+
+#main-container #job-list .job-item:nth-of-type(956)::after {
+  border-color: #f3e661;
+}
+
+#main-container #job-list .job-item:nth-of-type(957)::after {
+  border-color: #593c73;
+}
+
+#main-container #job-list .job-item:nth-of-type(958)::after {
+  border-color: #9f73f9;
+}
+
+#main-container #job-list .job-item:nth-of-type(959)::after {
+  border-color: #68b3bd;
+}
+
+#main-container #job-list .job-item:nth-of-type(960)::after {
+  border-color: #019148;
+}
+
+#main-container #job-list .job-item:nth-of-type(961)::after {
+  border-color: #2c1c98;
+}
+
+#main-container #job-list .job-item:nth-of-type(962)::after {
+  border-color: #3225be;
+}
+
+#main-container #job-list .job-item:nth-of-type(963)::after {
+  border-color: #a6ad58;
+}
+
+#main-container #job-list .job-item:nth-of-type(964)::after {
+  border-color: #63459f;
+}
+
+#main-container #job-list .job-item:nth-of-type(965)::after {
+  border-color: #a5e819;
+}
+
+#main-container #job-list .job-item:nth-of-type(966)::after {
+  border-color: #8a8fa1;
+}
+
+#main-container #job-list .job-item:nth-of-type(967)::after {
+  border-color: #33393f;
+}
+
+#main-container #job-list .job-item:nth-of-type(968)::after {
+  border-color: #c62baf;
+}
+
+#main-container #job-list .job-item:nth-of-type(969)::after {
+  border-color: #60432a;
+}
+
+#main-container #job-list .job-item:nth-of-type(970)::after {
+  border-color: #c52131;
+}
+
+#main-container #job-list .job-item:nth-of-type(971)::after {
+  border-color: #0b1252;
+}
+
+#main-container #job-list .job-item:nth-of-type(972)::after {
+  border-color: #f1dc1d;
+}
+
+#main-container #job-list .job-item:nth-of-type(973)::after {
+  border-color: #c5314b;
+}
+
+#main-container #job-list .job-item:nth-of-type(974)::after {
+  border-color: #055c27;
+}
+
+#main-container #job-list .job-item:nth-of-type(975)::after {
+  border-color: #7217a2;
+}
+
+#main-container #job-list .job-item:nth-of-type(976)::after {
+  border-color: #89b535;
+}
+
+#main-container #job-list .job-item:nth-of-type(977)::after {
+  border-color: #6c0b58;
+}
+
+#main-container #job-list .job-item:nth-of-type(978)::after {
+  border-color: #849f61;
+}
+
+#main-container #job-list .job-item:nth-of-type(979)::after {
+  border-color: #c5ef7c;
+}
+
+#main-container #job-list .job-item:nth-of-type(980)::after {
+  border-color: #20b7ea;
+}
+
+#main-container #job-list .job-item:nth-of-type(981)::after {
+  border-color: #f74966;
+}
+
+#main-container #job-list .job-item:nth-of-type(982)::after {
+  border-color: #ede942;
+}
+
+#main-container #job-list .job-item:nth-of-type(983)::after {
+  border-color: #42990b;
+}
+
+#main-container #job-list .job-item:nth-of-type(984)::after {
+  border-color: #d1a759;
+}
+
+#main-container #job-list .job-item:nth-of-type(985)::after {
+  border-color: #a92762;
+}
+
+#main-container #job-list .job-item:nth-of-type(986)::after {
+  border-color: #dc1af3;
+}
+
+#main-container #job-list .job-item:nth-of-type(987)::after {
+  border-color: #b84e6c;
+}
+
+#main-container #job-list .job-item:nth-of-type(988)::after {
+  border-color: #53cae3;
+}
+
+#main-container #job-list .job-item:nth-of-type(989)::after {
+  border-color: #01ea35;
+}
+
+#main-container #job-list .job-item:nth-of-type(990)::after {
+  border-color: #8d6cf1;
+}
+
+#main-container #job-list .job-item:nth-of-type(991)::after {
+  border-color: #84b3de;
+}
+
+#main-container #job-list .job-item:nth-of-type(992)::after {
+  border-color: #197b3d;
+}
+
+#main-container #job-list .job-item:nth-of-type(993)::after {
+  border-color: #290f0b;
+}
+
+#main-container #job-list .job-item:nth-of-type(994)::after {
+  border-color: #d760c4;
+}
+
+#main-container #job-list .job-item:nth-of-type(995)::after {
+  border-color: #ff3eaa;
+}
+
+#main-container #job-list .job-item:nth-of-type(996)::after {
+  border-color: #e68c5c;
+}
+
+#main-container #job-list .job-item:nth-of-type(997)::after {
+  border-color: #a2c894;
+}
+
+#main-container #job-list .job-item:nth-of-type(998)::after {
+  border-color: #1e44b6;
+}
+
+#main-container #job-list .job-item:nth-of-type(999)::after {
+  border-color: #c710c8;
 }
 
 #main-container #job-list .job-item .job-ava {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 5px;
   top: 0;
   left: 20;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  padding: 5px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #main-container #job-list .job-item .job-ava img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   -o-object-position: center center;
      object-position: center center;
 }
@@ -385,11 +4439,38 @@ body {
 }
 
 #main-container #job-button {
+  position: relative;
   width: 100%;
+  margin-bottom: 30px;
+}
+
+#main-container #job-button.empty #empty {
+  opacity: 1;
+}
+
+#main-container #job-button #empty {
+  opacity: 0;
+  font-size: 12px;
+  font-style: italic;
+  position: absolute;
+  color: var(--text);
+  top: -20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
 }
 
 #main-container #job-button #loadmore {
+  cursor: pointer;
   display: block;
   margin: 0 auto;
+  -webkit-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
+}
+
+#main-container #job-button #loadmore:hover {
+  opacity: 0.9;
 }
 /*# sourceMappingURL=style.css.map */
