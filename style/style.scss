@@ -63,6 +63,9 @@ body {
     position: sticky;
     top: 0px;
     z-index: 999;
+    background-image: url('../assets/bg-simplify-section-desktop.svg');
+    background-size: cover;
+    background-position: center center;
 }
 #nav-container {
     position: relative;
@@ -127,12 +130,27 @@ body {
             }
         }
     }
+    #total-job {
+        position: absolute;
+        left:50%;
+        top: -20px;
+        opacity: 0;
+        transition: all 300ms ease;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        transform: translateX(-50%);
+        &.active {
+            opacity: 1;
+            top:-30px;
+        }
+    }
     #nav-form {
         width: 100%;
         position: absolute;
-        bottom:0;
+        bottom:-30px;
         left: 0;
-        transform: translateY(100%);
+        transform: translateY(50%);
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -158,6 +176,7 @@ body {
                 height: 100%;
                 padding: 0 30px;
                 color: var(--body-text);
+                background-color: transparent;
                 &::placeholder {
                     color: var(--body-text);
                 }
@@ -167,12 +186,12 @@ body {
             position: relative;
             width: 30%;
             height: 30px;
-            margin-left: 20px;
+            padding-left: 20px;
             border-right: 1px solid rgba(0,0,0,0.2);
             .material-icons {
                 position: absolute;
                 top:0;
-                left: 0px;
+                left: 20px;
                 line-height: 30px;
                 color: var(--element);
             }
@@ -180,6 +199,7 @@ body {
                 width: 100%;
                 height: 100%;
                 padding: 0 30px;
+                background-color: transparent;
                 color: var(--body-text);
                 &::placeholder {
                     color: var(--body-text);
@@ -197,6 +217,7 @@ body {
             #job-type {
                 width: 18px;
                 height: 100%;
+                margin-left: 2px;
                 border-radius: 5px;
                 background-color: #b8b8b8;
                 margin-right: 10px;
@@ -219,23 +240,74 @@ body {
         }
     }
 }
+@media only screen and (max-width:690px) {
+    #nav-container {
+        padding-bottom: 50px;
+        #nav-form {
+            flex-wrap: wrap;
+            .name-search {
+                width: 50%;
+                margin-bottom: 10px;
+            }
+            .country-search {
+                width: 50%;
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            .job-type {
+                width: 50%;
+                margin-left: 0;
+            }
+        }
+    }
+}
+@media only screen and (max-width:425px) {
+    #nav-container {
+        padding-bottom: 80px;
+        #nav-form {
+            flex-wrap: wrap;
+            .name-search {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .country-search {
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 10px;
+                padding-left: 0;
+                .material-icons {
+                    left: 0px;
+                }
+            }
+            .job-type {
+                width: 50%;
+                margin-left: 0;
+                
+            }
+        }
+    }
+}
+// *** MAIN ***
 #main {
     width: 100%;
     height: 100%;
-    min-height: calc(100vh - 120px);
     padding: 0 20px;
     background-color: var(--background);
 }
 #main-container {
+    display:flex;
+    flex-flow: column nowrap;
     width: 100%;
     max-width: 1000px;
+    min-height: calc(100vh - 120px);
     height: 100%;
     margin: 0 auto;
     padding-top: 80px;
     #job-list {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(3,minmax(32%,300px));
+        grid-template-columns: repeat(3,minmax(30%,300px));
+        column-gap: 20px;
         row-gap: 50px;
         align-items: stretch;
         justify-content: space-between;
@@ -308,6 +380,7 @@ body {
                 font-size: 18px;
                 font-weight: 500;
                 margin-bottom: 5px;
+                color: var(--text);
             }
             .job-company {
                 font-size: 14px;
@@ -326,6 +399,7 @@ body {
         position: relative;
         width: 100%;
         margin-bottom: 30px;
+        margin-top: auto;
         &.empty #empty {
             opacity: 1;
         }
@@ -349,5 +423,35 @@ body {
                 opacity: 0.9;
             }
         }
+    }
+}
+@media only screen and (max-width:690px) {
+    #main {
+    }
+    #main-container {
+        min-height: calc(100vh - 140px);
+        padding-top: 120px;
+        #job-list {
+            grid-template-columns: repeat(2, minmax(40%,300px));
+        }
+    }
+}
+@media only screen and (max-width: 500px) {
+    #main {
+    }
+    #main-container {
+        min-height: calc(100vh - 140px);
+        padding-top: 120px;
+        #job-list {
+            grid-template-columns: repeat(1, 100%);
+        }
+    }
+}
+@media only screen and (max-width: 425px) {
+    #main {
+    }
+    #main-container {
+        min-height: calc(100vh - 170px);
+        padding-top: 150px;
     }
 }

@@ -1,3 +1,24 @@
+// *** NAV ***
+const toggleSwitch = document.getElementById('theme-switch');
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme',currentTheme);
+    if (currentTheme === "dark") {
+        toggleSwitch.checked = true;
+    } else {
+        toggleSwitch.checked = false;
+    }
+}
+toggleSwitch.onclick = function() {
+    if (!toggleSwitch.checked) {
+        document.documentElement.setAttribute('data-theme','light')
+        localStorage.setItem('theme','light');
+    } else {
+        document.documentElement.setAttribute('data-theme','dark')
+        localStorage.setItem('theme','dark');
+    }
+}
+
 // *** MAIN ***
 const jobList = $('#job-list');
     // Create Job item Element
@@ -14,8 +35,9 @@ const jobList = $('#job-list');
     var searchObject = {
         description : "",
         location : "",
-        full_time : "",
+        full_time : "on",
         page : 1,
+        currentJobsShow : 0,
     }
     function createELe() {
         // create
@@ -49,41 +71,46 @@ const jobList = $('#job-list');
         jobAva.appendChild(companyAva);
         jobItem.append(jobAva,jobTime,jobTitle,jobCompany,jobAddress);
         jobList.append(jobItem);
-        setTimeout(function(){
-            $('.job-item').addClass('fadein');
-        },500);
+        setTimeout(function() {
+            $('.job-item').addClass('fadein')
+        },300);
     }
     // Delete Job item Element
     function deleteEle() {
-        // $('.job-item').removeClass('fadein');
+        $('.job-item').removeClass('fadein');
         if ($('.job-item').length !== 0) {
-            // $('.job-item').remove();
-            $('.job-item').fadeOut(300)
+            setTimeout(function() {
+                $('.job-item').remove();
+            },500);
         };
     }
     // Get data from API
     function getList() {
         $.ajax({
-            url : `https://jobs.github.com/positions.json?page=${searchObject.page}&description=${searchObject.description}&full_time=${searchObject.full_time}&location=${searchObject.location}`,
-            header : {
-                "Access-Control-Allow-Origin" : "*",
-            },
-            headers : {
-                // "Access-Control-Allow-Origin" : "http://127.0.0.1:5500",
-                // "Content-Type" : "application/json",
-                // "Access-Control-Allow-Methods" : "POST, GET, OPTIONS",
-                // "Access-Control-Allow-Credentials" : true,
-                // "Cache-Control" : "no-cache",
+            url : "https://jobs.github.com/positions.json?",
+            data : {
+                description : searchObject.description,
+                location : searchObject.location,
+                full_time : searchObject.full_time,
+                page : searchObject.page,
             },
             success : function(data) {
+                $('#total-job').html("");
+                var date = new Date();
+                var currentTime = Date.parse(date.toUTCString());
                 if (data.length === 0) {
                     $('#job-button').addClass('empty');
                 } else {
+                    $('#total-job').html(`Showing 1 of ${data.length + searchObject.currentJobsShow} jobs`);
+                    searchObject.currentJobsShow += data.length;
+                    $('#total-job').addClass('active');
                     $('#job-button').removeClass('empty');
                     for (let i = 0 ; i < data.length ; i++) {
+                        var jobTime = Date.parse(data[i].created_at);
+                        var time = (currentTime - jobTime)/1000/60/60 < 1 ? `${Math.round((currentTime - jobTime)/1000/60)}mins` : (currentTime - jobTime)/1000/60/60 > 24 ? `${Math.round((currentTime - jobTime)/1000/60/60/24)}days` : `${Math.round((currentTime - jobTime)/1000/60/60)}h`;
                         jobListObject.companyAvaUrl = data[i].company_logo;
-                        // missing time > add next time
                         jobListObject.jobTitle = data[i].title;
+                        jobListObject.jobTime = `${time} ago`;
                         jobListObject.jobCompany = data[i].company;
                         jobListObject.jobAddress = data[i].location;
                         jobListObject.jobType = data[i].type;
@@ -104,12 +131,14 @@ const jobList = $('#job-list');
     function submitData() {
         var searchData = searchInput.val();
         var cityData = citySearchInput.val();
-        var type = $('#job-type:checked').length === 1 ? "true" : "" ;
+        var type = $('#job-type:checked').length === 1 ? "on" : "" ;
+        $('#total-job').removeClass('active');
         // Add data to search Object
         searchObject.description = searchData.split(" ").join("+");
         searchObject.location = cityData.split(" ").join("+");
         searchObject.full_time = type;
         searchObject.page = 1;
+        searchObject.currentJobsShow = 0;
         // Call AJAX
         getList();
     }
@@ -119,22 +148,28 @@ const jobList = $('#job-list');
         var keyCode = e.keyCode;
         if (keyCode === 13) {
             deleteEle();
-            submitData();
-            window.scrollTo(0,0);
+            setTimeout(function(){
+                submitData();
+                window.scrollTo(0,0);
+            },500);
         }
     })
     citySearchInput.keyup(function(e){
         var keyCode = e.keyCode;
         if (keyCode === 13) {
             deleteEle();
-            submitData();
-            window.scrollTo(0,0);
+            setTimeout(function(){
+                submitData();
+                window.scrollTo(0,0);
+            },500);
         }
     })
     submitBtn.click(function(){
         deleteEle();
-        submitData();
-        window.scrollTo(0,0);
+        setTimeout(function(){
+            submitData();
+            window.scrollTo(0,0);
+        },500);
     })
 
     // Loadmore button
@@ -148,10 +183,13 @@ const jobList = $('#job-list');
     jobTypeBtn.click(function(){
         if ($('.job-item').length !== 0) {
             deleteEle();
-            searchObject.page = 1;
-            $('#job-type:checked').length === 1 ? "true" : "" ;
-            getList();
-            window.scrollTo(0,0);
+            searchObject.currentJobsShow = 0;
+            setTimeout(function(){
+                searchObject.page = 1;
+                $('#job-type:checked').length === 1 ? "on" : "" ;
+                getList();
+                window.scrollTo(0,0);
+            },500);
         }
     })
     // Add animation

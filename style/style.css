@@ -74,6 +74,9 @@ body {
   position: sticky;
   top: 0px;
   z-index: 999;
+  background-image: url("../assets/bg-simplify-section-desktop.svg");
+  background-size: cover;
+  background-position: center center;
 }
 
 #nav-container {
@@ -163,13 +166,32 @@ body {
           transform: translateX(30px);
 }
 
+#nav-container #total-job {
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  opacity: 0;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#nav-container #total-job.active {
+  opacity: 1;
+  top: -30px;
+}
+
 #nav-container #nav-form {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: -30px;
   left: 0;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
   padding: 20px;
   border-radius: 10px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -207,6 +229,7 @@ body {
   height: 100%;
   padding: 0 30px;
   color: var(--body-text);
+  background-color: transparent;
 }
 
 #nav-container #nav-form .name-search #name-search::-webkit-input-placeholder {
@@ -229,14 +252,14 @@ body {
   position: relative;
   width: 30%;
   height: 30px;
-  margin-left: 20px;
+  padding-left: 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #nav-container #nav-form .country-search .material-icons {
   position: absolute;
   top: 0;
-  left: 0px;
+  left: 20px;
   line-height: 30px;
   color: var(--element);
 }
@@ -245,6 +268,7 @@ body {
   width: 100%;
   height: 100%;
   padding: 0 30px;
+  background-color: transparent;
   color: var(--body-text);
 }
 
@@ -283,6 +307,7 @@ body {
 #nav-container #nav-form .job-type #job-type {
   width: 18px;
   height: 100%;
+  margin-left: 2px;
   border-radius: 5px;
   background-color: #b8b8b8;
   margin-right: 10px;
@@ -306,17 +331,74 @@ body {
   color: var(--text);
 }
 
+@media only screen and (max-width: 690px) {
+  #nav-container {
+    padding-bottom: 50px;
+  }
+  #nav-container #nav-form {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #nav-container #nav-form .name-search {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+  #nav-container #nav-form .country-search {
+    width: 50%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  #nav-container #nav-form .job-type {
+    width: 50%;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #nav-container {
+    padding-bottom: 80px;
+  }
+  #nav-container #nav-form {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #nav-container #nav-form .name-search {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  #nav-container #nav-form .country-search {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
+  #nav-container #nav-form .country-search .material-icons {
+    left: 0px;
+  }
+  #nav-container #nav-form .job-type {
+    width: 50%;
+    margin-left: 0;
+  }
+}
+
 #main {
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 120px);
   padding: 0 20px;
   background-color: var(--background);
 }
 
 #main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   width: 100%;
   max-width: 1000px;
+  min-height: calc(100vh - 120px);
   height: 100%;
   margin: 0 auto;
   padding-top: 80px;
@@ -326,8 +408,10 @@ body {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(32%, 300px))[3];
-      grid-template-columns: repeat(3, minmax(32%, 300px));
+  -ms-grid-columns: (minmax(30%, 300px))[3];
+      grid-template-columns: repeat(3, minmax(30%, 300px));
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
   row-gap: 50px;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
@@ -390,4003 +474,4003 @@ body {
 }
 
 #main-container #job-list .job-item:nth-of-type(0)::after {
-  border-color: #d385bb;
+  border-color: #aad942;
 }
 
 #main-container #job-list .job-item:nth-of-type(1)::after {
-  border-color: #87a3e9;
+  border-color: #bb1ff8;
 }
 
 #main-container #job-list .job-item:nth-of-type(2)::after {
-  border-color: #026e24;
+  border-color: #5ffddd;
 }
 
 #main-container #job-list .job-item:nth-of-type(3)::after {
-  border-color: #4f6264;
+  border-color: #a77509;
 }
 
 #main-container #job-list .job-item:nth-of-type(4)::after {
-  border-color: #49b561;
+  border-color: #08160f;
 }
 
 #main-container #job-list .job-item:nth-of-type(5)::after {
-  border-color: #f484dc;
+  border-color: #5106bd;
 }
 
 #main-container #job-list .job-item:nth-of-type(6)::after {
-  border-color: #31f525;
+  border-color: #582340;
 }
 
 #main-container #job-list .job-item:nth-of-type(7)::after {
-  border-color: #b7e9ba;
+  border-color: #ea0d29;
 }
 
 #main-container #job-list .job-item:nth-of-type(8)::after {
-  border-color: #33bbe7;
+  border-color: #22a04c;
 }
 
 #main-container #job-list .job-item:nth-of-type(9)::after {
-  border-color: #b1c478;
+  border-color: #c4c61e;
 }
 
 #main-container #job-list .job-item:nth-of-type(10)::after {
-  border-color: #235118;
+  border-color: #c19889;
 }
 
 #main-container #job-list .job-item:nth-of-type(11)::after {
-  border-color: #811285;
+  border-color: #795029;
 }
 
 #main-container #job-list .job-item:nth-of-type(12)::after {
-  border-color: #a9a9f5;
+  border-color: #c41921;
 }
 
 #main-container #job-list .job-item:nth-of-type(13)::after {
-  border-color: #0296ac;
+  border-color: #5637f5;
 }
 
 #main-container #job-list .job-item:nth-of-type(14)::after {
-  border-color: #27ac5d;
+  border-color: #2782d9;
 }
 
 #main-container #job-list .job-item:nth-of-type(15)::after {
-  border-color: #c187b4;
+  border-color: #761722;
 }
 
 #main-container #job-list .job-item:nth-of-type(16)::after {
-  border-color: #bccd19;
+  border-color: #039c64;
 }
 
 #main-container #job-list .job-item:nth-of-type(17)::after {
-  border-color: #9a999e;
+  border-color: #50f340;
 }
 
 #main-container #job-list .job-item:nth-of-type(18)::after {
-  border-color: #9f7e61;
+  border-color: #533c8d;
 }
 
 #main-container #job-list .job-item:nth-of-type(19)::after {
-  border-color: #d4f88c;
+  border-color: #697d10;
 }
 
 #main-container #job-list .job-item:nth-of-type(20)::after {
-  border-color: #c842d2;
+  border-color: #363c7b;
 }
 
 #main-container #job-list .job-item:nth-of-type(21)::after {
-  border-color: #0fa4a9;
+  border-color: #0c0bf6;
 }
 
 #main-container #job-list .job-item:nth-of-type(22)::after {
-  border-color: #54892d;
+  border-color: #14bbcc;
 }
 
 #main-container #job-list .job-item:nth-of-type(23)::after {
-  border-color: #19ede9;
+  border-color: #b05064;
 }
 
 #main-container #job-list .job-item:nth-of-type(24)::after {
-  border-color: #a26209;
+  border-color: #f726c5;
 }
 
 #main-container #job-list .job-item:nth-of-type(25)::after {
-  border-color: #38271e;
+  border-color: #656601;
 }
 
 #main-container #job-list .job-item:nth-of-type(26)::after {
-  border-color: #d86789;
+  border-color: #843a15;
 }
 
 #main-container #job-list .job-item:nth-of-type(27)::after {
-  border-color: #cf463b;
+  border-color: #77c9eb;
 }
 
 #main-container #job-list .job-item:nth-of-type(28)::after {
-  border-color: #f884d2;
+  border-color: #8edc48;
 }
 
 #main-container #job-list .job-item:nth-of-type(29)::after {
-  border-color: #552316;
+  border-color: #1ef904;
 }
 
 #main-container #job-list .job-item:nth-of-type(30)::after {
-  border-color: #a0b282;
+  border-color: #977cb6;
 }
 
 #main-container #job-list .job-item:nth-of-type(31)::after {
-  border-color: #a8f2ef;
+  border-color: #3b2cc4;
 }
 
 #main-container #job-list .job-item:nth-of-type(32)::after {
-  border-color: #92fafb;
+  border-color: #513623;
 }
 
 #main-container #job-list .job-item:nth-of-type(33)::after {
-  border-color: #770f9a;
+  border-color: #dc5866;
 }
 
 #main-container #job-list .job-item:nth-of-type(34)::after {
-  border-color: #31535a;
+  border-color: #6456b5;
 }
 
 #main-container #job-list .job-item:nth-of-type(35)::after {
-  border-color: #c7cb65;
+  border-color: #e874ac;
 }
 
 #main-container #job-list .job-item:nth-of-type(36)::after {
-  border-color: #844ee3;
+  border-color: #ecf421;
 }
 
 #main-container #job-list .job-item:nth-of-type(37)::after {
-  border-color: #0e12ff;
+  border-color: #65c22a;
 }
 
 #main-container #job-list .job-item:nth-of-type(38)::after {
-  border-color: #8af224;
+  border-color: #021fcf;
 }
 
 #main-container #job-list .job-item:nth-of-type(39)::after {
-  border-color: #c39463;
+  border-color: #c9e705;
 }
 
 #main-container #job-list .job-item:nth-of-type(40)::after {
-  border-color: #568b2b;
+  border-color: #1024cc;
 }
 
 #main-container #job-list .job-item:nth-of-type(41)::after {
-  border-color: #531bda;
+  border-color: #d54e95;
 }
 
 #main-container #job-list .job-item:nth-of-type(42)::after {
-  border-color: #9e5bdc;
+  border-color: #3fbf7d;
 }
 
 #main-container #job-list .job-item:nth-of-type(43)::after {
-  border-color: #253fe0;
+  border-color: #a64417;
 }
 
 #main-container #job-list .job-item:nth-of-type(44)::after {
-  border-color: #fd55b6;
+  border-color: #d19ba9;
 }
 
 #main-container #job-list .job-item:nth-of-type(45)::after {
-  border-color: #b3049d;
+  border-color: #f73c42;
 }
 
 #main-container #job-list .job-item:nth-of-type(46)::after {
-  border-color: #16b7b0;
+  border-color: #a22559;
 }
 
 #main-container #job-list .job-item:nth-of-type(47)::after {
-  border-color: #c242b6;
+  border-color: #6c06ac;
 }
 
 #main-container #job-list .job-item:nth-of-type(48)::after {
-  border-color: #8a4e31;
+  border-color: #b7e430;
 }
 
 #main-container #job-list .job-item:nth-of-type(49)::after {
-  border-color: #b719f6;
+  border-color: #eebd15;
 }
 
 #main-container #job-list .job-item:nth-of-type(50)::after {
-  border-color: #5866bb;
+  border-color: #8579fc;
 }
 
 #main-container #job-list .job-item:nth-of-type(51)::after {
-  border-color: #535455;
+  border-color: #b5cce9;
 }
 
 #main-container #job-list .job-item:nth-of-type(52)::after {
-  border-color: #75d160;
+  border-color: #96f4f5;
 }
 
 #main-container #job-list .job-item:nth-of-type(53)::after {
-  border-color: #f03150;
+  border-color: #08a837;
 }
 
 #main-container #job-list .job-item:nth-of-type(54)::after {
-  border-color: #8ec28b;
+  border-color: #8278c5;
 }
 
 #main-container #job-list .job-item:nth-of-type(55)::after {
-  border-color: #bd7c28;
+  border-color: #6cba29;
 }
 
 #main-container #job-list .job-item:nth-of-type(56)::after {
-  border-color: #f131a2;
+  border-color: #322b3d;
 }
 
 #main-container #job-list .job-item:nth-of-type(57)::after {
-  border-color: #bdb81f;
+  border-color: #a05325;
 }
 
 #main-container #job-list .job-item:nth-of-type(58)::after {
-  border-color: #701dcd;
+  border-color: #10eb4b;
 }
 
 #main-container #job-list .job-item:nth-of-type(59)::after {
-  border-color: #d9ccf3;
+  border-color: #9c41b4;
 }
 
 #main-container #job-list .job-item:nth-of-type(60)::after {
-  border-color: #8f90f9;
+  border-color: #69de29;
 }
 
 #main-container #job-list .job-item:nth-of-type(61)::after {
-  border-color: #39d1ca;
+  border-color: #a3f424;
 }
 
 #main-container #job-list .job-item:nth-of-type(62)::after {
-  border-color: #ae6143;
+  border-color: #2673b8;
 }
 
 #main-container #job-list .job-item:nth-of-type(63)::after {
-  border-color: #814a43;
+  border-color: #a16689;
 }
 
 #main-container #job-list .job-item:nth-of-type(64)::after {
-  border-color: #c7ee46;
+  border-color: #f78377;
 }
 
 #main-container #job-list .job-item:nth-of-type(65)::after {
-  border-color: #efaa21;
+  border-color: #64e63d;
 }
 
 #main-container #job-list .job-item:nth-of-type(66)::after {
-  border-color: #21d0cd;
+  border-color: #433515;
 }
 
 #main-container #job-list .job-item:nth-of-type(67)::after {
-  border-color: #73784d;
+  border-color: #018d24;
 }
 
 #main-container #job-list .job-item:nth-of-type(68)::after {
-  border-color: #d05d31;
+  border-color: #e2a7c7;
 }
 
 #main-container #job-list .job-item:nth-of-type(69)::after {
-  border-color: #c1a5ee;
+  border-color: #b4da11;
 }
 
 #main-container #job-list .job-item:nth-of-type(70)::after {
-  border-color: #01ca1d;
+  border-color: #c62bbf;
 }
 
 #main-container #job-list .job-item:nth-of-type(71)::after {
-  border-color: #bb1b12;
+  border-color: #9623df;
 }
 
 #main-container #job-list .job-item:nth-of-type(72)::after {
-  border-color: #79d3b4;
+  border-color: #4c85a9;
 }
 
 #main-container #job-list .job-item:nth-of-type(73)::after {
-  border-color: #90bdf3;
+  border-color: #b26df9;
 }
 
 #main-container #job-list .job-item:nth-of-type(74)::after {
-  border-color: #bf1a1a;
+  border-color: #32d7de;
 }
 
 #main-container #job-list .job-item:nth-of-type(75)::after {
-  border-color: #7cc9d1;
+  border-color: #4481cb;
 }
 
 #main-container #job-list .job-item:nth-of-type(76)::after {
-  border-color: #96f9a8;
+  border-color: #9ee81d;
 }
 
 #main-container #job-list .job-item:nth-of-type(77)::after {
-  border-color: #02128f;
+  border-color: #4f6917;
 }
 
 #main-container #job-list .job-item:nth-of-type(78)::after {
-  border-color: #fbbe06;
+  border-color: #5212d1;
 }
 
 #main-container #job-list .job-item:nth-of-type(79)::after {
-  border-color: #ccead5;
+  border-color: #4b16a4;
 }
 
 #main-container #job-list .job-item:nth-of-type(80)::after {
-  border-color: #60aaef;
+  border-color: #8fb5f7;
 }
 
 #main-container #job-list .job-item:nth-of-type(81)::after {
-  border-color: #3ddb13;
+  border-color: #3a7e36;
 }
 
 #main-container #job-list .job-item:nth-of-type(82)::after {
-  border-color: #45a8e3;
+  border-color: #972e67;
 }
 
 #main-container #job-list .job-item:nth-of-type(83)::after {
-  border-color: #e7bfc6;
+  border-color: #eb750a;
 }
 
 #main-container #job-list .job-item:nth-of-type(84)::after {
-  border-color: #7b93a6;
+  border-color: #dcc1b2;
 }
 
 #main-container #job-list .job-item:nth-of-type(85)::after {
-  border-color: #0f3c55;
+  border-color: #075ed9;
 }
 
 #main-container #job-list .job-item:nth-of-type(86)::after {
-  border-color: #90a54a;
+  border-color: #8836b8;
 }
 
 #main-container #job-list .job-item:nth-of-type(87)::after {
-  border-color: #f0e767;
+  border-color: #c32855;
 }
 
 #main-container #job-list .job-item:nth-of-type(88)::after {
-  border-color: #0ce9e1;
+  border-color: #ef0bc9;
 }
 
 #main-container #job-list .job-item:nth-of-type(89)::after {
-  border-color: #474f90;
+  border-color: #23dc89;
 }
 
 #main-container #job-list .job-item:nth-of-type(90)::after {
-  border-color: #1b13fc;
+  border-color: #63b7b9;
 }
 
 #main-container #job-list .job-item:nth-of-type(91)::after {
-  border-color: #c03b67;
+  border-color: #2b9699;
 }
 
 #main-container #job-list .job-item:nth-of-type(92)::after {
-  border-color: #2d156f;
+  border-color: #1365ab;
 }
 
 #main-container #job-list .job-item:nth-of-type(93)::after {
-  border-color: #d61fbb;
+  border-color: #8abcf7;
 }
 
 #main-container #job-list .job-item:nth-of-type(94)::after {
-  border-color: #268676;
+  border-color: #fcedfd;
 }
 
 #main-container #job-list .job-item:nth-of-type(95)::after {
-  border-color: #ae5923;
+  border-color: #d5724f;
 }
 
 #main-container #job-list .job-item:nth-of-type(96)::after {
-  border-color: #cadb37;
+  border-color: #9f7a46;
 }
 
 #main-container #job-list .job-item:nth-of-type(97)::after {
-  border-color: #5ce2d5;
+  border-color: #7afcc1;
 }
 
 #main-container #job-list .job-item:nth-of-type(98)::after {
-  border-color: #cf981f;
+  border-color: #b16bfa;
 }
 
 #main-container #job-list .job-item:nth-of-type(99)::after {
-  border-color: #25a347;
+  border-color: #b2a3ec;
 }
 
 #main-container #job-list .job-item:nth-of-type(100)::after {
-  border-color: #b3577d;
+  border-color: #2f55fa;
 }
 
 #main-container #job-list .job-item:nth-of-type(101)::after {
-  border-color: #6559fc;
+  border-color: #7096f0;
 }
 
 #main-container #job-list .job-item:nth-of-type(102)::after {
-  border-color: #d9f1ed;
+  border-color: #fb5a99;
 }
 
 #main-container #job-list .job-item:nth-of-type(103)::after {
-  border-color: #10e1e7;
+  border-color: #890f79;
 }
 
 #main-container #job-list .job-item:nth-of-type(104)::after {
-  border-color: #fdeed9;
+  border-color: #563666;
 }
 
 #main-container #job-list .job-item:nth-of-type(105)::after {
-  border-color: #087b4d;
+  border-color: #57cdf6;
 }
 
 #main-container #job-list .job-item:nth-of-type(106)::after {
-  border-color: #b7fb3f;
+  border-color: #8a5f47;
 }
 
 #main-container #job-list .job-item:nth-of-type(107)::after {
-  border-color: #83bbc8;
+  border-color: #6a2da8;
 }
 
 #main-container #job-list .job-item:nth-of-type(108)::after {
-  border-color: #22c2ad;
+  border-color: #424bf2;
 }
 
 #main-container #job-list .job-item:nth-of-type(109)::after {
-  border-color: #333df2;
+  border-color: #02bb96;
 }
 
 #main-container #job-list .job-item:nth-of-type(110)::after {
-  border-color: #5de977;
+  border-color: #fb2fc1;
 }
 
 #main-container #job-list .job-item:nth-of-type(111)::after {
-  border-color: #d4114f;
+  border-color: #7d2865;
 }
 
 #main-container #job-list .job-item:nth-of-type(112)::after {
-  border-color: #84a055;
+  border-color: #3966c0;
 }
 
 #main-container #job-list .job-item:nth-of-type(113)::after {
-  border-color: #0a309d;
+  border-color: #8b405d;
 }
 
 #main-container #job-list .job-item:nth-of-type(114)::after {
-  border-color: #c47cdb;
+  border-color: #33c72d;
 }
 
 #main-container #job-list .job-item:nth-of-type(115)::after {
-  border-color: #6cc942;
+  border-color: #20e670;
 }
 
 #main-container #job-list .job-item:nth-of-type(116)::after {
-  border-color: #dd86fd;
+  border-color: #7dfc16;
 }
 
 #main-container #job-list .job-item:nth-of-type(117)::after {
-  border-color: #cd5901;
+  border-color: #aed639;
 }
 
 #main-container #job-list .job-item:nth-of-type(118)::after {
-  border-color: #9c9b66;
+  border-color: #c056ab;
 }
 
 #main-container #job-list .job-item:nth-of-type(119)::after {
-  border-color: #140d34;
+  border-color: #d162fb;
 }
 
 #main-container #job-list .job-item:nth-of-type(120)::after {
-  border-color: #0cbd1e;
+  border-color: #a774d8;
 }
 
 #main-container #job-list .job-item:nth-of-type(121)::after {
-  border-color: #2369e9;
+  border-color: #c40be0;
 }
 
 #main-container #job-list .job-item:nth-of-type(122)::after {
-  border-color: #0bd88e;
+  border-color: #f39bd9;
 }
 
 #main-container #job-list .job-item:nth-of-type(123)::after {
-  border-color: #6ccace;
+  border-color: #283ee1;
 }
 
 #main-container #job-list .job-item:nth-of-type(124)::after {
-  border-color: #78b8e9;
+  border-color: #64e145;
 }
 
 #main-container #job-list .job-item:nth-of-type(125)::after {
-  border-color: #ad3240;
+  border-color: #8d0e18;
 }
 
 #main-container #job-list .job-item:nth-of-type(126)::after {
-  border-color: #2e4e15;
+  border-color: #453ffa;
 }
 
 #main-container #job-list .job-item:nth-of-type(127)::after {
-  border-color: #1b0de4;
+  border-color: #270480;
 }
 
 #main-container #job-list .job-item:nth-of-type(128)::after {
-  border-color: #20c5f0;
+  border-color: #12f350;
 }
 
 #main-container #job-list .job-item:nth-of-type(129)::after {
-  border-color: #784987;
+  border-color: #649e17;
 }
 
 #main-container #job-list .job-item:nth-of-type(130)::after {
-  border-color: #72a068;
+  border-color: #745310;
 }
 
 #main-container #job-list .job-item:nth-of-type(131)::after {
-  border-color: #6be4bc;
+  border-color: #80d6e2;
 }
 
 #main-container #job-list .job-item:nth-of-type(132)::after {
-  border-color: #245950;
+  border-color: #1cfce5;
 }
 
 #main-container #job-list .job-item:nth-of-type(133)::after {
-  border-color: #099325;
+  border-color: #c36abb;
 }
 
 #main-container #job-list .job-item:nth-of-type(134)::after {
-  border-color: #0170a4;
+  border-color: #ed7992;
 }
 
 #main-container #job-list .job-item:nth-of-type(135)::after {
-  border-color: #733bc4;
+  border-color: #50bee2;
 }
 
 #main-container #job-list .job-item:nth-of-type(136)::after {
-  border-color: #1e2fcc;
+  border-color: #ebafb1;
 }
 
 #main-container #job-list .job-item:nth-of-type(137)::after {
-  border-color: #4d39ae;
+  border-color: #4724da;
 }
 
 #main-container #job-list .job-item:nth-of-type(138)::after {
-  border-color: #275072;
+  border-color: #4ab51e;
 }
 
 #main-container #job-list .job-item:nth-of-type(139)::after {
-  border-color: #f62820;
+  border-color: #9fae3a;
 }
 
 #main-container #job-list .job-item:nth-of-type(140)::after {
-  border-color: #02ffff;
+  border-color: #6866a5;
 }
 
 #main-container #job-list .job-item:nth-of-type(141)::after {
-  border-color: #8760cd;
+  border-color: #2233f7;
 }
 
 #main-container #job-list .job-item:nth-of-type(142)::after {
-  border-color: #57ddf6;
+  border-color: #459c47;
 }
 
 #main-container #job-list .job-item:nth-of-type(143)::after {
-  border-color: #c340d4;
+  border-color: #05fdbb;
 }
 
 #main-container #job-list .job-item:nth-of-type(144)::after {
-  border-color: #f055d3;
+  border-color: #888c4e;
 }
 
 #main-container #job-list .job-item:nth-of-type(145)::after {
-  border-color: #4b5bde;
+  border-color: #7909cc;
 }
 
 #main-container #job-list .job-item:nth-of-type(146)::after {
-  border-color: #cacf0b;
+  border-color: #f8cb14;
 }
 
 #main-container #job-list .job-item:nth-of-type(147)::after {
-  border-color: #04e7f7;
+  border-color: #12fd7c;
 }
 
 #main-container #job-list .job-item:nth-of-type(148)::after {
-  border-color: #6b3640;
+  border-color: #019040;
 }
 
 #main-container #job-list .job-item:nth-of-type(149)::after {
-  border-color: #e4503b;
+  border-color: #1a1d41;
 }
 
 #main-container #job-list .job-item:nth-of-type(150)::after {
-  border-color: #e074b1;
+  border-color: #f03c29;
 }
 
 #main-container #job-list .job-item:nth-of-type(151)::after {
-  border-color: #b69a33;
+  border-color: #5154f6;
 }
 
 #main-container #job-list .job-item:nth-of-type(152)::after {
-  border-color: #38bc10;
+  border-color: #649cfd;
 }
 
 #main-container #job-list .job-item:nth-of-type(153)::after {
-  border-color: #72c7e9;
+  border-color: #40784a;
 }
 
 #main-container #job-list .job-item:nth-of-type(154)::after {
-  border-color: #16b815;
+  border-color: #1a21e6;
 }
 
 #main-container #job-list .job-item:nth-of-type(155)::after {
-  border-color: #3b0db5;
+  border-color: #61fbda;
 }
 
 #main-container #job-list .job-item:nth-of-type(156)::after {
-  border-color: #960c83;
+  border-color: #f663c6;
 }
 
 #main-container #job-list .job-item:nth-of-type(157)::after {
-  border-color: #77f59c;
+  border-color: #1d4b94;
 }
 
 #main-container #job-list .job-item:nth-of-type(158)::after {
-  border-color: #d4367e;
+  border-color: #6f877c;
 }
 
 #main-container #job-list .job-item:nth-of-type(159)::after {
-  border-color: #41f54c;
+  border-color: #2ce379;
 }
 
 #main-container #job-list .job-item:nth-of-type(160)::after {
-  border-color: #453ad3;
+  border-color: #8758cf;
 }
 
 #main-container #job-list .job-item:nth-of-type(161)::after {
-  border-color: #a847b9;
+  border-color: #c0f538;
 }
 
 #main-container #job-list .job-item:nth-of-type(162)::after {
-  border-color: #5aa1b3;
+  border-color: #428cfe;
 }
 
 #main-container #job-list .job-item:nth-of-type(163)::after {
-  border-color: #6316e4;
+  border-color: #ec6896;
 }
 
 #main-container #job-list .job-item:nth-of-type(164)::after {
-  border-color: #e7a1ff;
+  border-color: #bbae38;
 }
 
 #main-container #job-list .job-item:nth-of-type(165)::after {
-  border-color: #07226c;
+  border-color: #c17162;
 }
 
 #main-container #job-list .job-item:nth-of-type(166)::after {
-  border-color: #3a0c6f;
+  border-color: #26ad0c;
 }
 
 #main-container #job-list .job-item:nth-of-type(167)::after {
-  border-color: #8f2f7a;
+  border-color: #56dc65;
 }
 
 #main-container #job-list .job-item:nth-of-type(168)::after {
-  border-color: #c1cce7;
+  border-color: #32268b;
 }
 
 #main-container #job-list .job-item:nth-of-type(169)::after {
-  border-color: #e93dae;
+  border-color: #8661a3;
 }
 
 #main-container #job-list .job-item:nth-of-type(170)::after {
-  border-color: #60a44a;
+  border-color: #4da710;
 }
 
 #main-container #job-list .job-item:nth-of-type(171)::after {
-  border-color: #683642;
+  border-color: #262687;
 }
 
 #main-container #job-list .job-item:nth-of-type(172)::after {
-  border-color: #c9ef0d;
+  border-color: #9e94c8;
 }
 
 #main-container #job-list .job-item:nth-of-type(173)::after {
-  border-color: #cc3a8b;
+  border-color: #03837c;
 }
 
 #main-container #job-list .job-item:nth-of-type(174)::after {
-  border-color: #392fe0;
+  border-color: #937909;
 }
 
 #main-container #job-list .job-item:nth-of-type(175)::after {
-  border-color: #5e13fc;
+  border-color: #addb87;
 }
 
 #main-container #job-list .job-item:nth-of-type(176)::after {
-  border-color: #22e8bd;
+  border-color: #3684af;
 }
 
 #main-container #job-list .job-item:nth-of-type(177)::after {
-  border-color: #429a10;
+  border-color: #2940f9;
 }
 
 #main-container #job-list .job-item:nth-of-type(178)::after {
-  border-color: #25ac66;
+  border-color: #94325b;
 }
 
 #main-container #job-list .job-item:nth-of-type(179)::after {
-  border-color: #471657;
+  border-color: #f5148e;
 }
 
 #main-container #job-list .job-item:nth-of-type(180)::after {
-  border-color: #4818b3;
+  border-color: #67c390;
 }
 
 #main-container #job-list .job-item:nth-of-type(181)::after {
-  border-color: #75954a;
+  border-color: #d7136b;
 }
 
 #main-container #job-list .job-item:nth-of-type(182)::after {
-  border-color: #1e3d03;
+  border-color: #9623d4;
 }
 
 #main-container #job-list .job-item:nth-of-type(183)::after {
-  border-color: #19fff4;
+  border-color: #431232;
 }
 
 #main-container #job-list .job-item:nth-of-type(184)::after {
-  border-color: #527de5;
+  border-color: #f6fa3b;
 }
 
 #main-container #job-list .job-item:nth-of-type(185)::after {
-  border-color: #f6240d;
+  border-color: #8edeaf;
 }
 
 #main-container #job-list .job-item:nth-of-type(186)::after {
-  border-color: #dc7f3e;
+  border-color: #14b483;
 }
 
 #main-container #job-list .job-item:nth-of-type(187)::after {
-  border-color: #dd5c2d;
+  border-color: #270b98;
 }
 
 #main-container #job-list .job-item:nth-of-type(188)::after {
-  border-color: #723a3d;
+  border-color: #c15ea8;
 }
 
 #main-container #job-list .job-item:nth-of-type(189)::after {
-  border-color: #4a0916;
+  border-color: #bb7c1f;
 }
 
 #main-container #job-list .job-item:nth-of-type(190)::after {
-  border-color: #724998;
+  border-color: #6c239d;
 }
 
 #main-container #job-list .job-item:nth-of-type(191)::after {
-  border-color: #df8257;
+  border-color: #1a9565;
 }
 
 #main-container #job-list .job-item:nth-of-type(192)::after {
-  border-color: #5587e6;
+  border-color: #2aa9a7;
 }
 
 #main-container #job-list .job-item:nth-of-type(193)::after {
-  border-color: #4b490b;
+  border-color: #ec2eb8;
 }
 
 #main-container #job-list .job-item:nth-of-type(194)::after {
-  border-color: #4fbbc2;
+  border-color: #086f20;
 }
 
 #main-container #job-list .job-item:nth-of-type(195)::after {
-  border-color: #b49840;
+  border-color: #b21f37;
 }
 
 #main-container #job-list .job-item:nth-of-type(196)::after {
-  border-color: #64359b;
+  border-color: #ecadbf;
 }
 
 #main-container #job-list .job-item:nth-of-type(197)::after {
-  border-color: #2daed7;
+  border-color: #c8ce40;
 }
 
 #main-container #job-list .job-item:nth-of-type(198)::after {
-  border-color: #0c5f87;
+  border-color: #bebd39;
 }
 
 #main-container #job-list .job-item:nth-of-type(199)::after {
-  border-color: #300988;
+  border-color: #7de8c2;
 }
 
 #main-container #job-list .job-item:nth-of-type(200)::after {
-  border-color: #555fc0;
+  border-color: #0e5460;
 }
 
 #main-container #job-list .job-item:nth-of-type(201)::after {
-  border-color: #8be527;
+  border-color: #b04452;
 }
 
 #main-container #job-list .job-item:nth-of-type(202)::after {
-  border-color: #f2f34f;
+  border-color: #e7e2ba;
 }
 
 #main-container #job-list .job-item:nth-of-type(203)::after {
-  border-color: #8b3161;
+  border-color: #b03fdc;
 }
 
 #main-container #job-list .job-item:nth-of-type(204)::after {
-  border-color: #3304be;
+  border-color: #1804bf;
 }
 
 #main-container #job-list .job-item:nth-of-type(205)::after {
-  border-color: #5cda84;
+  border-color: #318065;
 }
 
 #main-container #job-list .job-item:nth-of-type(206)::after {
-  border-color: #48c5c1;
+  border-color: #4a7343;
 }
 
 #main-container #job-list .job-item:nth-of-type(207)::after {
-  border-color: #b916bb;
+  border-color: #d06471;
 }
 
 #main-container #job-list .job-item:nth-of-type(208)::after {
-  border-color: #43856a;
+  border-color: #e501a4;
 }
 
 #main-container #job-list .job-item:nth-of-type(209)::after {
-  border-color: #4fee4b;
+  border-color: #8c8996;
 }
 
 #main-container #job-list .job-item:nth-of-type(210)::after {
-  border-color: #0976fa;
+  border-color: #9aa7db;
 }
 
 #main-container #job-list .job-item:nth-of-type(211)::after {
-  border-color: #977141;
+  border-color: #b2a97a;
 }
 
 #main-container #job-list .job-item:nth-of-type(212)::after {
-  border-color: #80da33;
+  border-color: #fe59b6;
 }
 
 #main-container #job-list .job-item:nth-of-type(213)::after {
-  border-color: #e6a261;
+  border-color: #47d180;
 }
 
 #main-container #job-list .job-item:nth-of-type(214)::after {
-  border-color: #eaee02;
+  border-color: #eab7ac;
 }
 
 #main-container #job-list .job-item:nth-of-type(215)::after {
-  border-color: #b70119;
+  border-color: #978da2;
 }
 
 #main-container #job-list .job-item:nth-of-type(216)::after {
-  border-color: #deebab;
+  border-color: #7b550b;
 }
 
 #main-container #job-list .job-item:nth-of-type(217)::after {
-  border-color: #8bb417;
+  border-color: #a73012;
 }
 
 #main-container #job-list .job-item:nth-of-type(218)::after {
-  border-color: #f16cd6;
+  border-color: #7fc198;
 }
 
 #main-container #job-list .job-item:nth-of-type(219)::after {
-  border-color: #a9aec3;
+  border-color: #9cd135;
 }
 
 #main-container #job-list .job-item:nth-of-type(220)::after {
-  border-color: #52e643;
+  border-color: #7f35c3;
 }
 
 #main-container #job-list .job-item:nth-of-type(221)::after {
-  border-color: #16c61d;
+  border-color: #67ac18;
 }
 
 #main-container #job-list .job-item:nth-of-type(222)::after {
-  border-color: #bd7a3d;
+  border-color: #baf7e3;
 }
 
 #main-container #job-list .job-item:nth-of-type(223)::after {
-  border-color: #360f6f;
+  border-color: #29c6ac;
 }
 
 #main-container #job-list .job-item:nth-of-type(224)::after {
-  border-color: #73c755;
+  border-color: #7d747a;
 }
 
 #main-container #job-list .job-item:nth-of-type(225)::after {
-  border-color: #b18255;
+  border-color: #7012f5;
 }
 
 #main-container #job-list .job-item:nth-of-type(226)::after {
-  border-color: #0eb3aa;
+  border-color: #9a203c;
 }
 
 #main-container #job-list .job-item:nth-of-type(227)::after {
-  border-color: #a447ac;
+  border-color: #4632af;
 }
 
 #main-container #job-list .job-item:nth-of-type(228)::after {
-  border-color: #0d73e2;
+  border-color: #515369;
 }
 
 #main-container #job-list .job-item:nth-of-type(229)::after {
-  border-color: #a024ee;
+  border-color: #18d440;
 }
 
 #main-container #job-list .job-item:nth-of-type(230)::after {
-  border-color: #0cc0df;
+  border-color: #3f0901;
 }
 
 #main-container #job-list .job-item:nth-of-type(231)::after {
-  border-color: #696c2f;
+  border-color: #77ebce;
 }
 
 #main-container #job-list .job-item:nth-of-type(232)::after {
-  border-color: #418f9f;
+  border-color: #c2cb50;
 }
 
 #main-container #job-list .job-item:nth-of-type(233)::after {
-  border-color: #c23ba2;
+  border-color: #cc5fb5;
 }
 
 #main-container #job-list .job-item:nth-of-type(234)::after {
-  border-color: #53a744;
+  border-color: #a47e92;
 }
 
 #main-container #job-list .job-item:nth-of-type(235)::after {
-  border-color: #bf1f8d;
+  border-color: #eea604;
 }
 
 #main-container #job-list .job-item:nth-of-type(236)::after {
-  border-color: #c7350f;
+  border-color: #02e9f7;
 }
 
 #main-container #job-list .job-item:nth-of-type(237)::after {
-  border-color: #ed219c;
+  border-color: #254322;
 }
 
 #main-container #job-list .job-item:nth-of-type(238)::after {
-  border-color: #bbee19;
+  border-color: #f0d6e1;
 }
 
 #main-container #job-list .job-item:nth-of-type(239)::after {
-  border-color: #116eea;
+  border-color: #c2fa4c;
 }
 
 #main-container #job-list .job-item:nth-of-type(240)::after {
-  border-color: #1827b1;
+  border-color: #87aa47;
 }
 
 #main-container #job-list .job-item:nth-of-type(241)::after {
-  border-color: #fcdbe8;
+  border-color: #20e096;
 }
 
 #main-container #job-list .job-item:nth-of-type(242)::after {
-  border-color: #375e63;
+  border-color: #19e6c9;
 }
 
 #main-container #job-list .job-item:nth-of-type(243)::after {
-  border-color: #fbbdf7;
+  border-color: #b726e9;
 }
 
 #main-container #job-list .job-item:nth-of-type(244)::after {
-  border-color: #407dcb;
+  border-color: #7b588f;
 }
 
 #main-container #job-list .job-item:nth-of-type(245)::after {
-  border-color: #aee75a;
+  border-color: #de45be;
 }
 
 #main-container #job-list .job-item:nth-of-type(246)::after {
-  border-color: #327061;
+  border-color: #d60129;
 }
 
 #main-container #job-list .job-item:nth-of-type(247)::after {
-  border-color: #4c3892;
+  border-color: #5ec543;
 }
 
 #main-container #job-list .job-item:nth-of-type(248)::after {
-  border-color: #e631b8;
+  border-color: #d9a7ef;
 }
 
 #main-container #job-list .job-item:nth-of-type(249)::after {
-  border-color: #f9ea84;
+  border-color: #3d5349;
 }
 
 #main-container #job-list .job-item:nth-of-type(250)::after {
-  border-color: #838445;
+  border-color: #0b14c2;
 }
 
 #main-container #job-list .job-item:nth-of-type(251)::after {
-  border-color: #aa8952;
+  border-color: #e9a673;
 }
 
 #main-container #job-list .job-item:nth-of-type(252)::after {
-  border-color: #5d3377;
+  border-color: #5a4519;
 }
 
 #main-container #job-list .job-item:nth-of-type(253)::after {
-  border-color: #50b0a8;
+  border-color: #28d574;
 }
 
 #main-container #job-list .job-item:nth-of-type(254)::after {
-  border-color: #e7ee07;
+  border-color: #c8cf89;
 }
 
 #main-container #job-list .job-item:nth-of-type(255)::after {
-  border-color: #545f66;
+  border-color: #750fbc;
 }
 
 #main-container #job-list .job-item:nth-of-type(256)::after {
-  border-color: #73c015;
+  border-color: #6cbe6b;
 }
 
 #main-container #job-list .job-item:nth-of-type(257)::after {
-  border-color: #46632c;
+  border-color: #1f3a8e;
 }
 
 #main-container #job-list .job-item:nth-of-type(258)::after {
-  border-color: #9af50b;
+  border-color: #ba2f96;
 }
 
 #main-container #job-list .job-item:nth-of-type(259)::after {
-  border-color: #0be9cb;
+  border-color: #dadf7e;
 }
 
 #main-container #job-list .job-item:nth-of-type(260)::after {
-  border-color: #a83a1e;
+  border-color: #bdc76c;
 }
 
 #main-container #job-list .job-item:nth-of-type(261)::after {
-  border-color: #35c56b;
+  border-color: #f510b1;
 }
 
 #main-container #job-list .job-item:nth-of-type(262)::after {
-  border-color: #860494;
+  border-color: #8822d2;
 }
 
 #main-container #job-list .job-item:nth-of-type(263)::after {
-  border-color: #ae4ae0;
+  border-color: #69754f;
 }
 
 #main-container #job-list .job-item:nth-of-type(264)::after {
-  border-color: #b87bcc;
+  border-color: #c8956f;
 }
 
 #main-container #job-list .job-item:nth-of-type(265)::after {
-  border-color: #96bcca;
+  border-color: #ea740c;
 }
 
 #main-container #job-list .job-item:nth-of-type(266)::after {
-  border-color: #3dfb78;
+  border-color: #6dfcf8;
 }
 
 #main-container #job-list .job-item:nth-of-type(267)::after {
-  border-color: #f5d5ba;
+  border-color: #aa6188;
 }
 
 #main-container #job-list .job-item:nth-of-type(268)::after {
-  border-color: #809b80;
+  border-color: #b46f82;
 }
 
 #main-container #job-list .job-item:nth-of-type(269)::after {
-  border-color: #7f5989;
+  border-color: #a4ae1f;
 }
 
 #main-container #job-list .job-item:nth-of-type(270)::after {
-  border-color: #7ae4a5;
+  border-color: #b25939;
 }
 
 #main-container #job-list .job-item:nth-of-type(271)::after {
-  border-color: #6f1081;
+  border-color: #6e6dde;
 }
 
 #main-container #job-list .job-item:nth-of-type(272)::after {
-  border-color: #3be753;
+  border-color: #f69e56;
 }
 
 #main-container #job-list .job-item:nth-of-type(273)::after {
-  border-color: #ae70d7;
+  border-color: #37cc7a;
 }
 
 #main-container #job-list .job-item:nth-of-type(274)::after {
-  border-color: #e8f7af;
+  border-color: #1cc9f8;
 }
 
 #main-container #job-list .job-item:nth-of-type(275)::after {
-  border-color: #445c99;
+  border-color: #04052c;
 }
 
 #main-container #job-list .job-item:nth-of-type(276)::after {
-  border-color: #4c2f65;
+  border-color: #bd6a43;
 }
 
 #main-container #job-list .job-item:nth-of-type(277)::after {
-  border-color: #026b0a;
+  border-color: #41fd5c;
 }
 
 #main-container #job-list .job-item:nth-of-type(278)::after {
-  border-color: #323ae2;
+  border-color: #74027c;
 }
 
 #main-container #job-list .job-item:nth-of-type(279)::after {
-  border-color: #f4fd12;
+  border-color: #e48eba;
 }
 
 #main-container #job-list .job-item:nth-of-type(280)::after {
-  border-color: #e354e9;
+  border-color: #e77889;
 }
 
 #main-container #job-list .job-item:nth-of-type(281)::after {
-  border-color: #7e549c;
+  border-color: #8afc3f;
 }
 
 #main-container #job-list .job-item:nth-of-type(282)::after {
-  border-color: #ad5840;
+  border-color: #0f4803;
 }
 
 #main-container #job-list .job-item:nth-of-type(283)::after {
-  border-color: #0b4870;
+  border-color: #ec7c63;
 }
 
 #main-container #job-list .job-item:nth-of-type(284)::after {
-  border-color: #e2d79a;
+  border-color: #59d00e;
 }
 
 #main-container #job-list .job-item:nth-of-type(285)::after {
-  border-color: #698416;
+  border-color: #4bff34;
 }
 
 #main-container #job-list .job-item:nth-of-type(286)::after {
-  border-color: #66f5ce;
+  border-color: #47f812;
 }
 
 #main-container #job-list .job-item:nth-of-type(287)::after {
-  border-color: #5fb2ed;
+  border-color: #182606;
 }
 
 #main-container #job-list .job-item:nth-of-type(288)::after {
-  border-color: #4d71f4;
+  border-color: #4eda6a;
 }
 
 #main-container #job-list .job-item:nth-of-type(289)::after {
-  border-color: #f5a617;
+  border-color: #355ec1;
 }
 
 #main-container #job-list .job-item:nth-of-type(290)::after {
-  border-color: #a14574;
+  border-color: #1fb1d7;
 }
 
 #main-container #job-list .job-item:nth-of-type(291)::after {
-  border-color: #3bed15;
+  border-color: #9d1be1;
 }
 
 #main-container #job-list .job-item:nth-of-type(292)::after {
-  border-color: #53d593;
+  border-color: #8b2092;
 }
 
 #main-container #job-list .job-item:nth-of-type(293)::after {
-  border-color: #6a70e6;
+  border-color: #a78aff;
 }
 
 #main-container #job-list .job-item:nth-of-type(294)::after {
-  border-color: #513526;
+  border-color: #c84ac9;
 }
 
 #main-container #job-list .job-item:nth-of-type(295)::after {
-  border-color: #4c3992;
+  border-color: #230808;
 }
 
 #main-container #job-list .job-item:nth-of-type(296)::after {
-  border-color: #d875ec;
+  border-color: #898c9a;
 }
 
 #main-container #job-list .job-item:nth-of-type(297)::after {
-  border-color: #df6146;
+  border-color: #2aeeea;
 }
 
 #main-container #job-list .job-item:nth-of-type(298)::after {
-  border-color: #4a6a34;
+  border-color: #b4ba82;
 }
 
 #main-container #job-list .job-item:nth-of-type(299)::after {
-  border-color: #533f0d;
+  border-color: #5efb05;
 }
 
 #main-container #job-list .job-item:nth-of-type(300)::after {
-  border-color: #0d400a;
+  border-color: #0d624f;
 }
 
 #main-container #job-list .job-item:nth-of-type(301)::after {
-  border-color: #e4917c;
+  border-color: #a0e4a7;
 }
 
 #main-container #job-list .job-item:nth-of-type(302)::after {
-  border-color: #ef766b;
+  border-color: #ba44f9;
 }
 
 #main-container #job-list .job-item:nth-of-type(303)::after {
-  border-color: #f24dbe;
+  border-color: #c76f16;
 }
 
 #main-container #job-list .job-item:nth-of-type(304)::after {
-  border-color: #5d7ae4;
+  border-color: #e07e21;
 }
 
 #main-container #job-list .job-item:nth-of-type(305)::after {
-  border-color: #9fa638;
+  border-color: #f6379c;
 }
 
 #main-container #job-list .job-item:nth-of-type(306)::after {
-  border-color: #5f69ee;
+  border-color: #e6a057;
 }
 
 #main-container #job-list .job-item:nth-of-type(307)::after {
-  border-color: #025913;
+  border-color: #c2b0bd;
 }
 
 #main-container #job-list .job-item:nth-of-type(308)::after {
-  border-color: #97832d;
+  border-color: #e6d44e;
 }
 
 #main-container #job-list .job-item:nth-of-type(309)::after {
-  border-color: #dfa8d9;
+  border-color: #b58185;
 }
 
 #main-container #job-list .job-item:nth-of-type(310)::after {
-  border-color: #f9bd87;
+  border-color: #f46c42;
 }
 
 #main-container #job-list .job-item:nth-of-type(311)::after {
-  border-color: #e04ef1;
+  border-color: #d4899e;
 }
 
 #main-container #job-list .job-item:nth-of-type(312)::after {
-  border-color: #41c23b;
+  border-color: #347fd3;
 }
 
 #main-container #job-list .job-item:nth-of-type(313)::after {
-  border-color: #6aec78;
+  border-color: #9c3d5e;
 }
 
 #main-container #job-list .job-item:nth-of-type(314)::after {
-  border-color: #edb4c9;
+  border-color: #236877;
 }
 
 #main-container #job-list .job-item:nth-of-type(315)::after {
-  border-color: #4aebac;
+  border-color: #26071b;
 }
 
 #main-container #job-list .job-item:nth-of-type(316)::after {
-  border-color: #2fd36f;
+  border-color: #e86c6e;
 }
 
 #main-container #job-list .job-item:nth-of-type(317)::after {
-  border-color: #3cd43e;
+  border-color: #6c48a5;
 }
 
 #main-container #job-list .job-item:nth-of-type(318)::after {
-  border-color: #3c977f;
+  border-color: #aa636b;
 }
 
 #main-container #job-list .job-item:nth-of-type(319)::after {
-  border-color: #e2d806;
+  border-color: #5faee9;
 }
 
 #main-container #job-list .job-item:nth-of-type(320)::after {
-  border-color: #296658;
+  border-color: #2d1b16;
 }
 
 #main-container #job-list .job-item:nth-of-type(321)::after {
-  border-color: #e652c5;
+  border-color: #54b3b5;
 }
 
 #main-container #job-list .job-item:nth-of-type(322)::after {
-  border-color: #af6905;
+  border-color: #7856a2;
 }
 
 #main-container #job-list .job-item:nth-of-type(323)::after {
-  border-color: #78b678;
+  border-color: #2602f4;
 }
 
 #main-container #job-list .job-item:nth-of-type(324)::after {
-  border-color: #8b1778;
+  border-color: #4e679f;
 }
 
 #main-container #job-list .job-item:nth-of-type(325)::after {
-  border-color: #b5fe0f;
+  border-color: #fb22c3;
 }
 
 #main-container #job-list .job-item:nth-of-type(326)::after {
-  border-color: #f7c067;
+  border-color: #c4d9ca;
 }
 
 #main-container #job-list .job-item:nth-of-type(327)::after {
-  border-color: #20a265;
+  border-color: #925bc6;
 }
 
 #main-container #job-list .job-item:nth-of-type(328)::after {
-  border-color: #0de671;
+  border-color: #b91696;
 }
 
 #main-container #job-list .job-item:nth-of-type(329)::after {
-  border-color: #034f4b;
+  border-color: #cf123c;
 }
 
 #main-container #job-list .job-item:nth-of-type(330)::after {
-  border-color: #bf9f78;
+  border-color: #2bef43;
 }
 
 #main-container #job-list .job-item:nth-of-type(331)::after {
-  border-color: #7733e5;
+  border-color: #e01fc1;
 }
 
 #main-container #job-list .job-item:nth-of-type(332)::after {
-  border-color: #9c2034;
+  border-color: #469a06;
 }
 
 #main-container #job-list .job-item:nth-of-type(333)::after {
-  border-color: #674e2b;
+  border-color: #206c3a;
 }
 
 #main-container #job-list .job-item:nth-of-type(334)::after {
-  border-color: #2f7d90;
+  border-color: #d94fc4;
 }
 
 #main-container #job-list .job-item:nth-of-type(335)::after {
-  border-color: #4cc7ae;
+  border-color: #6993ea;
 }
 
 #main-container #job-list .job-item:nth-of-type(336)::after {
-  border-color: #158cc8;
+  border-color: #2b8e3a;
 }
 
 #main-container #job-list .job-item:nth-of-type(337)::after {
-  border-color: #d584da;
+  border-color: #af94bd;
 }
 
 #main-container #job-list .job-item:nth-of-type(338)::after {
-  border-color: #875271;
+  border-color: #97203e;
 }
 
 #main-container #job-list .job-item:nth-of-type(339)::after {
-  border-color: #b80cd3;
+  border-color: #337eb5;
 }
 
 #main-container #job-list .job-item:nth-of-type(340)::after {
-  border-color: #e16151;
+  border-color: #14a81c;
 }
 
 #main-container #job-list .job-item:nth-of-type(341)::after {
-  border-color: #519afc;
+  border-color: #66aa1d;
 }
 
 #main-container #job-list .job-item:nth-of-type(342)::after {
-  border-color: #dd9b09;
+  border-color: #e852cf;
 }
 
 #main-container #job-list .job-item:nth-of-type(343)::after {
-  border-color: #5c978a;
+  border-color: #fc6c0d;
 }
 
 #main-container #job-list .job-item:nth-of-type(344)::after {
-  border-color: #273447;
+  border-color: #392dd5;
 }
 
 #main-container #job-list .job-item:nth-of-type(345)::after {
-  border-color: #485fff;
+  border-color: #bed274;
 }
 
 #main-container #job-list .job-item:nth-of-type(346)::after {
-  border-color: #66db63;
+  border-color: #ae5455;
 }
 
 #main-container #job-list .job-item:nth-of-type(347)::after {
-  border-color: #3fc11a;
+  border-color: #c9baa2;
 }
 
 #main-container #job-list .job-item:nth-of-type(348)::after {
-  border-color: #7fab9c;
+  border-color: #a1b78a;
 }
 
 #main-container #job-list .job-item:nth-of-type(349)::after {
-  border-color: #0a88d0;
+  border-color: #4d2a8e;
 }
 
 #main-container #job-list .job-item:nth-of-type(350)::after {
-  border-color: #24f03b;
+  border-color: #e2bf95;
 }
 
 #main-container #job-list .job-item:nth-of-type(351)::after {
-  border-color: #964693;
+  border-color: #a583b9;
 }
 
 #main-container #job-list .job-item:nth-of-type(352)::after {
-  border-color: #dc7ba9;
+  border-color: #eb91fe;
 }
 
 #main-container #job-list .job-item:nth-of-type(353)::after {
-  border-color: #541d52;
+  border-color: #e454b3;
 }
 
 #main-container #job-list .job-item:nth-of-type(354)::after {
-  border-color: #2c1175;
+  border-color: #8e41f7;
 }
 
 #main-container #job-list .job-item:nth-of-type(355)::after {
-  border-color: #307773;
+  border-color: #8cdac5;
 }
 
 #main-container #job-list .job-item:nth-of-type(356)::after {
-  border-color: #6a58fa;
+  border-color: #b5c8bf;
 }
 
 #main-container #job-list .job-item:nth-of-type(357)::after {
-  border-color: #8d62c9;
+  border-color: #4f11fb;
 }
 
 #main-container #job-list .job-item:nth-of-type(358)::after {
-  border-color: #4ef47f;
+  border-color: #f6d553;
 }
 
 #main-container #job-list .job-item:nth-of-type(359)::after {
-  border-color: #4d8bf1;
+  border-color: #30fbed;
 }
 
 #main-container #job-list .job-item:nth-of-type(360)::after {
-  border-color: #302561;
+  border-color: #ea41e3;
 }
 
 #main-container #job-list .job-item:nth-of-type(361)::after {
-  border-color: #8a57c8;
+  border-color: #ad14f4;
 }
 
 #main-container #job-list .job-item:nth-of-type(362)::after {
-  border-color: #f18374;
+  border-color: #a64c0a;
 }
 
 #main-container #job-list .job-item:nth-of-type(363)::after {
-  border-color: #cb0453;
+  border-color: #61a154;
 }
 
 #main-container #job-list .job-item:nth-of-type(364)::after {
-  border-color: #d9fb5d;
+  border-color: #19a5e6;
 }
 
 #main-container #job-list .job-item:nth-of-type(365)::after {
-  border-color: #9919a3;
+  border-color: #5e6777;
 }
 
 #main-container #job-list .job-item:nth-of-type(366)::after {
-  border-color: #af2cfe;
+  border-color: #6916d9;
 }
 
 #main-container #job-list .job-item:nth-of-type(367)::after {
-  border-color: #4171a6;
+  border-color: #9396c5;
 }
 
 #main-container #job-list .job-item:nth-of-type(368)::after {
-  border-color: #7ee18f;
+  border-color: #8d4517;
 }
 
 #main-container #job-list .job-item:nth-of-type(369)::after {
-  border-color: #5cc68e;
+  border-color: #48cfe8;
 }
 
 #main-container #job-list .job-item:nth-of-type(370)::after {
-  border-color: #845ecb;
+  border-color: #1f25b4;
 }
 
 #main-container #job-list .job-item:nth-of-type(371)::after {
-  border-color: #5ad149;
+  border-color: #2caba4;
 }
 
 #main-container #job-list .job-item:nth-of-type(372)::after {
-  border-color: #e5be8e;
+  border-color: #c05b57;
 }
 
 #main-container #job-list .job-item:nth-of-type(373)::after {
-  border-color: #f4c4d2;
+  border-color: #2888e0;
 }
 
 #main-container #job-list .job-item:nth-of-type(374)::after {
-  border-color: #2ff1de;
+  border-color: #5ab4bc;
 }
 
 #main-container #job-list .job-item:nth-of-type(375)::after {
-  border-color: #406d4b;
+  border-color: #97d7be;
 }
 
 #main-container #job-list .job-item:nth-of-type(376)::after {
-  border-color: #cf72b5;
+  border-color: #179634;
 }
 
 #main-container #job-list .job-item:nth-of-type(377)::after {
-  border-color: #f862d6;
+  border-color: #f7ddb7;
 }
 
 #main-container #job-list .job-item:nth-of-type(378)::after {
-  border-color: #b889fd;
+  border-color: #17a2b4;
 }
 
 #main-container #job-list .job-item:nth-of-type(379)::after {
-  border-color: #0977ea;
+  border-color: #349a0c;
 }
 
 #main-container #job-list .job-item:nth-of-type(380)::after {
-  border-color: #4ee803;
+  border-color: #c7b6a1;
 }
 
 #main-container #job-list .job-item:nth-of-type(381)::after {
-  border-color: #2f2a8f;
+  border-color: #3adce7;
 }
 
 #main-container #job-list .job-item:nth-of-type(382)::after {
-  border-color: #ce1aa9;
+  border-color: #f8c6c4;
 }
 
 #main-container #job-list .job-item:nth-of-type(383)::after {
-  border-color: #45b02a;
+  border-color: #a24fb9;
 }
 
 #main-container #job-list .job-item:nth-of-type(384)::after {
-  border-color: #3fab9c;
+  border-color: #063ee3;
 }
 
 #main-container #job-list .job-item:nth-of-type(385)::after {
-  border-color: #af66b3;
+  border-color: #5a452a;
 }
 
 #main-container #job-list .job-item:nth-of-type(386)::after {
-  border-color: #6041bf;
+  border-color: #37e4a9;
 }
 
 #main-container #job-list .job-item:nth-of-type(387)::after {
-  border-color: #06236b;
+  border-color: #7fcb39;
 }
 
 #main-container #job-list .job-item:nth-of-type(388)::after {
-  border-color: #491304;
+  border-color: #3a374c;
 }
 
 #main-container #job-list .job-item:nth-of-type(389)::after {
-  border-color: #171a0b;
+  border-color: #053c3a;
 }
 
 #main-container #job-list .job-item:nth-of-type(390)::after {
-  border-color: #556299;
+  border-color: #7633e1;
 }
 
 #main-container #job-list .job-item:nth-of-type(391)::after {
-  border-color: #2b360a;
+  border-color: #3f113b;
 }
 
 #main-container #job-list .job-item:nth-of-type(392)::after {
-  border-color: #83db10;
+  border-color: #1bac93;
 }
 
 #main-container #job-list .job-item:nth-of-type(393)::after {
-  border-color: #062208;
+  border-color: #7911b5;
 }
 
 #main-container #job-list .job-item:nth-of-type(394)::after {
-  border-color: #04ede0;
+  border-color: #f511a6;
 }
 
 #main-container #job-list .job-item:nth-of-type(395)::after {
-  border-color: #96a5a0;
+  border-color: #e320dd;
 }
 
 #main-container #job-list .job-item:nth-of-type(396)::after {
-  border-color: #41458a;
+  border-color: #1982e4;
 }
 
 #main-container #job-list .job-item:nth-of-type(397)::after {
-  border-color: #2be2ba;
+  border-color: #7adabb;
 }
 
 #main-container #job-list .job-item:nth-of-type(398)::after {
-  border-color: #4e99a0;
+  border-color: #7fb0eb;
 }
 
 #main-container #job-list .job-item:nth-of-type(399)::after {
-  border-color: #1f9d1c;
+  border-color: #5ce058;
 }
 
 #main-container #job-list .job-item:nth-of-type(400)::after {
-  border-color: #a6cbef;
+  border-color: #c47c61;
 }
 
 #main-container #job-list .job-item:nth-of-type(401)::after {
-  border-color: #635577;
+  border-color: #a644af;
 }
 
 #main-container #job-list .job-item:nth-of-type(402)::after {
-  border-color: #fe1b14;
+  border-color: #98fc52;
 }
 
 #main-container #job-list .job-item:nth-of-type(403)::after {
-  border-color: #066638;
+  border-color: #4febcc;
 }
 
 #main-container #job-list .job-item:nth-of-type(404)::after {
-  border-color: #0f0b49;
+  border-color: #75db87;
 }
 
 #main-container #job-list .job-item:nth-of-type(405)::after {
-  border-color: #cf24f8;
+  border-color: #ff89d9;
 }
 
 #main-container #job-list .job-item:nth-of-type(406)::after {
-  border-color: #929002;
+  border-color: #7dced6;
 }
 
 #main-container #job-list .job-item:nth-of-type(407)::after {
-  border-color: #0c607f;
+  border-color: #69ff46;
 }
 
 #main-container #job-list .job-item:nth-of-type(408)::after {
-  border-color: #82bd89;
+  border-color: #e08dee;
 }
 
 #main-container #job-list .job-item:nth-of-type(409)::after {
-  border-color: #378b4f;
+  border-color: #5b189a;
 }
 
 #main-container #job-list .job-item:nth-of-type(410)::after {
-  border-color: #e516f6;
+  border-color: #e78762;
 }
 
 #main-container #job-list .job-item:nth-of-type(411)::after {
-  border-color: #ec3b61;
+  border-color: #ba1107;
 }
 
 #main-container #job-list .job-item:nth-of-type(412)::after {
-  border-color: #8634ac;
+  border-color: #85f8f1;
 }
 
 #main-container #job-list .job-item:nth-of-type(413)::after {
-  border-color: #8cbe82;
+  border-color: #96d205;
 }
 
 #main-container #job-list .job-item:nth-of-type(414)::after {
-  border-color: #eafa87;
+  border-color: #1910ad;
 }
 
 #main-container #job-list .job-item:nth-of-type(415)::after {
-  border-color: #66185f;
+  border-color: #2052df;
 }
 
 #main-container #job-list .job-item:nth-of-type(416)::after {
-  border-color: #1d95f4;
+  border-color: #800356;
 }
 
 #main-container #job-list .job-item:nth-of-type(417)::after {
-  border-color: #ed29a6;
+  border-color: #352873;
 }
 
 #main-container #job-list .job-item:nth-of-type(418)::after {
-  border-color: #400264;
+  border-color: #2fbd98;
 }
 
 #main-container #job-list .job-item:nth-of-type(419)::after {
-  border-color: #edbcb5;
+  border-color: #c1dbf7;
 }
 
 #main-container #job-list .job-item:nth-of-type(420)::after {
-  border-color: #f10e4b;
+  border-color: #0c5c02;
 }
 
 #main-container #job-list .job-item:nth-of-type(421)::after {
-  border-color: #d4fa6d;
+  border-color: #2532dc;
 }
 
 #main-container #job-list .job-item:nth-of-type(422)::after {
-  border-color: #817ea8;
+  border-color: #44ba57;
 }
 
 #main-container #job-list .job-item:nth-of-type(423)::after {
-  border-color: #a24be9;
+  border-color: #8e9aa8;
 }
 
 #main-container #job-list .job-item:nth-of-type(424)::after {
-  border-color: #c6822f;
+  border-color: #55888c;
 }
 
 #main-container #job-list .job-item:nth-of-type(425)::after {
-  border-color: #a7d3da;
+  border-color: #3360fb;
 }
 
 #main-container #job-list .job-item:nth-of-type(426)::after {
-  border-color: #7c2b8b;
+  border-color: #3cd96f;
 }
 
 #main-container #job-list .job-item:nth-of-type(427)::after {
-  border-color: #8918ab;
+  border-color: #05800f;
 }
 
 #main-container #job-list .job-item:nth-of-type(428)::after {
-  border-color: #7e74dd;
+  border-color: #650c35;
 }
 
 #main-container #job-list .job-item:nth-of-type(429)::after {
-  border-color: #910ea0;
+  border-color: #936475;
 }
 
 #main-container #job-list .job-item:nth-of-type(430)::after {
-  border-color: #0a37b6;
+  border-color: #5a3d06;
 }
 
 #main-container #job-list .job-item:nth-of-type(431)::after {
-  border-color: #b1c71a;
+  border-color: #279a8d;
 }
 
 #main-container #job-list .job-item:nth-of-type(432)::after {
-  border-color: #b58f42;
+  border-color: #a904c5;
 }
 
 #main-container #job-list .job-item:nth-of-type(433)::after {
-  border-color: #5dbce6;
+  border-color: #2d95c4;
 }
 
 #main-container #job-list .job-item:nth-of-type(434)::after {
-  border-color: #3da9f5;
+  border-color: #f46d9e;
 }
 
 #main-container #job-list .job-item:nth-of-type(435)::after {
-  border-color: #81ca56;
+  border-color: #06e7c9;
 }
 
 #main-container #job-list .job-item:nth-of-type(436)::after {
-  border-color: #caa91d;
+  border-color: #e2b516;
 }
 
 #main-container #job-list .job-item:nth-of-type(437)::after {
-  border-color: #9c2f14;
+  border-color: #2f31c0;
 }
 
 #main-container #job-list .job-item:nth-of-type(438)::after {
-  border-color: #7e65e4;
+  border-color: #aaf022;
 }
 
 #main-container #job-list .job-item:nth-of-type(439)::after {
-  border-color: #5ae304;
+  border-color: #f6ba52;
 }
 
 #main-container #job-list .job-item:nth-of-type(440)::after {
-  border-color: #b9325c;
+  border-color: #0793a5;
 }
 
 #main-container #job-list .job-item:nth-of-type(441)::after {
-  border-color: #dafee7;
+  border-color: #2bcb6e;
 }
 
 #main-container #job-list .job-item:nth-of-type(442)::after {
-  border-color: #8be004;
+  border-color: #221285;
 }
 
 #main-container #job-list .job-item:nth-of-type(443)::after {
-  border-color: #3e6b40;
+  border-color: #122dd4;
 }
 
 #main-container #job-list .job-item:nth-of-type(444)::after {
-  border-color: #bf6e5b;
+  border-color: #6c10e4;
 }
 
 #main-container #job-list .job-item:nth-of-type(445)::after {
-  border-color: #3f29eb;
+  border-color: #0f5af5;
 }
 
 #main-container #job-list .job-item:nth-of-type(446)::after {
-  border-color: #8fe2a0;
+  border-color: #471f30;
 }
 
 #main-container #job-list .job-item:nth-of-type(447)::after {
-  border-color: #e87303;
+  border-color: #edfa74;
 }
 
 #main-container #job-list .job-item:nth-of-type(448)::after {
-  border-color: #59d7b9;
+  border-color: #e75152;
 }
 
 #main-container #job-list .job-item:nth-of-type(449)::after {
-  border-color: #3ddd60;
+  border-color: #61cb71;
 }
 
 #main-container #job-list .job-item:nth-of-type(450)::after {
-  border-color: #60d436;
+  border-color: #66380a;
 }
 
 #main-container #job-list .job-item:nth-of-type(451)::after {
-  border-color: #ddde86;
+  border-color: #59fd41;
 }
 
 #main-container #job-list .job-item:nth-of-type(452)::after {
-  border-color: #3c4f18;
+  border-color: #537c0b;
 }
 
 #main-container #job-list .job-item:nth-of-type(453)::after {
-  border-color: #1b731b;
+  border-color: #9bb9d0;
 }
 
 #main-container #job-list .job-item:nth-of-type(454)::after {
-  border-color: #6c95af;
+  border-color: #6b7370;
 }
 
 #main-container #job-list .job-item:nth-of-type(455)::after {
-  border-color: #2dfd52;
+  border-color: #8cb09f;
 }
 
 #main-container #job-list .job-item:nth-of-type(456)::after {
-  border-color: #29e4b6;
+  border-color: #daf7ae;
 }
 
 #main-container #job-list .job-item:nth-of-type(457)::after {
-  border-color: #a1183a;
+  border-color: #a1fbab;
 }
 
 #main-container #job-list .job-item:nth-of-type(458)::after {
-  border-color: #46a464;
+  border-color: #90774f;
 }
 
 #main-container #job-list .job-item:nth-of-type(459)::after {
-  border-color: #b74748;
+  border-color: #91f810;
 }
 
 #main-container #job-list .job-item:nth-of-type(460)::after {
-  border-color: #5f5015;
+  border-color: #e8ef28;
 }
 
 #main-container #job-list .job-item:nth-of-type(461)::after {
-  border-color: #11e917;
+  border-color: #6b10bc;
 }
 
 #main-container #job-list .job-item:nth-of-type(462)::after {
-  border-color: #ac961d;
+  border-color: #b18af3;
 }
 
 #main-container #job-list .job-item:nth-of-type(463)::after {
-  border-color: #224543;
+  border-color: #ea880b;
 }
 
 #main-container #job-list .job-item:nth-of-type(464)::after {
-  border-color: #6e92ea;
+  border-color: #f55106;
 }
 
 #main-container #job-list .job-item:nth-of-type(465)::after {
-  border-color: #82e979;
+  border-color: #72d52c;
 }
 
 #main-container #job-list .job-item:nth-of-type(466)::after {
-  border-color: #c554db;
+  border-color: #802672;
 }
 
 #main-container #job-list .job-item:nth-of-type(467)::after {
-  border-color: #7a5de0;
+  border-color: #7dd2aa;
 }
 
 #main-container #job-list .job-item:nth-of-type(468)::after {
-  border-color: #48454f;
+  border-color: #0e7b24;
 }
 
 #main-container #job-list .job-item:nth-of-type(469)::after {
-  border-color: #9e9e68;
+  border-color: #5007f9;
 }
 
 #main-container #job-list .job-item:nth-of-type(470)::after {
-  border-color: #d76195;
+  border-color: #3b5266;
 }
 
 #main-container #job-list .job-item:nth-of-type(471)::after {
-  border-color: #202eca;
+  border-color: #8395b5;
 }
 
 #main-container #job-list .job-item:nth-of-type(472)::after {
-  border-color: #690569;
+  border-color: #9ba48f;
 }
 
 #main-container #job-list .job-item:nth-of-type(473)::after {
-  border-color: #7eb683;
+  border-color: #447538;
 }
 
 #main-container #job-list .job-item:nth-of-type(474)::after {
-  border-color: #97619e;
+  border-color: #eefc9d;
 }
 
 #main-container #job-list .job-item:nth-of-type(475)::after {
-  border-color: #9d9c13;
+  border-color: #1fbd32;
 }
 
 #main-container #job-list .job-item:nth-of-type(476)::after {
-  border-color: #f62c97;
+  border-color: #c7e58d;
 }
 
 #main-container #job-list .job-item:nth-of-type(477)::after {
-  border-color: #d043c6;
+  border-color: #fd2808;
 }
 
 #main-container #job-list .job-item:nth-of-type(478)::after {
-  border-color: #2208f3;
+  border-color: #1e7691;
 }
 
 #main-container #job-list .job-item:nth-of-type(479)::after {
-  border-color: #7e5eb9;
+  border-color: #d48f7c;
 }
 
 #main-container #job-list .job-item:nth-of-type(480)::after {
-  border-color: #a4cbe2;
+  border-color: #9b7ac1;
 }
 
 #main-container #job-list .job-item:nth-of-type(481)::after {
-  border-color: #1c2538;
+  border-color: #3fd059;
 }
 
 #main-container #job-list .job-item:nth-of-type(482)::after {
-  border-color: #a41ef5;
+  border-color: #a0b6c4;
 }
 
 #main-container #job-list .job-item:nth-of-type(483)::after {
-  border-color: #42f5c4;
+  border-color: #6bd95b;
 }
 
 #main-container #job-list .job-item:nth-of-type(484)::after {
-  border-color: #5cfcec;
+  border-color: #8607dc;
 }
 
 #main-container #job-list .job-item:nth-of-type(485)::after {
-  border-color: #b3ac4e;
+  border-color: #faec47;
 }
 
 #main-container #job-list .job-item:nth-of-type(486)::after {
-  border-color: #a0e006;
+  border-color: #8aa496;
 }
 
 #main-container #job-list .job-item:nth-of-type(487)::after {
-  border-color: #342032;
+  border-color: #b2b8f1;
 }
 
 #main-container #job-list .job-item:nth-of-type(488)::after {
-  border-color: #0374ab;
+  border-color: #1fa9c2;
 }
 
 #main-container #job-list .job-item:nth-of-type(489)::after {
-  border-color: #2b6c14;
+  border-color: #48c224;
 }
 
 #main-container #job-list .job-item:nth-of-type(490)::after {
-  border-color: #d1bd90;
+  border-color: #be09f4;
 }
 
 #main-container #job-list .job-item:nth-of-type(491)::after {
-  border-color: #d12063;
+  border-color: #0118c8;
 }
 
 #main-container #job-list .job-item:nth-of-type(492)::after {
-  border-color: #95ca11;
+  border-color: #e20fbb;
 }
 
 #main-container #job-list .job-item:nth-of-type(493)::after {
-  border-color: #0731af;
+  border-color: #32dcb3;
 }
 
 #main-container #job-list .job-item:nth-of-type(494)::after {
-  border-color: #a54813;
+  border-color: #371c7b;
 }
 
 #main-container #job-list .job-item:nth-of-type(495)::after {
-  border-color: #057fbc;
+  border-color: #153abe;
 }
 
 #main-container #job-list .job-item:nth-of-type(496)::after {
-  border-color: #df9e64;
+  border-color: #92ad44;
 }
 
 #main-container #job-list .job-item:nth-of-type(497)::after {
-  border-color: #dbc0b9;
+  border-color: #d356f0;
 }
 
 #main-container #job-list .job-item:nth-of-type(498)::after {
-  border-color: #186d47;
+  border-color: #20c9f6;
 }
 
 #main-container #job-list .job-item:nth-of-type(499)::after {
-  border-color: #d1bdf7;
+  border-color: #062a4a;
 }
 
 #main-container #job-list .job-item:nth-of-type(500)::after {
-  border-color: #ae2aca;
+  border-color: #ce0e07;
 }
 
 #main-container #job-list .job-item:nth-of-type(501)::after {
-  border-color: #507607;
+  border-color: #65d160;
 }
 
 #main-container #job-list .job-item:nth-of-type(502)::after {
-  border-color: #97d3c4;
+  border-color: #7877ff;
 }
 
 #main-container #job-list .job-item:nth-of-type(503)::after {
-  border-color: #ff01b2;
+  border-color: #a5f5ed;
 }
 
 #main-container #job-list .job-item:nth-of-type(504)::after {
-  border-color: #c77ded;
+  border-color: #6d2675;
 }
 
 #main-container #job-list .job-item:nth-of-type(505)::after {
-  border-color: #7c1561;
+  border-color: #872bc0;
 }
 
 #main-container #job-list .job-item:nth-of-type(506)::after {
-  border-color: #802d41;
+  border-color: #707a94;
 }
 
 #main-container #job-list .job-item:nth-of-type(507)::after {
-  border-color: #27ad63;
+  border-color: #bea7bc;
 }
 
 #main-container #job-list .job-item:nth-of-type(508)::after {
-  border-color: #952cd7;
+  border-color: #a1952e;
 }
 
 #main-container #job-list .job-item:nth-of-type(509)::after {
-  border-color: #4f8e2b;
+  border-color: #37d8eb;
 }
 
 #main-container #job-list .job-item:nth-of-type(510)::after {
-  border-color: #5f4153;
+  border-color: #61ecb9;
 }
 
 #main-container #job-list .job-item:nth-of-type(511)::after {
-  border-color: #f3794b;
+  border-color: #60f5f8;
 }
 
 #main-container #job-list .job-item:nth-of-type(512)::after {
-  border-color: #b0ce01;
+  border-color: #4fdf02;
 }
 
 #main-container #job-list .job-item:nth-of-type(513)::after {
-  border-color: #4dacb6;
+  border-color: #425ba5;
 }
 
 #main-container #job-list .job-item:nth-of-type(514)::after {
-  border-color: #d1e9d6;
+  border-color: #621175;
 }
 
 #main-container #job-list .job-item:nth-of-type(515)::after {
-  border-color: #637da3;
+  border-color: #32d034;
 }
 
 #main-container #job-list .job-item:nth-of-type(516)::after {
-  border-color: #7fb123;
+  border-color: #23991a;
 }
 
 #main-container #job-list .job-item:nth-of-type(517)::after {
-  border-color: #2018da;
+  border-color: #da2278;
 }
 
 #main-container #job-list .job-item:nth-of-type(518)::after {
-  border-color: #23d0fe;
+  border-color: #194def;
 }
 
 #main-container #job-list .job-item:nth-of-type(519)::after {
-  border-color: #44c83d;
+  border-color: #c40c6e;
 }
 
 #main-container #job-list .job-item:nth-of-type(520)::after {
-  border-color: #56a3d7;
+  border-color: #431eab;
 }
 
 #main-container #job-list .job-item:nth-of-type(521)::after {
-  border-color: #172405;
+  border-color: #cbd74a;
 }
 
 #main-container #job-list .job-item:nth-of-type(522)::after {
-  border-color: #a98386;
+  border-color: #634e24;
 }
 
 #main-container #job-list .job-item:nth-of-type(523)::after {
-  border-color: #83aa23;
+  border-color: #a854e1;
 }
 
 #main-container #job-list .job-item:nth-of-type(524)::after {
-  border-color: #d0a77b;
+  border-color: #2d75bf;
 }
 
 #main-container #job-list .job-item:nth-of-type(525)::after {
-  border-color: #7c2d1a;
+  border-color: #f28f0b;
 }
 
 #main-container #job-list .job-item:nth-of-type(526)::after {
-  border-color: #f30de4;
+  border-color: #84e639;
 }
 
 #main-container #job-list .job-item:nth-of-type(527)::after {
-  border-color: #1424fb;
+  border-color: #f16d67;
 }
 
 #main-container #job-list .job-item:nth-of-type(528)::after {
-  border-color: #670ee2;
+  border-color: #27353e;
 }
 
 #main-container #job-list .job-item:nth-of-type(529)::after {
-  border-color: #41f2d9;
+  border-color: #ca7ed4;
 }
 
 #main-container #job-list .job-item:nth-of-type(530)::after {
-  border-color: #1ca6b3;
+  border-color: #162669;
 }
 
 #main-container #job-list .job-item:nth-of-type(531)::after {
-  border-color: #dc520e;
+  border-color: #654b9e;
 }
 
 #main-container #job-list .job-item:nth-of-type(532)::after {
-  border-color: #62cc4d;
+  border-color: #19f9eb;
 }
 
 #main-container #job-list .job-item:nth-of-type(533)::after {
-  border-color: #704ce6;
+  border-color: #98b893;
 }
 
 #main-container #job-list .job-item:nth-of-type(534)::after {
-  border-color: #cbd1ef;
+  border-color: #8e6026;
 }
 
 #main-container #job-list .job-item:nth-of-type(535)::after {
-  border-color: #0f2762;
+  border-color: #dd0ecf;
 }
 
 #main-container #job-list .job-item:nth-of-type(536)::after {
-  border-color: #ff9950;
+  border-color: #898a3d;
 }
 
 #main-container #job-list .job-item:nth-of-type(537)::after {
-  border-color: #efbabf;
+  border-color: #2de9dc;
 }
 
 #main-container #job-list .job-item:nth-of-type(538)::after {
-  border-color: #c4a124;
+  border-color: #36c62f;
 }
 
 #main-container #job-list .job-item:nth-of-type(539)::after {
-  border-color: #06d557;
+  border-color: #7b352c;
 }
 
 #main-container #job-list .job-item:nth-of-type(540)::after {
-  border-color: #8ef21d;
+  border-color: #36c10c;
 }
 
 #main-container #job-list .job-item:nth-of-type(541)::after {
-  border-color: #427618;
+  border-color: #1c7368;
 }
 
 #main-container #job-list .job-item:nth-of-type(542)::after {
-  border-color: #7dff55;
+  border-color: #5a5dba;
 }
 
 #main-container #job-list .job-item:nth-of-type(543)::after {
-  border-color: #6f2913;
+  border-color: #1dbc16;
 }
 
 #main-container #job-list .job-item:nth-of-type(544)::after {
-  border-color: #2901f8;
+  border-color: #5a098e;
 }
 
 #main-container #job-list .job-item:nth-of-type(545)::after {
-  border-color: #243024;
+  border-color: #3ba8c0;
 }
 
 #main-container #job-list .job-item:nth-of-type(546)::after {
-  border-color: #8f1d92;
+  border-color: #4a9bff;
 }
 
 #main-container #job-list .job-item:nth-of-type(547)::after {
-  border-color: #9967e1;
+  border-color: #17d78b;
 }
 
 #main-container #job-list .job-item:nth-of-type(548)::after {
-  border-color: #77aa45;
+  border-color: #629b59;
 }
 
 #main-container #job-list .job-item:nth-of-type(549)::after {
-  border-color: #e7b676;
+  border-color: #6d5a45;
 }
 
 #main-container #job-list .job-item:nth-of-type(550)::after {
-  border-color: #ebcbd6;
+  border-color: #26ff2f;
 }
 
 #main-container #job-list .job-item:nth-of-type(551)::after {
-  border-color: #e1547b;
+  border-color: #1e8ef2;
 }
 
 #main-container #job-list .job-item:nth-of-type(552)::after {
-  border-color: #b28b56;
+  border-color: #e06432;
 }
 
 #main-container #job-list .job-item:nth-of-type(553)::after {
-  border-color: #942ac3;
+  border-color: #bd9e37;
 }
 
 #main-container #job-list .job-item:nth-of-type(554)::after {
-  border-color: #1004a3;
+  border-color: #f07896;
 }
 
 #main-container #job-list .job-item:nth-of-type(555)::after {
-  border-color: #4d6c25;
+  border-color: #d5e3c1;
 }
 
 #main-container #job-list .job-item:nth-of-type(556)::after {
-  border-color: #ae8bce;
+  border-color: #1e73f4;
 }
 
 #main-container #job-list .job-item:nth-of-type(557)::after {
-  border-color: #aaa050;
+  border-color: #b75c16;
 }
 
 #main-container #job-list .job-item:nth-of-type(558)::after {
-  border-color: #66074a;
+  border-color: #8d2333;
 }
 
 #main-container #job-list .job-item:nth-of-type(559)::after {
-  border-color: #81eb83;
+  border-color: #45b6a8;
 }
 
 #main-container #job-list .job-item:nth-of-type(560)::after {
-  border-color: #f09728;
+  border-color: #644da5;
 }
 
 #main-container #job-list .job-item:nth-of-type(561)::after {
-  border-color: #e84833;
+  border-color: #13237c;
 }
 
 #main-container #job-list .job-item:nth-of-type(562)::after {
-  border-color: #9e29d3;
+  border-color: #a8da9e;
 }
 
 #main-container #job-list .job-item:nth-of-type(563)::after {
-  border-color: #6b26cf;
+  border-color: #5a3649;
 }
 
 #main-container #job-list .job-item:nth-of-type(564)::after {
-  border-color: #d82a97;
+  border-color: #93afd3;
 }
 
 #main-container #job-list .job-item:nth-of-type(565)::after {
-  border-color: #567317;
+  border-color: #249c88;
 }
 
 #main-container #job-list .job-item:nth-of-type(566)::after {
-  border-color: #7f881c;
+  border-color: #ad7e86;
 }
 
 #main-container #job-list .job-item:nth-of-type(567)::after {
-  border-color: #0d9e25;
+  border-color: #18dd35;
 }
 
 #main-container #job-list .job-item:nth-of-type(568)::after {
-  border-color: #575e8a;
+  border-color: #0fb5e1;
 }
 
 #main-container #job-list .job-item:nth-of-type(569)::after {
-  border-color: #b30684;
+  border-color: #0e9084;
 }
 
 #main-container #job-list .job-item:nth-of-type(570)::after {
-  border-color: #9a04c3;
+  border-color: #dbdd0f;
 }
 
 #main-container #job-list .job-item:nth-of-type(571)::after {
-  border-color: #e80d7f;
+  border-color: #9b1b32;
 }
 
 #main-container #job-list .job-item:nth-of-type(572)::after {
-  border-color: #451b80;
+  border-color: #7c141b;
 }
 
 #main-container #job-list .job-item:nth-of-type(573)::after {
-  border-color: #9d8345;
+  border-color: #2fd017;
 }
 
 #main-container #job-list .job-item:nth-of-type(574)::after {
-  border-color: #cd722e;
+  border-color: #4d47e5;
 }
 
 #main-container #job-list .job-item:nth-of-type(575)::after {
-  border-color: #1ac9ea;
+  border-color: #bbd886;
 }
 
 #main-container #job-list .job-item:nth-of-type(576)::after {
-  border-color: #117536;
+  border-color: #e7e487;
 }
 
 #main-container #job-list .job-item:nth-of-type(577)::after {
-  border-color: #bded1f;
+  border-color: #1cd37c;
 }
 
 #main-container #job-list .job-item:nth-of-type(578)::after {
-  border-color: #ac4aab;
+  border-color: #64e4ea;
 }
 
 #main-container #job-list .job-item:nth-of-type(579)::after {
-  border-color: #5b32f3;
+  border-color: #39dbd7;
 }
 
 #main-container #job-list .job-item:nth-of-type(580)::after {
-  border-color: #15b09a;
+  border-color: #2b9fa4;
 }
 
 #main-container #job-list .job-item:nth-of-type(581)::after {
-  border-color: #cf8897;
+  border-color: #c2e54a;
 }
 
 #main-container #job-list .job-item:nth-of-type(582)::after {
-  border-color: #e052c4;
+  border-color: #f5a25c;
 }
 
 #main-container #job-list .job-item:nth-of-type(583)::after {
-  border-color: #1de13c;
+  border-color: #f0c540;
 }
 
 #main-container #job-list .job-item:nth-of-type(584)::after {
-  border-color: #5d1e48;
+  border-color: #0eac9b;
 }
 
 #main-container #job-list .job-item:nth-of-type(585)::after {
-  border-color: #71a508;
+  border-color: #5ee8b0;
 }
 
 #main-container #job-list .job-item:nth-of-type(586)::after {
-  border-color: #cb099d;
+  border-color: #eafbd4;
 }
 
 #main-container #job-list .job-item:nth-of-type(587)::after {
-  border-color: #d01011;
+  border-color: #8c7df8;
 }
 
 #main-container #job-list .job-item:nth-of-type(588)::after {
-  border-color: #d2132f;
+  border-color: #ae013a;
 }
 
 #main-container #job-list .job-item:nth-of-type(589)::after {
-  border-color: #20d05a;
+  border-color: #d6465c;
 }
 
 #main-container #job-list .job-item:nth-of-type(590)::after {
-  border-color: #2ed7d3;
+  border-color: #65f765;
 }
 
 #main-container #job-list .job-item:nth-of-type(591)::after {
-  border-color: #3513c9;
+  border-color: #a8bbe2;
 }
 
 #main-container #job-list .job-item:nth-of-type(592)::after {
-  border-color: #a7fbda;
+  border-color: #484d4d;
 }
 
 #main-container #job-list .job-item:nth-of-type(593)::after {
-  border-color: #248ebe;
+  border-color: #8c2568;
 }
 
 #main-container #job-list .job-item:nth-of-type(594)::after {
-  border-color: #f11947;
+  border-color: #4f7670;
 }
 
 #main-container #job-list .job-item:nth-of-type(595)::after {
-  border-color: #52fffa;
+  border-color: #a533d2;
 }
 
 #main-container #job-list .job-item:nth-of-type(596)::after {
-  border-color: #d76a40;
+  border-color: #29b41a;
 }
 
 #main-container #job-list .job-item:nth-of-type(597)::after {
-  border-color: #9271a5;
+  border-color: #e0d598;
 }
 
 #main-container #job-list .job-item:nth-of-type(598)::after {
-  border-color: #41dabb;
+  border-color: #8ae7d8;
 }
 
 #main-container #job-list .job-item:nth-of-type(599)::after {
-  border-color: #432343;
+  border-color: #1de80d;
 }
 
 #main-container #job-list .job-item:nth-of-type(600)::after {
-  border-color: #b10831;
+  border-color: #555153;
 }
 
 #main-container #job-list .job-item:nth-of-type(601)::after {
-  border-color: #28b6a3;
+  border-color: #2fedad;
 }
 
 #main-container #job-list .job-item:nth-of-type(602)::after {
-  border-color: #eb9d33;
+  border-color: #730952;
 }
 
 #main-container #job-list .job-item:nth-of-type(603)::after {
-  border-color: #3f53cb;
+  border-color: #7add5b;
 }
 
 #main-container #job-list .job-item:nth-of-type(604)::after {
-  border-color: #a02399;
+  border-color: #057be1;
 }
 
 #main-container #job-list .job-item:nth-of-type(605)::after {
-  border-color: #56ee47;
+  border-color: #9c2bfb;
 }
 
 #main-container #job-list .job-item:nth-of-type(606)::after {
-  border-color: #4d75ef;
+  border-color: #96ccd9;
 }
 
 #main-container #job-list .job-item:nth-of-type(607)::after {
-  border-color: #931cb8;
+  border-color: #13b643;
 }
 
 #main-container #job-list .job-item:nth-of-type(608)::after {
-  border-color: #9975db;
+  border-color: #58d4f0;
 }
 
 #main-container #job-list .job-item:nth-of-type(609)::after {
-  border-color: #a63956;
+  border-color: #83be28;
 }
 
 #main-container #job-list .job-item:nth-of-type(610)::after {
-  border-color: #acc111;
+  border-color: #7b7ab9;
 }
 
 #main-container #job-list .job-item:nth-of-type(611)::after {
-  border-color: #cb744c;
+  border-color: #df2b48;
 }
 
 #main-container #job-list .job-item:nth-of-type(612)::after {
-  border-color: #e99ab8;
+  border-color: #7dbb32;
 }
 
 #main-container #job-list .job-item:nth-of-type(613)::after {
-  border-color: #9a054a;
+  border-color: #e5e06e;
 }
 
 #main-container #job-list .job-item:nth-of-type(614)::after {
-  border-color: #c36068;
+  border-color: #b8b8bc;
 }
 
 #main-container #job-list .job-item:nth-of-type(615)::after {
-  border-color: #a4b8bd;
+  border-color: #2264ef;
 }
 
 #main-container #job-list .job-item:nth-of-type(616)::after {
-  border-color: #bb128d;
+  border-color: #16a487;
 }
 
 #main-container #job-list .job-item:nth-of-type(617)::after {
-  border-color: #76b17d;
+  border-color: #b2057b;
 }
 
 #main-container #job-list .job-item:nth-of-type(618)::after {
-  border-color: #eeca93;
+  border-color: #ab880f;
 }
 
 #main-container #job-list .job-item:nth-of-type(619)::after {
-  border-color: #a8a3bc;
+  border-color: #1cbd02;
 }
 
 #main-container #job-list .job-item:nth-of-type(620)::after {
-  border-color: #5f7054;
+  border-color: #cbeda6;
 }
 
 #main-container #job-list .job-item:nth-of-type(621)::after {
-  border-color: #746b77;
+  border-color: #d24ad8;
 }
 
 #main-container #job-list .job-item:nth-of-type(622)::after {
-  border-color: #6e0a59;
+  border-color: #f07238;
 }
 
 #main-container #job-list .job-item:nth-of-type(623)::after {
-  border-color: #ead6e1;
+  border-color: #2f5646;
 }
 
 #main-container #job-list .job-item:nth-of-type(624)::after {
-  border-color: #22378a;
+  border-color: #526282;
 }
 
 #main-container #job-list .job-item:nth-of-type(625)::after {
-  border-color: #4f6d53;
+  border-color: #91f883;
 }
 
 #main-container #job-list .job-item:nth-of-type(626)::after {
-  border-color: #2b9e6c;
+  border-color: #b34dc0;
 }
 
 #main-container #job-list .job-item:nth-of-type(627)::after {
-  border-color: #22aae6;
+  border-color: #d28c0d;
 }
 
 #main-container #job-list .job-item:nth-of-type(628)::after {
-  border-color: #13bd85;
+  border-color: #403119;
 }
 
 #main-container #job-list .job-item:nth-of-type(629)::after {
-  border-color: #fbf6aa;
+  border-color: #c5c08c;
 }
 
 #main-container #job-list .job-item:nth-of-type(630)::after {
-  border-color: #8c277a;
+  border-color: #a12c04;
 }
 
 #main-container #job-list .job-item:nth-of-type(631)::after {
-  border-color: #88dc66;
+  border-color: #a01ca1;
 }
 
 #main-container #job-list .job-item:nth-of-type(632)::after {
-  border-color: #1be1b0;
+  border-color: #756224;
 }
 
 #main-container #job-list .job-item:nth-of-type(633)::after {
-  border-color: #6c8f55;
+  border-color: #425529;
 }
 
 #main-container #job-list .job-item:nth-of-type(634)::after {
-  border-color: #19068d;
+  border-color: #efa363;
 }
 
 #main-container #job-list .job-item:nth-of-type(635)::after {
-  border-color: #1e35d6;
+  border-color: #0d50cc;
 }
 
 #main-container #job-list .job-item:nth-of-type(636)::after {
-  border-color: #3ce1f4;
+  border-color: #334cdc;
 }
 
 #main-container #job-list .job-item:nth-of-type(637)::after {
-  border-color: #3e711f;
+  border-color: #85ce85;
 }
 
 #main-container #job-list .job-item:nth-of-type(638)::after {
-  border-color: #34f5f9;
+  border-color: #b201cb;
 }
 
 #main-container #job-list .job-item:nth-of-type(639)::after {
-  border-color: #39e427;
+  border-color: #282f7e;
 }
 
 #main-container #job-list .job-item:nth-of-type(640)::after {
-  border-color: #32cb19;
+  border-color: #5e688e;
 }
 
 #main-container #job-list .job-item:nth-of-type(641)::after {
-  border-color: #3b86f2;
+  border-color: #2788fa;
 }
 
 #main-container #job-list .job-item:nth-of-type(642)::after {
-  border-color: #2070b8;
+  border-color: #9021b0;
 }
 
 #main-container #job-list .job-item:nth-of-type(643)::after {
-  border-color: #08bb9f;
+  border-color: #2ab322;
 }
 
 #main-container #job-list .job-item:nth-of-type(644)::after {
-  border-color: #761faf;
+  border-color: #c9dd92;
 }
 
 #main-container #job-list .job-item:nth-of-type(645)::after {
-  border-color: #d583ee;
+  border-color: #67890d;
 }
 
 #main-container #job-list .job-item:nth-of-type(646)::after {
-  border-color: #3cd801;
+  border-color: #b8d896;
 }
 
 #main-container #job-list .job-item:nth-of-type(647)::after {
-  border-color: #113289;
+  border-color: #abc37b;
 }
 
 #main-container #job-list .job-item:nth-of-type(648)::after {
-  border-color: #40adf2;
+  border-color: #d15fab;
 }
 
 #main-container #job-list .job-item:nth-of-type(649)::after {
-  border-color: #4453ad;
+  border-color: #021c1b;
 }
 
 #main-container #job-list .job-item:nth-of-type(650)::after {
-  border-color: #6beee0;
+  border-color: #97d46e;
 }
 
 #main-container #job-list .job-item:nth-of-type(651)::after {
-  border-color: #93f1c6;
+  border-color: #87b96a;
 }
 
 #main-container #job-list .job-item:nth-of-type(652)::after {
-  border-color: #5ce19d;
+  border-color: #58628a;
 }
 
 #main-container #job-list .job-item:nth-of-type(653)::after {
-  border-color: #7e7e18;
+  border-color: #aedfd8;
 }
 
 #main-container #job-list .job-item:nth-of-type(654)::after {
-  border-color: #91d7b1;
+  border-color: #e2d9cb;
 }
 
 #main-container #job-list .job-item:nth-of-type(655)::after {
-  border-color: #bfdd82;
+  border-color: #9199bc;
 }
 
 #main-container #job-list .job-item:nth-of-type(656)::after {
-  border-color: #4049cb;
+  border-color: #027c71;
 }
 
 #main-container #job-list .job-item:nth-of-type(657)::after {
-  border-color: #68fba2;
+  border-color: #fb4bfa;
 }
 
 #main-container #job-list .job-item:nth-of-type(658)::after {
-  border-color: #3f2658;
+  border-color: #ad5b25;
 }
 
 #main-container #job-list .job-item:nth-of-type(659)::after {
-  border-color: #e95fcc;
+  border-color: #543747;
 }
 
 #main-container #job-list .job-item:nth-of-type(660)::after {
-  border-color: #d5bf32;
+  border-color: #8aa417;
 }
 
 #main-container #job-list .job-item:nth-of-type(661)::after {
-  border-color: #71117b;
+  border-color: #234781;
 }
 
 #main-container #job-list .job-item:nth-of-type(662)::after {
-  border-color: #c0687d;
+  border-color: #313ca5;
 }
 
 #main-container #job-list .job-item:nth-of-type(663)::after {
-  border-color: #192715;
+  border-color: #e24b2a;
 }
 
 #main-container #job-list .job-item:nth-of-type(664)::after {
-  border-color: #affad0;
+  border-color: #b95e6c;
 }
 
 #main-container #job-list .job-item:nth-of-type(665)::after {
-  border-color: #e5eca4;
+  border-color: #454445;
 }
 
 #main-container #job-list .job-item:nth-of-type(666)::after {
-  border-color: #a4afbb;
+  border-color: #4c633c;
 }
 
 #main-container #job-list .job-item:nth-of-type(667)::after {
-  border-color: #08d5b8;
+  border-color: #4161f3;
 }
 
 #main-container #job-list .job-item:nth-of-type(668)::after {
-  border-color: #72a155;
+  border-color: #f8108c;
 }
 
 #main-container #job-list .job-item:nth-of-type(669)::after {
-  border-color: #d4b420;
+  border-color: #e15a54;
 }
 
 #main-container #job-list .job-item:nth-of-type(670)::after {
-  border-color: #48ce1f;
+  border-color: #840581;
 }
 
 #main-container #job-list .job-item:nth-of-type(671)::after {
-  border-color: #451767;
+  border-color: #45d90c;
 }
 
 #main-container #job-list .job-item:nth-of-type(672)::after {
-  border-color: #420a3f;
+  border-color: #c750e8;
 }
 
 #main-container #job-list .job-item:nth-of-type(673)::after {
-  border-color: #f03526;
+  border-color: #0fdeee;
 }
 
 #main-container #job-list .job-item:nth-of-type(674)::after {
-  border-color: #2dcf39;
+  border-color: #54bd21;
 }
 
 #main-container #job-list .job-item:nth-of-type(675)::after {
-  border-color: #4da2ae;
+  border-color: #4bc0b9;
 }
 
 #main-container #job-list .job-item:nth-of-type(676)::after {
-  border-color: #d5766d;
+  border-color: #62fbd5;
 }
 
 #main-container #job-list .job-item:nth-of-type(677)::after {
-  border-color: #80b076;
+  border-color: #c4cef9;
 }
 
 #main-container #job-list .job-item:nth-of-type(678)::after {
-  border-color: #7f1979;
+  border-color: #945bd1;
 }
 
 #main-container #job-list .job-item:nth-of-type(679)::after {
-  border-color: #0d97df;
+  border-color: #f3d591;
 }
 
 #main-container #job-list .job-item:nth-of-type(680)::after {
-  border-color: #4378ff;
+  border-color: #03ad9d;
 }
 
 #main-container #job-list .job-item:nth-of-type(681)::after {
-  border-color: #362de2;
+  border-color: #789295;
 }
 
 #main-container #job-list .job-item:nth-of-type(682)::after {
-  border-color: #55fd2e;
+  border-color: #210f9e;
 }
 
 #main-container #job-list .job-item:nth-of-type(683)::after {
-  border-color: #a90e24;
+  border-color: #03fc12;
 }
 
 #main-container #job-list .job-item:nth-of-type(684)::after {
-  border-color: #3e1cba;
+  border-color: #3145f8;
 }
 
 #main-container #job-list .job-item:nth-of-type(685)::after {
-  border-color: #9f438b;
+  border-color: #0525d5;
 }
 
 #main-container #job-list .job-item:nth-of-type(686)::after {
-  border-color: #8d72f8;
+  border-color: #e3c933;
 }
 
 #main-container #job-list .job-item:nth-of-type(687)::after {
-  border-color: #deaf50;
+  border-color: #75c1c6;
 }
 
 #main-container #job-list .job-item:nth-of-type(688)::after {
-  border-color: #9a8e42;
+  border-color: #20c479;
 }
 
 #main-container #job-list .job-item:nth-of-type(689)::after {
-  border-color: #d2171a;
+  border-color: #e726a2;
 }
 
 #main-container #job-list .job-item:nth-of-type(690)::after {
-  border-color: #ab6cb9;
+  border-color: #57a61e;
 }
 
 #main-container #job-list .job-item:nth-of-type(691)::after {
-  border-color: #d8c42d;
+  border-color: #afaa6c;
 }
 
 #main-container #job-list .job-item:nth-of-type(692)::after {
-  border-color: #edea77;
+  border-color: #025341;
 }
 
 #main-container #job-list .job-item:nth-of-type(693)::after {
-  border-color: #13e31a;
+  border-color: #daa55e;
 }
 
 #main-container #job-list .job-item:nth-of-type(694)::after {
-  border-color: #f5524c;
+  border-color: #f91307;
 }
 
 #main-container #job-list .job-item:nth-of-type(695)::after {
-  border-color: #81b336;
+  border-color: #e0d5b2;
 }
 
 #main-container #job-list .job-item:nth-of-type(696)::after {
-  border-color: #3c1387;
+  border-color: #519967;
 }
 
 #main-container #job-list .job-item:nth-of-type(697)::after {
-  border-color: #f9424d;
+  border-color: #1dfebe;
 }
 
 #main-container #job-list .job-item:nth-of-type(698)::after {
-  border-color: #a88759;
+  border-color: #f6251a;
 }
 
 #main-container #job-list .job-item:nth-of-type(699)::after {
-  border-color: #e7936b;
+  border-color: #3509c6;
 }
 
 #main-container #job-list .job-item:nth-of-type(700)::after {
-  border-color: #a8dac0;
+  border-color: #44665c;
 }
 
 #main-container #job-list .job-item:nth-of-type(701)::after {
-  border-color: #dd4278;
+  border-color: #dd65a2;
 }
 
 #main-container #job-list .job-item:nth-of-type(702)::after {
-  border-color: #d0600e;
+  border-color: #556fcb;
 }
 
 #main-container #job-list .job-item:nth-of-type(703)::after {
-  border-color: #1095a5;
+  border-color: #12971e;
 }
 
 #main-container #job-list .job-item:nth-of-type(704)::after {
-  border-color: #4761ed;
+  border-color: #97ee02;
 }
 
 #main-container #job-list .job-item:nth-of-type(705)::after {
-  border-color: #8bfd57;
+  border-color: #d7dab6;
 }
 
 #main-container #job-list .job-item:nth-of-type(706)::after {
-  border-color: #249cc5;
+  border-color: #baf196;
 }
 
 #main-container #job-list .job-item:nth-of-type(707)::after {
-  border-color: #4512d8;
+  border-color: #e0d566;
 }
 
 #main-container #job-list .job-item:nth-of-type(708)::after {
-  border-color: #f5bb9c;
+  border-color: #c88240;
 }
 
 #main-container #job-list .job-item:nth-of-type(709)::after {
-  border-color: #9e737e;
+  border-color: #7c6685;
 }
 
 #main-container #job-list .job-item:nth-of-type(710)::after {
-  border-color: #325734;
+  border-color: #cc3463;
 }
 
 #main-container #job-list .job-item:nth-of-type(711)::after {
-  border-color: #9e6fed;
+  border-color: #ffa292;
 }
 
 #main-container #job-list .job-item:nth-of-type(712)::after {
-  border-color: #63f2c6;
+  border-color: #e729c9;
 }
 
 #main-container #job-list .job-item:nth-of-type(713)::after {
-  border-color: #0a189d;
+  border-color: #9621be;
 }
 
 #main-container #job-list .job-item:nth-of-type(714)::after {
-  border-color: #db63e4;
+  border-color: #40aa72;
 }
 
 #main-container #job-list .job-item:nth-of-type(715)::after {
-  border-color: #8ddb09;
+  border-color: #d53e48;
 }
 
 #main-container #job-list .job-item:nth-of-type(716)::after {
-  border-color: #699039;
+  border-color: #80c34d;
 }
 
 #main-container #job-list .job-item:nth-of-type(717)::after {
-  border-color: #e61760;
+  border-color: #154da3;
 }
 
 #main-container #job-list .job-item:nth-of-type(718)::after {
-  border-color: #bb30a2;
+  border-color: #70ea9f;
 }
 
 #main-container #job-list .job-item:nth-of-type(719)::after {
-  border-color: #cb2b74;
+  border-color: #1439e6;
 }
 
 #main-container #job-list .job-item:nth-of-type(720)::after {
-  border-color: #c9d10c;
+  border-color: #8b77ce;
 }
 
 #main-container #job-list .job-item:nth-of-type(721)::after {
-  border-color: #fdfe9f;
+  border-color: #c85dfe;
 }
 
 #main-container #job-list .job-item:nth-of-type(722)::after {
-  border-color: #0b4691;
+  border-color: #407c70;
 }
 
 #main-container #job-list .job-item:nth-of-type(723)::after {
-  border-color: #fa5c22;
+  border-color: #d9af3f;
 }
 
 #main-container #job-list .job-item:nth-of-type(724)::after {
-  border-color: #762dba;
+  border-color: #216634;
 }
 
 #main-container #job-list .job-item:nth-of-type(725)::after {
-  border-color: #3e738f;
+  border-color: #a2b9ea;
 }
 
 #main-container #job-list .job-item:nth-of-type(726)::after {
-  border-color: #377453;
+  border-color: #99bf35;
 }
 
 #main-container #job-list .job-item:nth-of-type(727)::after {
-  border-color: #b6a817;
+  border-color: #c61b65;
 }
 
 #main-container #job-list .job-item:nth-of-type(728)::after {
-  border-color: #1a2866;
+  border-color: #105268;
 }
 
 #main-container #job-list .job-item:nth-of-type(729)::after {
-  border-color: #066701;
+  border-color: #0df45d;
 }
 
 #main-container #job-list .job-item:nth-of-type(730)::after {
-  border-color: #ab69ca;
+  border-color: #eeefae;
 }
 
 #main-container #job-list .job-item:nth-of-type(731)::after {
-  border-color: #b737e2;
+  border-color: #29f34c;
 }
 
 #main-container #job-list .job-item:nth-of-type(732)::after {
-  border-color: #ffdd95;
+  border-color: #822eda;
 }
 
 #main-container #job-list .job-item:nth-of-type(733)::after {
-  border-color: #10c9fd;
+  border-color: #e87f51;
 }
 
 #main-container #job-list .job-item:nth-of-type(734)::after {
-  border-color: #b45c21;
+  border-color: #ba41b3;
 }
 
 #main-container #job-list .job-item:nth-of-type(735)::after {
-  border-color: #759c15;
+  border-color: #1e7ef6;
 }
 
 #main-container #job-list .job-item:nth-of-type(736)::after {
-  border-color: #915926;
+  border-color: #976ff4;
 }
 
 #main-container #job-list .job-item:nth-of-type(737)::after {
-  border-color: #f2b1a2;
+  border-color: #eb32f4;
 }
 
 #main-container #job-list .job-item:nth-of-type(738)::after {
-  border-color: #2317c2;
+  border-color: #93828e;
 }
 
 #main-container #job-list .job-item:nth-of-type(739)::after {
-  border-color: #967aea;
+  border-color: #293133;
 }
 
 #main-container #job-list .job-item:nth-of-type(740)::after {
-  border-color: #3442aa;
+  border-color: #e1ded8;
 }
 
 #main-container #job-list .job-item:nth-of-type(741)::after {
-  border-color: #df2ae6;
+  border-color: #a701b4;
 }
 
 #main-container #job-list .job-item:nth-of-type(742)::after {
-  border-color: #6006ac;
+  border-color: #a3353b;
 }
 
 #main-container #job-list .job-item:nth-of-type(743)::after {
-  border-color: #ed12b2;
+  border-color: #54578d;
 }
 
 #main-container #job-list .job-item:nth-of-type(744)::after {
-  border-color: #526ce7;
+  border-color: #60ae7f;
 }
 
 #main-container #job-list .job-item:nth-of-type(745)::after {
-  border-color: #0edde7;
+  border-color: #175683;
 }
 
 #main-container #job-list .job-item:nth-of-type(746)::after {
-  border-color: #55beef;
+  border-color: #89c03f;
 }
 
 #main-container #job-list .job-item:nth-of-type(747)::after {
-  border-color: #0c2cd5;
+  border-color: #472d2a;
 }
 
 #main-container #job-list .job-item:nth-of-type(748)::after {
-  border-color: #ef84d9;
+  border-color: #66490f;
 }
 
 #main-container #job-list .job-item:nth-of-type(749)::after {
-  border-color: #ebf446;
+  border-color: #0a65fc;
 }
 
 #main-container #job-list .job-item:nth-of-type(750)::after {
-  border-color: #b309a3;
+  border-color: #b8a7a1;
 }
 
 #main-container #job-list .job-item:nth-of-type(751)::after {
-  border-color: #09b335;
+  border-color: #5b6138;
 }
 
 #main-container #job-list .job-item:nth-of-type(752)::after {
-  border-color: #e874d4;
+  border-color: #99486b;
 }
 
 #main-container #job-list .job-item:nth-of-type(753)::after {
-  border-color: #4b8ddd;
+  border-color: #2cd6bd;
 }
 
 #main-container #job-list .job-item:nth-of-type(754)::after {
-  border-color: #d03b71;
+  border-color: #fab065;
 }
 
 #main-container #job-list .job-item:nth-of-type(755)::after {
-  border-color: #1f0a31;
+  border-color: #a0f467;
 }
 
 #main-container #job-list .job-item:nth-of-type(756)::after {
-  border-color: #873737;
+  border-color: #da5865;
 }
 
 #main-container #job-list .job-item:nth-of-type(757)::after {
-  border-color: #f75fc8;
+  border-color: #a15b1d;
 }
 
 #main-container #job-list .job-item:nth-of-type(758)::after {
-  border-color: #d7aead;
+  border-color: #e7de85;
 }
 
 #main-container #job-list .job-item:nth-of-type(759)::after {
-  border-color: #b2b90a;
+  border-color: #f571e4;
 }
 
 #main-container #job-list .job-item:nth-of-type(760)::after {
-  border-color: #3dd313;
+  border-color: #f5c7b0;
 }
 
 #main-container #job-list .job-item:nth-of-type(761)::after {
-  border-color: #6616e2;
+  border-color: #5771ca;
 }
 
 #main-container #job-list .job-item:nth-of-type(762)::after {
-  border-color: #427dfb;
+  border-color: #2cb6cd;
 }
 
 #main-container #job-list .job-item:nth-of-type(763)::after {
-  border-color: #0290d4;
+  border-color: #a36446;
 }
 
 #main-container #job-list .job-item:nth-of-type(764)::after {
-  border-color: #e18eac;
+  border-color: #f1adf7;
 }
 
 #main-container #job-list .job-item:nth-of-type(765)::after {
-  border-color: #f49c08;
+  border-color: #bde45d;
 }
 
 #main-container #job-list .job-item:nth-of-type(766)::after {
-  border-color: #1b85bd;
+  border-color: #865e7e;
 }
 
 #main-container #job-list .job-item:nth-of-type(767)::after {
-  border-color: #730b48;
+  border-color: #8ac3dd;
 }
 
 #main-container #job-list .job-item:nth-of-type(768)::after {
-  border-color: #b62bb8;
+  border-color: #0b4514;
 }
 
 #main-container #job-list .job-item:nth-of-type(769)::after {
-  border-color: #0b6f0f;
+  border-color: #d1cc06;
 }
 
 #main-container #job-list .job-item:nth-of-type(770)::after {
-  border-color: #42640d;
+  border-color: #b97b6a;
 }
 
 #main-container #job-list .job-item:nth-of-type(771)::after {
-  border-color: #016264;
+  border-color: #fb4d4a;
 }
 
 #main-container #job-list .job-item:nth-of-type(772)::after {
-  border-color: #19cbee;
+  border-color: #515221;
 }
 
 #main-container #job-list .job-item:nth-of-type(773)::after {
-  border-color: #ce1524;
+  border-color: #69edb8;
 }
 
 #main-container #job-list .job-item:nth-of-type(774)::after {
-  border-color: #2dff0f;
+  border-color: #a776e2;
 }
 
 #main-container #job-list .job-item:nth-of-type(775)::after {
-  border-color: #0cbcbf;
+  border-color: #c4a068;
 }
 
 #main-container #job-list .job-item:nth-of-type(776)::after {
-  border-color: #790b54;
+  border-color: #6010be;
 }
 
 #main-container #job-list .job-item:nth-of-type(777)::after {
-  border-color: #bbe0cb;
+  border-color: #80f84c;
 }
 
 #main-container #job-list .job-item:nth-of-type(778)::after {
-  border-color: #f28790;
+  border-color: #c07259;
 }
 
 #main-container #job-list .job-item:nth-of-type(779)::after {
-  border-color: #aac102;
+  border-color: #fbceaa;
 }
 
 #main-container #job-list .job-item:nth-of-type(780)::after {
-  border-color: #b03b33;
+  border-color: #b54cd5;
 }
 
 #main-container #job-list .job-item:nth-of-type(781)::after {
-  border-color: #46fa4c;
+  border-color: #71ce0e;
 }
 
 #main-container #job-list .job-item:nth-of-type(782)::after {
-  border-color: #819efe;
+  border-color: #50cb49;
 }
 
 #main-container #job-list .job-item:nth-of-type(783)::after {
-  border-color: #019b36;
+  border-color: #a3eba4;
 }
 
 #main-container #job-list .job-item:nth-of-type(784)::after {
-  border-color: #36881c;
+  border-color: #956783;
 }
 
 #main-container #job-list .job-item:nth-of-type(785)::after {
-  border-color: #515cf8;
+  border-color: #88109d;
 }
 
 #main-container #job-list .job-item:nth-of-type(786)::after {
-  border-color: #f2b90b;
+  border-color: #52c550;
 }
 
 #main-container #job-list .job-item:nth-of-type(787)::after {
-  border-color: #179299;
+  border-color: #ef86a5;
 }
 
 #main-container #job-list .job-item:nth-of-type(788)::after {
-  border-color: #c2229a;
+  border-color: #2c83b8;
 }
 
 #main-container #job-list .job-item:nth-of-type(789)::after {
-  border-color: #286126;
+  border-color: #5049a9;
 }
 
 #main-container #job-list .job-item:nth-of-type(790)::after {
-  border-color: #47bef9;
+  border-color: #bd5add;
 }
 
 #main-container #job-list .job-item:nth-of-type(791)::after {
-  border-color: #05ad63;
+  border-color: #69b276;
 }
 
 #main-container #job-list .job-item:nth-of-type(792)::after {
-  border-color: #c520ba;
+  border-color: #6ba8da;
 }
 
 #main-container #job-list .job-item:nth-of-type(793)::after {
-  border-color: #92ce98;
+  border-color: #1c7653;
 }
 
 #main-container #job-list .job-item:nth-of-type(794)::after {
-  border-color: #7aaa65;
+  border-color: #3fb889;
 }
 
 #main-container #job-list .job-item:nth-of-type(795)::after {
-  border-color: #73fc0f;
+  border-color: #40ead3;
 }
 
 #main-container #job-list .job-item:nth-of-type(796)::after {
-  border-color: #38b24c;
+  border-color: #5b0c87;
 }
 
 #main-container #job-list .job-item:nth-of-type(797)::after {
-  border-color: #0610b5;
+  border-color: #f96543;
 }
 
 #main-container #job-list .job-item:nth-of-type(798)::after {
-  border-color: #4040df;
+  border-color: #f60ad4;
 }
 
 #main-container #job-list .job-item:nth-of-type(799)::after {
-  border-color: #443b3a;
+  border-color: #324d48;
 }
 
 #main-container #job-list .job-item:nth-of-type(800)::after {
-  border-color: #e55a84;
+  border-color: #75d9ae;
 }
 
 #main-container #job-list .job-item:nth-of-type(801)::after {
-  border-color: #9352ae;
+  border-color: #e791d6;
 }
 
 #main-container #job-list .job-item:nth-of-type(802)::after {
-  border-color: #b79cf7;
+  border-color: #2c898d;
 }
 
 #main-container #job-list .job-item:nth-of-type(803)::after {
-  border-color: #8af355;
+  border-color: #b1d017;
 }
 
 #main-container #job-list .job-item:nth-of-type(804)::after {
-  border-color: #de5acb;
+  border-color: #78cba7;
 }
 
 #main-container #job-list .job-item:nth-of-type(805)::after {
-  border-color: #9bca46;
+  border-color: #3a1faa;
 }
 
 #main-container #job-list .job-item:nth-of-type(806)::after {
-  border-color: #5aed7f;
+  border-color: #43dd25;
 }
 
 #main-container #job-list .job-item:nth-of-type(807)::after {
-  border-color: #62dcc9;
+  border-color: #6c44f2;
 }
 
 #main-container #job-list .job-item:nth-of-type(808)::after {
-  border-color: #0f89fc;
+  border-color: #e24d7e;
 }
 
 #main-container #job-list .job-item:nth-of-type(809)::after {
-  border-color: #fdddee;
+  border-color: #0da5d6;
 }
 
 #main-container #job-list .job-item:nth-of-type(810)::after {
-  border-color: #18aeb9;
+  border-color: #626331;
 }
 
 #main-container #job-list .job-item:nth-of-type(811)::after {
-  border-color: #804997;
+  border-color: #cbc35c;
 }
 
 #main-container #job-list .job-item:nth-of-type(812)::after {
-  border-color: #d67926;
+  border-color: #835c04;
 }
 
 #main-container #job-list .job-item:nth-of-type(813)::after {
-  border-color: #cc0156;
+  border-color: #466962;
 }
 
 #main-container #job-list .job-item:nth-of-type(814)::after {
-  border-color: #78685f;
+  border-color: #90b92d;
 }
 
 #main-container #job-list .job-item:nth-of-type(815)::after {
-  border-color: #22a616;
+  border-color: #4724ec;
 }
 
 #main-container #job-list .job-item:nth-of-type(816)::after {
-  border-color: #900702;
+  border-color: #c71ee2;
 }
 
 #main-container #job-list .job-item:nth-of-type(817)::after {
-  border-color: #628037;
+  border-color: #5d8924;
 }
 
 #main-container #job-list .job-item:nth-of-type(818)::after {
-  border-color: #102c1f;
+  border-color: #1ef75b;
 }
 
 #main-container #job-list .job-item:nth-of-type(819)::after {
-  border-color: #b22cc7;
+  border-color: #3827b7;
 }
 
 #main-container #job-list .job-item:nth-of-type(820)::after {
-  border-color: #cdbb01;
+  border-color: #fd18fb;
 }
 
 #main-container #job-list .job-item:nth-of-type(821)::after {
-  border-color: #a1d855;
+  border-color: #6b02f9;
 }
 
 #main-container #job-list .job-item:nth-of-type(822)::after {
-  border-color: #7673d3;
+  border-color: #abf51e;
 }
 
 #main-container #job-list .job-item:nth-of-type(823)::after {
-  border-color: #41a858;
+  border-color: #7e4e70;
 }
 
 #main-container #job-list .job-item:nth-of-type(824)::after {
-  border-color: #be704c;
+  border-color: #acf6a5;
 }
 
 #main-container #job-list .job-item:nth-of-type(825)::after {
-  border-color: #0ab443;
+  border-color: #c19cd8;
 }
 
 #main-container #job-list .job-item:nth-of-type(826)::after {
-  border-color: #6a7474;
+  border-color: #d9660a;
 }
 
 #main-container #job-list .job-item:nth-of-type(827)::after {
-  border-color: #cc961d;
+  border-color: #8efd49;
 }
 
 #main-container #job-list .job-item:nth-of-type(828)::after {
-  border-color: #f2e0d7;
+  border-color: #401a9f;
 }
 
 #main-container #job-list .job-item:nth-of-type(829)::after {
-  border-color: #b6feb0;
+  border-color: #3dfea4;
 }
 
 #main-container #job-list .job-item:nth-of-type(830)::after {
-  border-color: #b307a1;
+  border-color: #b08495;
 }
 
 #main-container #job-list .job-item:nth-of-type(831)::after {
-  border-color: #152e01;
+  border-color: #6bca1a;
 }
 
 #main-container #job-list .job-item:nth-of-type(832)::after {
-  border-color: #6fcac4;
+  border-color: #44c846;
 }
 
 #main-container #job-list .job-item:nth-of-type(833)::after {
-  border-color: #e4041e;
+  border-color: #3f521d;
 }
 
 #main-container #job-list .job-item:nth-of-type(834)::after {
-  border-color: #7f7be1;
+  border-color: #c85ce5;
 }
 
 #main-container #job-list .job-item:nth-of-type(835)::after {
-  border-color: #7fd2ba;
+  border-color: #94115e;
 }
 
 #main-container #job-list .job-item:nth-of-type(836)::after {
-  border-color: #5e2c80;
+  border-color: #3a7c55;
 }
 
 #main-container #job-list .job-item:nth-of-type(837)::after {
-  border-color: #4c600b;
+  border-color: #fe0419;
 }
 
 #main-container #job-list .job-item:nth-of-type(838)::after {
-  border-color: #721b5a;
+  border-color: #6ad3d5;
 }
 
 #main-container #job-list .job-item:nth-of-type(839)::after {
-  border-color: #ea68da;
+  border-color: #aab18a;
 }
 
 #main-container #job-list .job-item:nth-of-type(840)::after {
-  border-color: #925579;
+  border-color: #f7c443;
 }
 
 #main-container #job-list .job-item:nth-of-type(841)::after {
-  border-color: #bb327d;
+  border-color: #0d4b25;
 }
 
 #main-container #job-list .job-item:nth-of-type(842)::after {
-  border-color: #e26d7d;
+  border-color: #d7e593;
 }
 
 #main-container #job-list .job-item:nth-of-type(843)::after {
-  border-color: #70cce2;
+  border-color: #afc18d;
 }
 
 #main-container #job-list .job-item:nth-of-type(844)::after {
-  border-color: #b0d290;
+  border-color: #6f3515;
 }
 
 #main-container #job-list .job-item:nth-of-type(845)::after {
-  border-color: #d6a97e;
+  border-color: #9a5e83;
 }
 
 #main-container #job-list .job-item:nth-of-type(846)::after {
-  border-color: #2f295b;
+  border-color: #2b1c45;
 }
 
 #main-container #job-list .job-item:nth-of-type(847)::after {
-  border-color: #6f44d5;
+  border-color: #55bd71;
 }
 
 #main-container #job-list .job-item:nth-of-type(848)::after {
-  border-color: #f3f2fb;
+  border-color: #54b878;
 }
 
 #main-container #job-list .job-item:nth-of-type(849)::after {
-  border-color: #8f8805;
+  border-color: #1b769c;
 }
 
 #main-container #job-list .job-item:nth-of-type(850)::after {
-  border-color: #c468c8;
+  border-color: #2eb72f;
 }
 
 #main-container #job-list .job-item:nth-of-type(851)::after {
-  border-color: #df87e0;
+  border-color: #5c6494;
 }
 
 #main-container #job-list .job-item:nth-of-type(852)::after {
-  border-color: #2957f7;
+  border-color: #abaaa6;
 }
 
 #main-container #job-list .job-item:nth-of-type(853)::after {
-  border-color: #5a50f4;
+  border-color: #e852ca;
 }
 
 #main-container #job-list .job-item:nth-of-type(854)::after {
-  border-color: #c77b95;
+  border-color: #6d560a;
 }
 
 #main-container #job-list .job-item:nth-of-type(855)::after {
-  border-color: #5373da;
+  border-color: #d083f3;
 }
 
 #main-container #job-list .job-item:nth-of-type(856)::after {
-  border-color: #891eea;
+  border-color: #78ca49;
 }
 
 #main-container #job-list .job-item:nth-of-type(857)::after {
-  border-color: #01dd35;
+  border-color: #6e3fad;
 }
 
 #main-container #job-list .job-item:nth-of-type(858)::after {
-  border-color: #4822b2;
+  border-color: #81d29a;
 }
 
 #main-container #job-list .job-item:nth-of-type(859)::after {
-  border-color: #490e5b;
+  border-color: #9794ea;
 }
 
 #main-container #job-list .job-item:nth-of-type(860)::after {
-  border-color: #0ed7eb;
+  border-color: #2a8e64;
 }
 
 #main-container #job-list .job-item:nth-of-type(861)::after {
-  border-color: #321392;
+  border-color: #c501b6;
 }
 
 #main-container #job-list .job-item:nth-of-type(862)::after {
-  border-color: #dbc0b7;
+  border-color: #ba69e6;
 }
 
 #main-container #job-list .job-item:nth-of-type(863)::after {
-  border-color: #cc1c72;
+  border-color: #8f5cc3;
 }
 
 #main-container #job-list .job-item:nth-of-type(864)::after {
-  border-color: #e68423;
+  border-color: #9a4e48;
 }
 
 #main-container #job-list .job-item:nth-of-type(865)::after {
-  border-color: #5673d3;
+  border-color: #6bb0c1;
 }
 
 #main-container #job-list .job-item:nth-of-type(866)::after {
-  border-color: #15ef45;
+  border-color: #5513b6;
 }
 
 #main-container #job-list .job-item:nth-of-type(867)::after {
-  border-color: #63ca0f;
+  border-color: #4c0a26;
 }
 
 #main-container #job-list .job-item:nth-of-type(868)::after {
-  border-color: #086f4d;
+  border-color: #f41b3b;
 }
 
 #main-container #job-list .job-item:nth-of-type(869)::after {
-  border-color: #5e16e2;
+  border-color: #f781a3;
 }
 
 #main-container #job-list .job-item:nth-of-type(870)::after {
-  border-color: #d3ce87;
+  border-color: #3725df;
 }
 
 #main-container #job-list .job-item:nth-of-type(871)::after {
-  border-color: #695ca0;
+  border-color: #db956c;
 }
 
 #main-container #job-list .job-item:nth-of-type(872)::after {
-  border-color: #c855df;
+  border-color: #e09f5f;
 }
 
 #main-container #job-list .job-item:nth-of-type(873)::after {
-  border-color: #9e38ec;
+  border-color: #2b4914;
 }
 
 #main-container #job-list .job-item:nth-of-type(874)::after {
-  border-color: #d3298b;
+  border-color: #0a1c4c;
 }
 
 #main-container #job-list .job-item:nth-of-type(875)::after {
-  border-color: #9e14c2;
+  border-color: #14c1e4;
 }
 
 #main-container #job-list .job-item:nth-of-type(876)::after {
-  border-color: #9fbdee;
+  border-color: #c41a7c;
 }
 
 #main-container #job-list .job-item:nth-of-type(877)::after {
-  border-color: #496a31;
+  border-color: #1fdef5;
 }
 
 #main-container #job-list .job-item:nth-of-type(878)::after {
-  border-color: #81122d;
+  border-color: #d9f31a;
 }
 
 #main-container #job-list .job-item:nth-of-type(879)::after {
-  border-color: #b9d999;
+  border-color: #e2a48b;
 }
 
 #main-container #job-list .job-item:nth-of-type(880)::after {
-  border-color: #3f0bbe;
+  border-color: #7ee30d;
 }
 
 #main-container #job-list .job-item:nth-of-type(881)::after {
-  border-color: #b15bd9;
+  border-color: #666678;
 }
 
 #main-container #job-list .job-item:nth-of-type(882)::after {
-  border-color: #e922f7;
+  border-color: #d6590b;
 }
 
 #main-container #job-list .job-item:nth-of-type(883)::after {
-  border-color: #3e1e37;
+  border-color: #56a4f7;
 }
 
 #main-container #job-list .job-item:nth-of-type(884)::after {
-  border-color: #9d0e6a;
+  border-color: #366ca0;
 }
 
 #main-container #job-list .job-item:nth-of-type(885)::after {
-  border-color: #92c68c;
+  border-color: #377160;
 }
 
 #main-container #job-list .job-item:nth-of-type(886)::after {
-  border-color: #d28d02;
+  border-color: #06881e;
 }
 
 #main-container #job-list .job-item:nth-of-type(887)::after {
-  border-color: #0d7868;
+  border-color: #f4bd22;
 }
 
 #main-container #job-list .job-item:nth-of-type(888)::after {
-  border-color: #219a5b;
+  border-color: #3d0da2;
 }
 
 #main-container #job-list .job-item:nth-of-type(889)::after {
-  border-color: #14a397;
+  border-color: #c8a2c6;
 }
 
 #main-container #job-list .job-item:nth-of-type(890)::after {
-  border-color: #f787f2;
+  border-color: #60fcf1;
 }
 
 #main-container #job-list .job-item:nth-of-type(891)::after {
-  border-color: #e3ff08;
+  border-color: #f0fc30;
 }
 
 #main-container #job-list .job-item:nth-of-type(892)::after {
-  border-color: #35228c;
+  border-color: #23164c;
 }
 
 #main-container #job-list .job-item:nth-of-type(893)::after {
-  border-color: #e09f48;
+  border-color: #4b4590;
 }
 
 #main-container #job-list .job-item:nth-of-type(894)::after {
-  border-color: #9f4544;
+  border-color: #9707dc;
 }
 
 #main-container #job-list .job-item:nth-of-type(895)::after {
-  border-color: #45ecbd;
+  border-color: #7d9a73;
 }
 
 #main-container #job-list .job-item:nth-of-type(896)::after {
-  border-color: #51aa23;
+  border-color: #73dcda;
 }
 
 #main-container #job-list .job-item:nth-of-type(897)::after {
-  border-color: #291502;
+  border-color: #43b85f;
 }
 
 #main-container #job-list .job-item:nth-of-type(898)::after {
-  border-color: #4bff92;
+  border-color: #255abc;
 }
 
 #main-container #job-list .job-item:nth-of-type(899)::after {
-  border-color: #444f02;
+  border-color: #904c58;
 }
 
 #main-container #job-list .job-item:nth-of-type(900)::after {
-  border-color: #5616b4;
+  border-color: #a3abf1;
 }
 
 #main-container #job-list .job-item:nth-of-type(901)::after {
-  border-color: #90b66f;
+  border-color: #78a15c;
 }
 
 #main-container #job-list .job-item:nth-of-type(902)::after {
-  border-color: #16b842;
+  border-color: #8aa7b1;
 }
 
 #main-container #job-list .job-item:nth-of-type(903)::after {
-  border-color: #9c80e2;
+  border-color: #89fdc0;
 }
 
 #main-container #job-list .job-item:nth-of-type(904)::after {
-  border-color: #c420c1;
+  border-color: #ee52ea;
 }
 
 #main-container #job-list .job-item:nth-of-type(905)::after {
-  border-color: #050388;
+  border-color: #03936c;
 }
 
 #main-container #job-list .job-item:nth-of-type(906)::after {
-  border-color: #e62da8;
+  border-color: #4b57c7;
 }
 
 #main-container #job-list .job-item:nth-of-type(907)::after {
-  border-color: #293b48;
+  border-color: #f5a232;
 }
 
 #main-container #job-list .job-item:nth-of-type(908)::after {
-  border-color: #b63a31;
+  border-color: #c6569c;
 }
 
 #main-container #job-list .job-item:nth-of-type(909)::after {
-  border-color: #f6d116;
+  border-color: #3c6d03;
 }
 
 #main-container #job-list .job-item:nth-of-type(910)::after {
-  border-color: #5c6691;
+  border-color: #5e35ed;
 }
 
 #main-container #job-list .job-item:nth-of-type(911)::after {
-  border-color: #4749a6;
+  border-color: #8b9f57;
 }
 
 #main-container #job-list .job-item:nth-of-type(912)::after {
-  border-color: #fe82d2;
+  border-color: #fca0d4;
 }
 
 #main-container #job-list .job-item:nth-of-type(913)::after {
-  border-color: #8199a7;
+  border-color: #db436e;
 }
 
 #main-container #job-list .job-item:nth-of-type(914)::after {
-  border-color: #2187a1;
+  border-color: #8a6c36;
 }
 
 #main-container #job-list .job-item:nth-of-type(915)::after {
-  border-color: #6627df;
+  border-color: #dea2e2;
 }
 
 #main-container #job-list .job-item:nth-of-type(916)::after {
-  border-color: #d4eaf2;
+  border-color: #a12b67;
 }
 
 #main-container #job-list .job-item:nth-of-type(917)::after {
-  border-color: #89e5e1;
+  border-color: #76eb26;
 }
 
 #main-container #job-list .job-item:nth-of-type(918)::after {
-  border-color: #a20166;
+  border-color: #19cc91;
 }
 
 #main-container #job-list .job-item:nth-of-type(919)::after {
-  border-color: #b1f652;
+  border-color: #fafac1;
 }
 
 #main-container #job-list .job-item:nth-of-type(920)::after {
-  border-color: #cf4834;
+  border-color: #56b54d;
 }
 
 #main-container #job-list .job-item:nth-of-type(921)::after {
-  border-color: #45e408;
+  border-color: #7ee7c0;
 }
 
 #main-container #job-list .job-item:nth-of-type(922)::after {
-  border-color: #7d0318;
+  border-color: #137ca8;
 }
 
 #main-container #job-list .job-item:nth-of-type(923)::after {
-  border-color: #55bc8d;
+  border-color: #5a9aa7;
 }
 
 #main-container #job-list .job-item:nth-of-type(924)::after {
-  border-color: #28ebd3;
+  border-color: #d8e76a;
 }
 
 #main-container #job-list .job-item:nth-of-type(925)::after {
-  border-color: #907466;
+  border-color: #de8f7b;
 }
 
 #main-container #job-list .job-item:nth-of-type(926)::after {
-  border-color: #8474db;
+  border-color: #18a5d7;
 }
 
 #main-container #job-list .job-item:nth-of-type(927)::after {
-  border-color: #85a591;
+  border-color: #ee4c1a;
 }
 
 #main-container #job-list .job-item:nth-of-type(928)::after {
-  border-color: #a3a992;
+  border-color: #b08a07;
 }
 
 #main-container #job-list .job-item:nth-of-type(929)::after {
-  border-color: #214667;
+  border-color: #7ff3eb;
 }
 
 #main-container #job-list .job-item:nth-of-type(930)::after {
-  border-color: #e04030;
+  border-color: #79c83b;
 }
 
 #main-container #job-list .job-item:nth-of-type(931)::after {
-  border-color: #0465bc;
+  border-color: #d3cb6d;
 }
 
 #main-container #job-list .job-item:nth-of-type(932)::after {
-  border-color: #95ef05;
+  border-color: #bb996c;
 }
 
 #main-container #job-list .job-item:nth-of-type(933)::after {
-  border-color: #59506b;
+  border-color: #4d62d8;
 }
 
 #main-container #job-list .job-item:nth-of-type(934)::after {
-  border-color: #997db8;
+  border-color: #c0a339;
 }
 
 #main-container #job-list .job-item:nth-of-type(935)::after {
-  border-color: #3fecbf;
+  border-color: #36b88b;
 }
 
 #main-container #job-list .job-item:nth-of-type(936)::after {
-  border-color: #403924;
+  border-color: #d724cb;
 }
 
 #main-container #job-list .job-item:nth-of-type(937)::after {
-  border-color: #bf4ce3;
+  border-color: #85da7c;
 }
 
 #main-container #job-list .job-item:nth-of-type(938)::after {
-  border-color: #dc96a1;
+  border-color: #099364;
 }
 
 #main-container #job-list .job-item:nth-of-type(939)::after {
-  border-color: #1cf146;
+  border-color: #2be2a6;
 }
 
 #main-container #job-list .job-item:nth-of-type(940)::after {
-  border-color: #47d739;
+  border-color: #13e8e0;
 }
 
 #main-container #job-list .job-item:nth-of-type(941)::after {
-  border-color: #f7063d;
+  border-color: #5754d0;
 }
 
 #main-container #job-list .job-item:nth-of-type(942)::after {
-  border-color: #a14812;
+  border-color: #392979;
 }
 
 #main-container #job-list .job-item:nth-of-type(943)::after {
-  border-color: #c60353;
+  border-color: #5087af;
 }
 
 #main-container #job-list .job-item:nth-of-type(944)::after {
-  border-color: #49db88;
+  border-color: #cb8d60;
 }
 
 #main-container #job-list .job-item:nth-of-type(945)::after {
-  border-color: #be7ddf;
+  border-color: #dd1df1;
 }
 
 #main-container #job-list .job-item:nth-of-type(946)::after {
-  border-color: #e36e64;
+  border-color: #dce2e9;
 }
 
 #main-container #job-list .job-item:nth-of-type(947)::after {
-  border-color: #227301;
+  border-color: #e7864b;
 }
 
 #main-container #job-list .job-item:nth-of-type(948)::after {
-  border-color: #26cc65;
+  border-color: #c7b933;
 }
 
 #main-container #job-list .job-item:nth-of-type(949)::after {
-  border-color: #fb2a01;
+  border-color: #375f73;
 }
 
 #main-container #job-list .job-item:nth-of-type(950)::after {
-  border-color: #dffbc3;
+  border-color: #edbc4e;
 }
 
 #main-container #job-list .job-item:nth-of-type(951)::after {
-  border-color: #4a16b1;
+  border-color: #577132;
 }
 
 #main-container #job-list .job-item:nth-of-type(952)::after {
-  border-color: #0c5d66;
+  border-color: #4fa974;
 }
 
 #main-container #job-list .job-item:nth-of-type(953)::after {
-  border-color: #982395;
+  border-color: #edc65c;
 }
 
 #main-container #job-list .job-item:nth-of-type(954)::after {
-  border-color: #d57323;
+  border-color: #82b5db;
 }
 
 #main-container #job-list .job-item:nth-of-type(955)::after {
-  border-color: #a1751e;
+  border-color: #c13e9a;
 }
 
 #main-container #job-list .job-item:nth-of-type(956)::after {
-  border-color: #f3e661;
+  border-color: #dabe7f;
 }
 
 #main-container #job-list .job-item:nth-of-type(957)::after {
-  border-color: #593c73;
+  border-color: #3ed553;
 }
 
 #main-container #job-list .job-item:nth-of-type(958)::after {
-  border-color: #9f73f9;
+  border-color: #e54e66;
 }
 
 #main-container #job-list .job-item:nth-of-type(959)::after {
-  border-color: #68b3bd;
+  border-color: #53a0ae;
 }
 
 #main-container #job-list .job-item:nth-of-type(960)::after {
-  border-color: #019148;
+  border-color: #f1c88d;
 }
 
 #main-container #job-list .job-item:nth-of-type(961)::after {
-  border-color: #2c1c98;
+  border-color: #e76719;
 }
 
 #main-container #job-list .job-item:nth-of-type(962)::after {
-  border-color: #3225be;
+  border-color: #3b3fd3;
 }
 
 #main-container #job-list .job-item:nth-of-type(963)::after {
-  border-color: #a6ad58;
+  border-color: #b51ca2;
 }
 
 #main-container #job-list .job-item:nth-of-type(964)::after {
-  border-color: #63459f;
+  border-color: #3adc24;
 }
 
 #main-container #job-list .job-item:nth-of-type(965)::after {
-  border-color: #a5e819;
+  border-color: #c4037f;
 }
 
 #main-container #job-list .job-item:nth-of-type(966)::after {
-  border-color: #8a8fa1;
+  border-color: #06f710;
 }
 
 #main-container #job-list .job-item:nth-of-type(967)::after {
-  border-color: #33393f;
+  border-color: #684de0;
 }
 
 #main-container #job-list .job-item:nth-of-type(968)::after {
-  border-color: #c62baf;
+  border-color: #d5348e;
 }
 
 #main-container #job-list .job-item:nth-of-type(969)::after {
-  border-color: #60432a;
+  border-color: #96e6fa;
 }
 
 #main-container #job-list .job-item:nth-of-type(970)::after {
-  border-color: #c52131;
+  border-color: #107eb6;
 }
 
 #main-container #job-list .job-item:nth-of-type(971)::after {
-  border-color: #0b1252;
+  border-color: #65b757;
 }
 
 #main-container #job-list .job-item:nth-of-type(972)::after {
-  border-color: #f1dc1d;
+  border-color: #af17e6;
 }
 
 #main-container #job-list .job-item:nth-of-type(973)::after {
-  border-color: #c5314b;
+  border-color: #8813dd;
 }
 
 #main-container #job-list .job-item:nth-of-type(974)::after {
-  border-color: #055c27;
+  border-color: #7d7652;
 }
 
 #main-container #job-list .job-item:nth-of-type(975)::after {
-  border-color: #7217a2;
+  border-color: #59580f;
 }
 
 #main-container #job-list .job-item:nth-of-type(976)::after {
-  border-color: #89b535;
+  border-color: #f0a99e;
 }
 
 #main-container #job-list .job-item:nth-of-type(977)::after {
-  border-color: #6c0b58;
+  border-color: #b3fb3f;
 }
 
 #main-container #job-list .job-item:nth-of-type(978)::after {
-  border-color: #849f61;
+  border-color: #750496;
 }
 
 #main-container #job-list .job-item:nth-of-type(979)::after {
-  border-color: #c5ef7c;
+  border-color: #91933d;
 }
 
 #main-container #job-list .job-item:nth-of-type(980)::after {
-  border-color: #20b7ea;
+  border-color: #2d585d;
 }
 
 #main-container #job-list .job-item:nth-of-type(981)::after {
-  border-color: #f74966;
+  border-color: #7dcb21;
 }
 
 #main-container #job-list .job-item:nth-of-type(982)::after {
-  border-color: #ede942;
+  border-color: #039459;
 }
 
 #main-container #job-list .job-item:nth-of-type(983)::after {
-  border-color: #42990b;
+  border-color: #6ef7c5;
 }
 
 #main-container #job-list .job-item:nth-of-type(984)::after {
-  border-color: #d1a759;
+  border-color: #784844;
 }
 
 #main-container #job-list .job-item:nth-of-type(985)::after {
-  border-color: #a92762;
+  border-color: #7a975a;
 }
 
 #main-container #job-list .job-item:nth-of-type(986)::after {
-  border-color: #dc1af3;
+  border-color: #a0acb4;
 }
 
 #main-container #job-list .job-item:nth-of-type(987)::after {
-  border-color: #b84e6c;
+  border-color: #d5f5a6;
 }
 
 #main-container #job-list .job-item:nth-of-type(988)::after {
-  border-color: #53cae3;
+  border-color: #f80bdb;
 }
 
 #main-container #job-list .job-item:nth-of-type(989)::after {
-  border-color: #01ea35;
+  border-color: #53655a;
 }
 
 #main-container #job-list .job-item:nth-of-type(990)::after {
-  border-color: #8d6cf1;
+  border-color: #a8d6b6;
 }
 
 #main-container #job-list .job-item:nth-of-type(991)::after {
-  border-color: #84b3de;
+  border-color: #a00a74;
 }
 
 #main-container #job-list .job-item:nth-of-type(992)::after {
-  border-color: #197b3d;
+  border-color: #8e5163;
 }
 
 #main-container #job-list .job-item:nth-of-type(993)::after {
-  border-color: #290f0b;
+  border-color: #66576c;
 }
 
 #main-container #job-list .job-item:nth-of-type(994)::after {
-  border-color: #d760c4;
+  border-color: #40cb94;
 }
 
 #main-container #job-list .job-item:nth-of-type(995)::after {
-  border-color: #ff3eaa;
+  border-color: #3a33a3;
 }
 
 #main-container #job-list .job-item:nth-of-type(996)::after {
-  border-color: #e68c5c;
+  border-color: #fa8b1a;
 }
 
 #main-container #job-list .job-item:nth-of-type(997)::after {
-  border-color: #a2c894;
+  border-color: #dfe40e;
 }
 
 #main-container #job-list .job-item:nth-of-type(998)::after {
-  border-color: #1e44b6;
+  border-color: #725392;
 }
 
 #main-container #job-list .job-item:nth-of-type(999)::after {
-  border-color: #c710c8;
+  border-color: #6090fe;
 }
 
 #main-container #job-list .job-item .job-ava {
@@ -4423,6 +4507,7 @@ body {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 5px;
+  color: var(--text);
 }
 
 #main-container #job-list .job-item .job-company {
@@ -4442,6 +4527,7 @@ body {
   position: relative;
   width: 100%;
   margin-bottom: 30px;
+  margin-top: auto;
 }
 
 #main-container #job-button.empty #empty {
@@ -4472,5 +4558,34 @@ body {
 
 #main-container #job-button #loadmore:hover {
   opacity: 0.9;
+}
+
+@media only screen and (max-width: 690px) {
+  #main-container {
+    min-height: calc(100vh - 140px);
+    padding-top: 120px;
+  }
+  #main-container #job-list {
+    -ms-grid-columns: (minmax(40%, 300px))[2];
+        grid-template-columns: repeat(2, minmax(40%, 300px));
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #main-container {
+    min-height: calc(100vh - 140px);
+    padding-top: 120px;
+  }
+  #main-container #job-list {
+    -ms-grid-columns: (100%)[1];
+        grid-template-columns: repeat(1, 100%);
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #main-container {
+    min-height: calc(100vh - 170px);
+    padding-top: 150px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
